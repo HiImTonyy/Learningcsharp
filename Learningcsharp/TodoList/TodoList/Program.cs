@@ -71,6 +71,10 @@ class Program
         {
             Main();
         }
+        else if (userChoice == " ");
+        {
+            IfElseTest();
+        }
     }
 
     static void Misc()
