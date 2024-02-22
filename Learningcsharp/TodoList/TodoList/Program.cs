@@ -1,4 +1,6 @@
-﻿class Numbers
+﻿using System.ComponentModel;
+
+class Numbers
 {
     public static int numberTest;
 }
@@ -31,6 +33,8 @@ class Program
         Console.WriteLine("What do you wanna test my dude?\n");
 
         Console.WriteLine("1) If/else Statements");
+        Console.WriteLine("2) Selected Option Thing");
+        Console.WriteLine("3) Whatever");
         Console.WriteLine("9) Misc");
 
         var userChoice = Console.ReadLine();
@@ -39,8 +43,21 @@ class Program
         {
             IfElseTest();
         }
+        if (userChoice == "2")
+        {
+            SelectOption();
+        }
         if (userChoice == "9")
             Misc();
+
+        // Start of whatever
+        int Add(int a, int b)
+        {
+            return a + b;
+        }
+
+        var result = Add(20, 5);
+        Console.WriteLine("10 + 5 = " + result);
     }
 
     static void IfElseTest()
@@ -74,6 +91,40 @@ class Program
         else if (userChoice == " ");
         {
             IfElseTest();
+        }
+    }
+
+    static void SelectOption()
+    {
+        Console.Clear();
+        Console.WriteLine("Select Option Thing\n");
+        Console.WriteLine("1) See thing");
+        Console.WriteLine("2) Add thing");
+        Console.WriteLine("3) Remove thing");
+
+        var userChoice = Console.ReadLine();
+
+        if(userChoice == "1")
+        {
+            PrintSelectedThing("See Thing");
+        }
+        if (userChoice == "2")
+        {
+            PrintSelectedThing("Add Thing");
+        }
+        if (userChoice == "3")
+        {
+            PrintSelectedThing("Remove Thing");
+        }
+
+        Console.ReadKey();
+
+        void PrintSelectedThing(string selectedThing)
+        {
+            Console.Clear();
+            Console.WriteLine("Selected option: " + selectedThing);
+            Console.ReadKey();
+            SelectOption();
         }
     }
 
