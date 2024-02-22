@@ -86,6 +86,8 @@ class Program
         bool isUserInputAbc = userChoice == "1"; // Checks to see if true
         bool isUserInputNotAbc = userChoice != "ABC"; // Checks to see if false
         bool isUserInputNotAbc2 = !(userChoice == "ABC"); // Another way of seeing if false
+        int test1 = 6 + 2 * 2; // 6 + 2 X 2
+        int test2 = (6 + 2) * 2; // 7 * 3 anything in (X + X) goes first!
 
         var number = 10;
 
@@ -97,5 +99,9 @@ class Program
         var isLargerThan4AndSmallerThan9 = number > 4 && number < 9;
         var isEqualTo2OrLargerThan6OrSmallerThan200 = number == 2 || number > 6 || number < 200;
         var isEqualTo123OrEvenAndSmallerThan20 = number == 123 || (number % 2 == 0 && number < 20);
+        Console.Clear();
+        Console.WriteLine($"Var is larger than 5: {isLargerThan5}\n" +
+            $"Var is smaller than 10: {isSmallerThan10}");
+        Console.ReadLine();
     }
 }
