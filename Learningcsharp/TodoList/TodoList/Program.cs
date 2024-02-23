@@ -34,7 +34,7 @@ class Program
 
         Console.WriteLine("1) If/else Statements");
         Console.WriteLine("2) Selected Option Thing");
-        Console.WriteLine("3) Whatever");
+        Console.WriteLine("3) Call method from somewhere else");
         Console.WriteLine("9) Misc");
 
         var userChoice = Console.ReadLine();
@@ -47,17 +47,25 @@ class Program
         {
             SelectOption();
         }
+        if (userChoice == "3")
+        {
+            var result = Add(10, 5);
+            Console.Clear();
+            Console.WriteLine("10 + 5 = " + result);
+            Console.ReadLine();
+            TestingShit();
+        }
         if (userChoice == "9")
             Misc();
+        else
+        {
+            TestingShit();
+        }
 
-        // Start of whatever
         int Add(int a, int b)
         {
             return a + b;
         }
-
-        var result = Add(20, 5);
-        Console.WriteLine("10 + 5 = " + result);
     }
 
     static void IfElseTest()
