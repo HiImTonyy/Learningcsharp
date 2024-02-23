@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 class Numbers
 {
@@ -10,7 +11,7 @@ class Program
     static void Main()
     {
         Console.Clear();
-        Console.WriteLine("Hey dude, what do you wanna do?\n");
+        Console.Write("Hey dude, what do you wanna do?\n");
 
         Console.WriteLine("1) See all lists");
         Console.WriteLine("2) Add item to list");
@@ -35,6 +36,8 @@ class Program
         Console.WriteLine("1) If/else Statements");
         Console.WriteLine("2) Selected Option Thing");
         Console.WriteLine("3) Call method from somewhere else");
+        Console.WriteLine("4) Boolean check in word length");
+        Console.WriteLine("5) Return whatever is typed");
         Console.WriteLine("9) Misc");
 
         var userChoice = Console.ReadLine();
@@ -43,10 +46,12 @@ class Program
         {
             IfElseTest();
         }
+
         if (userChoice == "2")
         {
             SelectOption();
         }
+
         if (userChoice == "3")
         {
             var result = Add(10, 5);
@@ -55,6 +60,31 @@ class Program
             Console.ReadLine();
             TestingShit();
         }
+
+        if (userChoice == "4")
+        {
+            Console.Clear();
+            var isLongChoice = Console.ReadLine();
+            bool isLong = IsLong(isLongChoice);
+            Console.WriteLine($"More than 5 words: {isLong}");
+            Console.ReadLine();
+            bool IsLong(string input)
+            {
+                return input.Length > 5;
+            }
+        }
+
+        if (userChoice == "5")
+        {
+            Console.Clear();
+            Console.WriteLine("Type whatever...\n");
+            string name = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine(name);
+            Console.ReadLine();
+            TestingShit();
+        }
+
         if (userChoice == "9")
             Misc();
         else
@@ -62,6 +92,7 @@ class Program
             TestingShit();
         }
 
+        // Choice 3.
         int Add(int a, int b)
         {
             return a + b;
