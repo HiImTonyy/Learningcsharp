@@ -38,6 +38,7 @@ class Program
         Console.WriteLine("3) Call method from somewhere else");
         Console.WriteLine("4) Boolean check in word length");
         Console.WriteLine("5) Return whatever is typed");
+        Console.WriteLine("6) Parsing");
         Console.WriteLine("9) Misc");
 
         var userChoice = Console.ReadLine();
@@ -81,6 +82,18 @@ class Program
             string name = Console.ReadLine();
             Console.Clear();
             Console.WriteLine(name);
+            Console.ReadLine();
+            TestingShit();
+        }
+
+        if (userChoice == "6")
+        {
+            Console.Clear();
+            Console.WriteLine("What's your age?\n");
+            string userAge = Console.ReadLine();
+            Console.Clear();
+            int parsedString = int.Parse(userAge);
+            Console.WriteLine($"Age: {parsedString}");
             Console.ReadLine();
             TestingShit();
         }
