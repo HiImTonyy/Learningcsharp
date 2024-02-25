@@ -39,7 +39,8 @@ class Calculator
         void Operations(string userChoice)
         {
             Console.Clear();
-            Console.WriteLine($"So you wanna {userChoice} eh? I've got you covered. What is the first number you want to {userChoice}?");
+            Console.WriteLine($"So you wanna {userChoice} eh? I've got you covered. What is the first number you want to {userChoice}?\n");
+            Console.Write("Input: ");
             string userOperationOne = Console.ReadLine();
             {
                 bool parseFail = int.TryParse(userOperationOne, out int firstNumber);
@@ -56,7 +57,8 @@ class Calculator
             void OperationsTwo(string userChoice, int firstNumber)
             {
                 Console.Clear();
-                Console.WriteLine("Cool.. Cool. what about the Second number?");
+                Console.WriteLine("Cool.. Cool. what about the Second number?\n");
+                Console.Write("Input: ");
                 string userOperationTwo = Console.ReadLine();
                 {
                     bool parseFail = int.TryParse(userOperationTwo, out int secondNumber);
@@ -67,18 +69,46 @@ class Calculator
                     }
                     else
                     {
-                        Console.WriteLine("TWO");
-                        Console.ReadLine();
-                        Whatever(userChoice, firstNumber, secondNumber);
+                        Calculation(userChoice, firstNumber, secondNumber);
                     }
                 }
             }
         }
-        void Whatever(string userChoice, int firstNumber, int secondNumber)
+        void Calculation(string userChoice, int firstNumber, int secondNumber)
         {
-            Console.Clear();
-            Console.WriteLine($"First: {firstNumber} second: {secondNumber}");
-            Console.ReadLine();
+            int result = 5378008;
+            switch (userChoice)
+            {
+                case "add":
+                    Console.Clear();
+                    result = firstNumber + secondNumber;
+                    Console.WriteLine($"Answer: {firstNumber} + {secondNumber} = {result}");
+                    Console.ReadLine();
+                    Main();
+                    break;
+                case "subtract":
+                    Console.Clear();
+                    result = firstNumber - secondNumber;
+                    Console.WriteLine($"Answer: {firstNumber} - {secondNumber} = {result}");
+                    Console.ReadLine();
+                    Main();
+                    break;
+                case "divide":
+                    Console.Clear();
+                    decimal divResult = (decimal)firstNumber / secondNumber;
+                    Console.WriteLine($"Answer: {firstNumber} / {secondNumber} = {divResult}");
+                    Console.ReadLine();
+                    Main();
+                    break;
+                case "multiply":
+                    Console.Clear();
+                    result = firstNumber * secondNumber;
+                    Console.WriteLine($"Answer: {firstNumber} * {secondNumber} = {result}");
+                    Console.ReadLine();
+                    Main();
+                    break;
+
+            }
         }
     }
 }
