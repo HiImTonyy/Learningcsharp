@@ -39,7 +39,8 @@ class Program
         Console.WriteLine("4) Boolean check in word length");
         Console.WriteLine("5) Return whatever is typed");
         Console.WriteLine("6) Parsing");
-        Console.WriteLine("9) Misc");
+        Console.WriteLine("7) Random Number");
+        Console.WriteLine("99) Misc");
 
         var userChoice = Console.ReadLine();
 
@@ -95,10 +96,20 @@ class Program
             int parsedString = int.Parse(userAge);
             Console.WriteLine($"Age: {parsedString}");
             Console.ReadLine();
+            TestingShit();                             // Already learned and implemented TryParse in the calculator, don't need to do it again here. 
+        }
+
+        if (userChoice == "7")
+        {
+            Random dice = new Random();
+            int roll = dice.Next(1, 101);
+            Console.WriteLine($"Random Number:\t{roll}");
+            Console.ReadLine();
             TestingShit();
         }
 
-        if (userChoice == "9")
+
+        if (userChoice == "99")
             Misc();
         else
         {
@@ -140,7 +151,7 @@ class Program
         {
             Main();
         }
-        else if (userChoice == " ") ;
+        else if (userChoice == " ")
         {
             IfElseTest();
         }
