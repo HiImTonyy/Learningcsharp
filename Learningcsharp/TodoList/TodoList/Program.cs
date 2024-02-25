@@ -140,7 +140,7 @@ class Program
         {
             Main();
         }
-        else if (userChoice == " ");
+        else if (userChoice == " ") ;
         {
             IfElseTest();
         }
@@ -156,7 +156,7 @@ class Program
 
         var userChoice = Console.ReadLine();
 
-        if(userChoice == "1")
+        if (userChoice == "1")
         {
             PrintSelectedThing("See Thing");
         }
