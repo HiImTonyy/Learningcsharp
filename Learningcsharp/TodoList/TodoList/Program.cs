@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using TodoList;
 
 class Numbers
 {
@@ -24,6 +25,10 @@ class Program
         {
             TestingShit();
         }
+        else
+        {
+            Main();
+        }
 
         Console.ReadKey();
     }
@@ -40,6 +45,8 @@ class Program
         Console.WriteLine("5) Return whatever is typed");
         Console.WriteLine("6) Parsing");
         Console.WriteLine("7) Random Number");
+        Console.WriteLine("8) Other Thing");
+        Console.WriteLine("9) Certain words print out certain things");
         Console.WriteLine("99) Misc");
 
         var userChoice = Console.ReadLine();
@@ -108,9 +115,21 @@ class Program
             TestingShit();
         }
 
+        if (userChoice == "8")
+        {
+            DiceGame.DiceStart();
+        }
+
+        if (userChoice == "9")
+        {
+            Words.WordsStart();
+        }
+
 
         if (userChoice == "99")
+        {
             Misc();
+        }
         else
         {
             TestingShit();
