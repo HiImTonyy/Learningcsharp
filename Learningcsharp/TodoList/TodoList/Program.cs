@@ -9,7 +9,7 @@ class Numbers
 
 class Program
 {
-    static void Main()
+    public static void Main()
     {
         Console.Clear();
         Console.Write("Hey dude, what do you wanna do?\n");
