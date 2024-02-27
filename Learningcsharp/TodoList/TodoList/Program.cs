@@ -47,6 +47,7 @@ class Program
         Console.WriteLine("7) Random Number");
         Console.WriteLine("8) Dice Game");
         Console.WriteLine("9) Certain words print out certain things");
+        Console.WriteLine("10) Arrays");
         Console.WriteLine("99) Misc");
 
         var userChoice = Console.ReadLine();
@@ -125,6 +126,10 @@ class Program
             Words.WordsStart();
         }
 
+        if (userChoice == "10")
+        {
+            Arrays.ArrayStart();
+        }
 
         if (userChoice == "99")
         {
