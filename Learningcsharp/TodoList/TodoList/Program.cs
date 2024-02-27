@@ -48,6 +48,7 @@ class Program
         Console.WriteLine("8) Dice Game");
         Console.WriteLine("9) Certain words print out certain things");
         Console.WriteLine("10) Arrays");
+        Console.WriteLine("11) Booleans");
         Console.WriteLine("99) Misc");
 
         var userChoice = Console.ReadLine();
@@ -129,6 +130,11 @@ class Program
         if (userChoice == "10")
         {
             Arrays.ArrayStart();
+        }
+
+        if (userChoice == "11")
+        {
+            Bool.BooleanStart();
         }
 
         if (userChoice == "99")
