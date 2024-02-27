@@ -45,7 +45,7 @@ class Program
         Console.WriteLine("5) Return whatever is typed");
         Console.WriteLine("6) Parsing");
         Console.WriteLine("7) Random Number");
-        Console.WriteLine("8) Other Thing");
+        Console.WriteLine("8) Dice Game");
         Console.WriteLine("9) Certain words print out certain things");
         Console.WriteLine("99) Misc");
 
