@@ -49,6 +49,7 @@ class Program
         Console.WriteLine("9) Certain words print out certain things");
         Console.WriteLine("10) Arrays");
         Console.WriteLine("11) Booleans");
+        Console.WriteLine("12) Swtiches");
         Console.WriteLine("99) Misc");
 
         var userChoice = Console.ReadLine();
@@ -135,6 +136,11 @@ class Program
         if (userChoice == "11")
         {
             Bool.BooleanStart();
+        }
+
+        if (userChoice == "12")
+        {
+            SwitchStart();
         }
 
         if (userChoice == "99")
@@ -247,5 +253,73 @@ class Program
         Console.WriteLine($"Var is larger than 5: {isLargerThan5}\n" +
             $"Var is smaller than 10: {isSmallerThan10}");
         Console.ReadLine();
+    }
+
+    static void SwitchStart()
+    {
+        Console.Clear();
+        int userRank = 600;
+        string userName = "Uncle Tony";
+
+        string rank = "";
+
+        switch (userRank)
+        {
+            case 100:
+            case 150:
+                rank = "Iron";
+                break;
+
+
+            case 200:
+                rank = "Bronze";
+                break;
+
+
+            case 300:
+                rank = "Silver";
+                break;
+
+
+            case 400:
+                rank = "Gold";
+                break;
+
+
+            case 500:
+                rank = "Platinum";
+                break;
+
+            case 600:
+                rank = "Diamond";
+                break;
+
+
+            case 700:
+                rank = "Master";
+                break;
+
+
+            case 800:
+                rank = "Grand-Master";
+                break;
+
+
+            case 900:
+                rank = "Challenger";
+                break;
+
+
+            case 1000:
+                rank = "God-Incarnate";
+                break;
+
+            default:
+                rank = "tin";
+                break;
+        }
+
+        Console.WriteLine($"{userName}, {rank}");
+        Console.Read();
     }
 }
