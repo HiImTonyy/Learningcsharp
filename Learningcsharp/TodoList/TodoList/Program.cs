@@ -50,6 +50,8 @@ class Program
         Console.WriteLine("10) Arrays");
         Console.WriteLine("11) Booleans");
         Console.WriteLine("12) Swtiches");
+        Console.WriteLine("13) For Statement");
+        Console.WriteLine("14) Do-While Start thing");
         Console.WriteLine("99) Misc");
 
         var userChoice = Console.ReadLine();
@@ -141,6 +143,16 @@ class Program
         if (userChoice == "12")
         {
             SwitchStart();
+        }
+
+        if (userChoice == "13")
+        {
+            ForStart();
+        }
+
+        if (userChoice == "14")
+        {
+            DoWhileStart();
         }
 
         if (userChoice == "99")
@@ -320,6 +332,41 @@ class Program
         }
 
         Console.WriteLine($"{userName}, {rank}");
+        Console.Read();
+        TestingShit();
+    }
+
+    static void ForStart()
+    {
+        Console.Clear();
+        for (int i = 0; i < 10; i ++)
+        {
+            Console.WriteLine(i);
+        }
+        Console.Read();
+    }
+
+    static void DoWhileStart()
+    {
+        Console.Clear();
+        Random random = new Random();
+        int current = 0;
+        int timesTook = 0;
+        int timesTookSix = 0;
+
+        do
+        {
+            timesTook += 1;
+            current = random.Next(1, 1001);
+        } while (current != 777);
+        do
+        {
+            timesTookSix += 1;
+            current = random.Next(1, 1001);
+        } while (current != 666);
+
+        Console.WriteLine($"Rolls to get 777: {timesTook}");
+        Console.WriteLine($"Rolls to get 666: {timesTookSix}");
         Console.Read();
     }
 }
