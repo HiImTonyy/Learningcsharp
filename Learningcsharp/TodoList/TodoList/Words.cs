@@ -10,6 +10,7 @@ namespace TodoList
     {
         public static void WordsStart()
         {
+            Console.WriteLine("Yeah, I didn't bother to continue this. I got a few cool ideas though.");
             Console.Write("Input: ");
             string UserInput = Console.ReadLine();
 
@@ -17,13 +18,13 @@ namespace TodoList
                     {
                 Console.WriteLine("Test");
                 Console.ReadLine();
-                WordsStart();
+                Program.Main();
             }
             else
             {
                 Console.WriteLine("Not hello.");
                 Console.ReadLine();
-                WordsStart();
+                Program.Main();
             }
         }
     }

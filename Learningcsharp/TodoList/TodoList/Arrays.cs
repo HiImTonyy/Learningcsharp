@@ -14,7 +14,8 @@ namespace TodoList
             Console.Clear();
             Console.WriteLine("1) First Arrays");
             Console.WriteLine("2) Second Arrays");
-            Console.WriteLine("3) Back to previous program");
+            Console.WriteLine("3) Third Arrays");
+            Console.WriteLine("4) Back to previous program");
             string input = Console.ReadLine();
 
             switch (input)
@@ -28,6 +29,10 @@ namespace TodoList
                     break;
 
                 case "3":
+                    Array3();
+                    break;
+
+                case "4":
                     Program.Main();
                     break;
 
@@ -176,6 +181,14 @@ namespace TodoList
                     Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}");
                 }
 
+                Console.ReadLine();
+            }
+            static void Array3()
+            {
+                string[,] creatureNames = new string[2, 2] { {"Klagson", "Lefojalk"},
+                    {"It knows much, but not of pain or fear.", "A monstrous creature the size of a small planet. its very dociele, but still feeds on everything that gets in its way." } };
+                Console.WriteLine("Creature: {0}",
+                creatureNames.GetValue(1, 0));
                 Console.ReadLine();
             }
         }

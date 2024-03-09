@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using TodoList;
 
@@ -52,6 +53,10 @@ class Program
         Console.WriteLine("12) Swtiches");
         Console.WriteLine("13) For Statement");
         Console.WriteLine("14) Do-While Start thing");
+        Console.WriteLine("15) Convert string to intiger");
+        Console.WriteLine("16) Enter number, print that many");
+        Console.WriteLine("17) No idea");
+        Console.WriteLine("18) More Loop BS");
         Console.WriteLine("99) Misc");
 
         var userChoice = Console.ReadLine();
@@ -153,6 +158,27 @@ class Program
         if (userChoice == "14")
         {
             DoWhileStart();
+        }
+
+        if (userChoice == "15")
+        {
+            ConvertThing();
+        }
+
+
+        if (userChoice == "16")
+        {
+            Annoyance();
+        }
+
+        if (userChoice == "17")
+        {
+            NoIdea();
+        }
+
+        if (userChoice == "18")
+        {
+            MoreLoops();
         }
 
         if (userChoice == "99")
@@ -339,7 +365,7 @@ class Program
     static void ForStart()
     {
         Console.Clear();
-        for (int i = 0; i < 10; i ++)
+        for (int i = 0; i < 10; i++)
         {
             Console.WriteLine(i);
         }
@@ -369,4 +395,186 @@ class Program
         Console.WriteLine($"Rolls to get 666: {timesTookSix}");
         Console.Read();
     }
+    public static void ConvertThing()
+    {
+        Console.Clear();
+        Console.WriteLine("Please enter a number.\n");
+
+        int firstNumber = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Enter another number.\n");
+
+        int secondNumber = Convert.ToInt32(Console.ReadLine());
+
+        int result = firstNumber + secondNumber;
+        Console.WriteLine($"Number total = {result}");
+        Console.WriteLine($"The sum is: {firstNumber + secondNumber}");
+        Console.ReadLine();
+    }
+
+    public static void Annoyance()
+    {
+        Console.Clear();
+
+        {
+            Console.Write("Enter one Integer Number:");
+            int number = Convert.ToInt32(Console.ReadLine());
+            for (int counter = 1; counter <= number; counter++)
+            {
+                Console.WriteLine(counter);
+            }
+            Console.ReadKey();
+        }
+    }
+
+    public static void NoIdea()
+    {
+        Console.Clear();
+        string name = string.Empty;
+        int age = 0;
+        int deathAge = 80;
+
+        Console.WriteLine("Enter your name");
+        name = Console.ReadLine();
+
+        Console.WriteLine("Enter your age");
+        age = Convert.ToInt32(Console.ReadLine());
+        if (age >= deathAge)
+        {
+            Console.WriteLine("You are dead...");
+            Console.ReadLine();
+            NoIdea();
+        }
+
+        int timeTillDead = deathAge - age;
+
+        Console.WriteLine($"\nTime till possible death: {timeTillDead} years\n");
+
+        Console.WriteLine("Go again? y/n or a, a = another example");
+        string skinInput = Console.ReadLine();
+
+        switch (skinInput)
+        {
+            case "y":
+                NoIdea();
+                break;
+            case "n":
+                TestingShit();
+                break;
+            case "a":
+                NoIdeaTwo();
+                break;
+            default:
+                NoIdea();
+                break;
+        }
+    }
+
+    public static void NoIdeaTwo()
+    {
+        Console.Clear();
+
+        Console.WriteLine("How old are you?");
+
+        int skinSelect = Convert.ToInt32(Console.ReadLine());
+
+        string ageStatus = skinSelect < 50 ? "not an elderly person" : "an elderly person";
+        Console.WriteLine($"You are {ageStatus}.");
+        Console.ReadLine();
+    }
+
+    public static void MoreLoops()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Which loop do you wanna check?\n");
+
+        Console.WriteLine("1) For Loops");
+        Console.WriteLine("2) While Loops");
+        Console.WriteLine("3) Do While Loops");
+        Console.WriteLine("Anything Else) Back to testing shit");
+
+        string skinSelect = Console.ReadLine();
+
+        switch (skinSelect)
+        {
+            case "1":
+                ForLoops();
+                break;
+            case "2":
+                WhileLoops();
+                break;
+            case "3":
+                DoWhileLoops();
+                break;
+            default:
+                TestingShit();
+                break;
+        }
+    }
+
+    public static void ForLoops()
+    {
+        Console.Clear();
+        for (int i = 0; i < 10; i++) ;
+        {
+            Console.WriteLine("COUNTED TO 10");
+            Console.ReadLine();
+            MoreLoops();
+        }
+    }
+
+    public static void WhileLoops()
+    {
+
+        // CHECK THE VARIABLE, THEN DOES THE METHOD IF TRUE
+        Console.Clear();
+
+        int sum = 0;
+        int num = 0;
+        while (num != -1)
+        {
+            Console.WriteLine("Enter a bunch of numbers. type in -1 for the numbers to be summed up.\n");
+            num = Convert.ToInt32(Console.ReadLine());
+            if (num != -1)
+            {
+                Console.Clear();
+                sum += num;
+            }
+        }
+        Console.WriteLine($"Your numbers summed up is: {sum}. go again? y/n.\n");
+
+        string skinSelect = Console.ReadLine();
+
+        switch (skinSelect)
+        {
+            case "y":
+                WhileLoops();
+                break;
+            default:
+                MoreLoops();
+                break;
+        }
+    }
+
+    public static void DoWhileLoops()
+    {
+        // DOES THE METHOD ANYWAYS, THEN CHECKS THE VARIABLE.
+        Console.Clear();
+
+        int sum = 0;
+        int num = -1;
+        do
+        {
+            Console.WriteLine("Enter a bunch of numbers. type in -1 for the numbers to be summed up.\n");
+            num = Convert.ToInt32(Console.ReadLine());
+            if (num != -1)
+            {
+                Console.Clear();
+                sum += num;
+            }
+        } while (num != -1);
+        Console.WriteLine("HAHAHA");
+    }
+
 }
