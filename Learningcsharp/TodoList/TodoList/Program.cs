@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using TodoList;
 
 class Numbers
@@ -10,6 +11,8 @@ class Numbers
 
 class Program
 {
+    private static int i;
+
     public static void Main()
     {
         Console.Clear();
@@ -39,7 +42,7 @@ class Program
         Console.Clear();
         Console.WriteLine("What do you wanna test my dude?\n");
 
-        Console.WriteLine("1) If/else Statements");
+        Console.WriteLine("1) If/else Statements\t\t\t\t21) Classes");
         Console.WriteLine("2) Selected Option Thing");
         Console.WriteLine("3) Call method from somewhere else");
         Console.WriteLine("4) Boolean check in word length");
@@ -57,6 +60,8 @@ class Program
         Console.WriteLine("16) Enter number, print that many");
         Console.WriteLine("17) No idea");
         Console.WriteLine("18) More Loop BS");
+        Console.WriteLine("19) Exception handling thing");
+        Console.WriteLine("20) Lists");
         Console.WriteLine("99) Misc");
 
         var userChoice = Console.ReadLine();
@@ -180,6 +185,23 @@ class Program
         {
             MoreLoops();
         }
+
+
+        if (userChoice == "19")
+        {
+            ExceptionHandle();
+        }
+
+        if (userChoice == "20")
+        {
+            Lists();
+        }
+
+        if (userChoice == "21")
+        {
+            Classes();
+        }
+
 
         if (userChoice == "99")
         {
@@ -577,4 +599,62 @@ class Program
         Console.WriteLine("HAHAHA");
     }
 
+    public static void ExceptionHandle()
+    {
+        try
+        {
+            Console.Clear();
+            Console.WriteLine("Enter a number..\n");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine($"The number you entered is {number}");
+            Console.ReadLine();
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Enter a number instead next time, eh?");
+            Console.ReadLine();
+            ExceptionHandle();
+        }
+        finally
+        {
+            Console.WriteLine("No idea how you f*cked up that bad but it is what it is.");
+            Console.ReadLine();
+            TestingShit();
+        }
+    }
+    public static void Lists()
+    {
+        Console.Clear();
+        List<string> random = new List<string>();
+        string people = "ew";
+        do
+        {
+            Console.WriteLine("What are your favorite foods and drinks? (type in gg to stop)\n");
+
+            people = Console.ReadLine();
+            if (people != "gg")
+            {
+                random.Add(people);
+                Console.Clear();
+            }
+
+        } while (people != "gg");
+        Console.Clear();
+        foreach (string words in random)
+        {
+            Console.WriteLine(words);
+        }
+        Console.ReadLine();
+    }
+
+    public static void Classes()
+    {
+        Console.Clear();
+        Person baby = new Person();
+        baby.FirstName = "Bobby";
+        baby.LastName = "John";
+
+        baby.WriteFullName();
+    }
 }
