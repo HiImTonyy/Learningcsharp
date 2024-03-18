@@ -2,7 +2,9 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 using TodoList;
+using static System.Net.Mime.MediaTypeNames;
 
 class Numbers
 {
@@ -43,7 +45,7 @@ class Program
         Console.WriteLine("What do you wanna test my dude?\n");
 
         Console.WriteLine("1) If/else Statements\t\t\t\t21) Classes");
-        Console.WriteLine("2) Selected Option Thing");
+        Console.WriteLine("2) Selected Option Thing\t\t\t22) Other Thing");
         Console.WriteLine("3) Call method from somewhere else");
         Console.WriteLine("4) Boolean check in word length");
         Console.WriteLine("5) Return whatever is typed");
@@ -200,6 +202,11 @@ class Program
         if (userChoice == "21")
         {
             Classes();
+        }
+
+        if (userChoice == "22")
+        {
+            OtherThing();
         }
 
 
@@ -656,5 +663,21 @@ class Program
         baby.LastName = "John";
 
         baby.WriteFullName();
+    }
+
+    public static void OtherThing()
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.BackgroundColor = ConsoleColor.Yellow;                                         
+        Console.WriteLine("**************************************************                                                                      ");
+        Console.WriteLine("****** BRINGING FREEDOM TO A LAND NEAR YOU! ******                                                                      ");
+        Console.WriteLine("**************************************************                                                                      ");
+        Console.WriteLine("      We will bring it to you no matter the cost                                                                        ");
+        Console.WriteLine("   Anything for truth, justice, and the American way.                                                                   ");
+        Console.WriteLine("                                                                                                                        ");
+        Console.WriteLine("          Thank you for your cooperation :)                                                                             ");
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.ReadLine();
     }
 }
