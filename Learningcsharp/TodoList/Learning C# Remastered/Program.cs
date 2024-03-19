@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 
 class Program
 {
@@ -11,6 +12,9 @@ class Program
         Console.WriteLine("2) Consolas and Telim");
         Console.WriteLine("3) The Thing Namer 3000");
         Console.WriteLine("4) The Variable Shop + The Variable Shop Returns");
+        Console.WriteLine("5) The Triangle Farmer");
+        Console.WriteLine("6) The Four Sisters and the Duckbear");
+        Console.WriteLine("7) The Dominion of Kings");
         string input = Console.ReadLine();
 
         switch (input)
@@ -26,6 +30,15 @@ class Program
                 break;
             case "4":
                 VariableShop();
+                break;
+            case "5":
+                TriangleFarmer();
+                break;
+            case "6":
+                FourSisters();
+                break;
+            case "7":
+                Kings();
                 break;
         }
     }
@@ -171,6 +184,77 @@ class Program
         Console.WriteLine("\nEnd of module...");
         Console.ReadLine();
         Console.Clear();
+        Main();
+    }
+
+    public static void TriangleFarmer()
+    {
+        Console.Clear();
+        Console.WriteLine("Area = base x height / 2");
+        Console.WriteLine("Objective: Write a program that lets you input the triangle’s base size and height.\nCompute the area of a triangle by turning the above equation into code. Write the result of the computation.\n");
+
+        Console.WriteLine("Enter a number for the base of the triangle.");
+        string triangleBaseText = Console.ReadLine();
+        Console.WriteLine("Now enter the height for the triangle.");
+        string triangleHeightText = Console.ReadLine();
+
+        int triangleBase = Convert.ToInt32(triangleBaseText);
+        int triangleHeight = Convert.ToInt32(triangleHeightText);
+        float area = (triangleBase * triangleHeight) / 2f;
+        Console.WriteLine("Answer: " + area);
+
+        Console.WriteLine("\nEnd of module...");
+        Console.ReadLine();
+        Main();
+    }
+
+    public static void FourSisters()
+    {
+        Console.Clear();
+        Console.WriteLine("Create a program that lets the user enter the number of chocolate eggs gathered that day.\nUsing / and %, compute how many eggs each sister should get and how many are left over for the duckbear.\n");
+
+        Console.WriteLine("How many chocolate eggs did you collect today?");
+        string eggsCollectedText = Console.ReadLine();
+
+        int eggsCollected = Convert.ToInt32(eggsCollectedText);
+        int eggsDivided = eggsCollected / 4;
+        int eggsLeftover = eggsCollected % 4;
+
+        Console.WriteLine("\nEggs collected: " + eggsCollectedText);
+        Console.WriteLine("Each sister gets " + eggsDivided + " eggs.");
+        Console.WriteLine("Eggs Leftover for Duckbear: " + eggsLeftover);
+
+        Console.WriteLine("\nEnd of module...");
+        Console.ReadLine();
+        Main();
+    }
+
+    public static void Kings()
+    {
+        Console.Clear();
+        Console.WriteLine("Objective: Create a program that allows users to enter how many provinces, duchies, and estates they have.\nAdd up the user’s total score, giving 1 point per estate, 3 per duchy, and 6 per province.\nDisplay the point total to the user.\n");
+
+        Console.WriteLine("How many Provinces do you have?");
+        string provincesText = Console.ReadLine();
+        Console.WriteLine("How many Duchies do you have?");
+        string duchiesText = Console.ReadLine();
+        Console.WriteLine("How many estates do you have?");
+        string estateText = Console.ReadLine();
+
+
+        int provinces = Convert.ToInt32(provincesText);
+        int duchies = Convert.ToInt32(duchiesText);
+        int estates = Convert.ToInt32(estateText);
+        int provincesPoint = 6;
+        int duchiesPoint = 3;
+        int estatePoint = 1;
+
+        int totalPoints = (estates * estatePoint) + (duchies * duchiesPoint) + (provincesPoint * provinces);
+
+        Console.WriteLine("\nTotal Points: " + totalPoints);
+
+        Console.WriteLine("\nEnd of module...");
+        Console.ReadLine();
         Main();
     }
 }
