@@ -48,10 +48,10 @@ class Program
                 ConsolasDefense();
                 break;
             case "9":
-                Clocktower();
+                ClockTower();
                 break;
             case "10":
-                Watchtower();
+                WatchTower();
                 break;
             case "test":
                 Test();
@@ -94,9 +94,17 @@ class Program
         string name = Console.ReadLine();
         Console.WriteLine("Noted: " + name + " got bread.");
 
-        Console.WriteLine("\nEnd of module...");
-        Console.ReadLine();
-        Main();
+        Console.WriteLine("\nEnd of module... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            Consolas();
+        }
+        else
+        {
+            Main();
+        }
     }
 
     public static void Thing3000()
@@ -114,9 +122,17 @@ class Program
         string d = "3000"; // Super random omega something. another string added because "LmaoXDSoRandom!"
         Console.WriteLine("The " + b + " " + a + c + " " + d + "!");
 
-        Console.WriteLine("\nEnd of module...");
-        Console.ReadLine();
-        Main();
+        Console.WriteLine("\nEnd of module... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            Thing3000();
+        }
+        else
+        {
+            Main();
+        }
 
         /* =======================================================================================================       
         THE ORIGINAL CODE:
@@ -229,9 +245,17 @@ class Program
         float area = (triangleBase * triangleHeight) / 2f;
         Console.WriteLine("Answer: " + area);
 
-        Console.WriteLine("\nEnd of module...");
-        Console.ReadLine();
-        Main();
+        Console.WriteLine("\nEnd of module... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            TriangleFarmer();
+        }
+        else
+        {
+            Main();
+        }
     }
 
     public static void FourSisters()
@@ -252,9 +276,17 @@ class Program
         Console.WriteLine("Each sister gets " + eggsDivided + " eggs.");
         Console.WriteLine("Eggs Leftover for Duckbear: " + eggsLeftover);
 
-        Console.WriteLine("\nEnd of module...");
-        Console.ReadLine();
-        Main();
+        Console.WriteLine("\nEnd of module... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            FourSisters();
+        }
+        else
+        {
+            Main();
+        }
     }
 
     public static void Kings()
@@ -283,9 +315,17 @@ class Program
 
         Console.WriteLine("\nTotal Points: " + totalPoints);
 
-        Console.WriteLine("\nEnd of module...");
-        Console.ReadLine();
-        Main();
+        Console.WriteLine("\nEnd of module... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            Kings();
+        }
+        else
+        {
+            Main();
+        }
     }
 
     public static void ConsolasDefense()
@@ -343,16 +383,25 @@ class Program
         Console.Beep(784, 1000); 
 
         Console.ResetColor();
-        Console.WriteLine("\nEnd of module...");
-        Console.ReadLine();
-        Main();
+        Console.WriteLine("\nEnd of module... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            ConsolasDefense();
+        }
+        else
+        {
+            Main();
+        }
     }
 
-    public static void Clocktower()
+    public static void ClockTower()
     {
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("Objective: Take a number as input from the console.\nDisplay the word “Tick” if the number is even. Display the word “Tock” if the number is odd.\n");
+        Console.ResetColor();
 
         Console.WriteLine("Enter a number...");
         string userNumberText = Console.ReadLine();
@@ -370,13 +419,20 @@ class Program
             Console.WriteLine("TICK");
         }
 
-        Console.ResetColor();
-        Console.WriteLine("\nEnd of module...");
-        Console.ReadLine();
-        Main();
+        Console.WriteLine("\nEnd of module... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            ClockTower();
+        }
+        else
+        {
+            Main();
+        }
     }
 
-    public static void Watchtower()
+    public static void WatchTower()
     {
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.Cyan;
@@ -434,17 +490,33 @@ class Program
         else
         {
             Console.WriteLine("\nThey are in our city!");
-            Console.WriteLine("\nEnd of module...");
-            Console.ReadLine();
-            Main();
+            Console.WriteLine("\nEnd of module... go again? y/n");
+            string userInputt = Console.ReadLine();
+            userInputt = userInputt.ToLower();
+            if (userInputt == "y")
+            {
+                WatchTower();
+            }
+            else
+            {
+                Main();
+            }
         }
 
         Console.WriteLine($"\nThey are coming from the {message}!");
 
         Console.ResetColor();
-        Console.WriteLine("\nEnd of module...");
-        Console.ReadLine();
-        Main();
+        Console.WriteLine("\nEnd of module... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            WatchTower();
+        }
+        else
+        {
+            Main();
+        }
     }
 
     public static void Test()
