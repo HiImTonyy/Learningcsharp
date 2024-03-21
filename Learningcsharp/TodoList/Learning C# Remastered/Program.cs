@@ -1,5 +1,8 @@
-﻿using System.Numerics;
+﻿using System.Data.Common;
+using System.Numerics;
+using System.Reflection.Emit;
 using System.Security.Cryptography.X509Certificates;
+using System.Xml.Serialization;
 
 class Program
 {
@@ -19,6 +22,9 @@ class Program
         Console.WriteLine("8) The Defense of Consolas");
         Console.WriteLine("9) Repairing the CLocktower");
         Console.WriteLine("10) Watchtower");
+        Console.WriteLine("11) Buying Inventory and Discounted Inventory");
+        Console.WriteLine("12) The Prototype");
+        Console.WriteLine("13) The Magic Cannon");
         string input = Console.ReadLine();
 
         switch (input)
@@ -53,8 +59,21 @@ class Program
             case "10":
                 WatchTower();
                 break;
+            case "11":
+                BuyingInventory();
+                break;
+            case "12":
+                Prototype();
+                break;
+            case "13":
+                Cannon();
+                break;
             case "test":
                 Test();
+                break;
+
+            default:
+                Main();
                 break;
         }
     }
@@ -64,7 +83,7 @@ class Program
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("Objective: Make a program with 5 Console.WriteLine statements in it\n");
-        Console.ResetColor(); 
+        Console.ResetColor();
 
         Console.WriteLine("This is certainly something.");
         Console.WriteLine("Some dude asked to do programming stuff.");
@@ -72,7 +91,7 @@ class Program
         Console.WriteLine("The whole world fell apart.");
         Console.WriteLine("I regret nothing.");
 
-        Console.WriteLine("\nEnd of module...");
+        Console.WriteLine("\nEnd of method...");
         Console.ReadLine();
         Main();
     }
@@ -94,7 +113,7 @@ class Program
         string name = Console.ReadLine();
         Console.WriteLine("Noted: " + name + " got bread.");
 
-        Console.WriteLine("\nEnd of module... go again? y/n");
+        Console.WriteLine("\nEnd of method... go again? y/n");
         string userInput = Console.ReadLine();
         userInput = userInput.ToLower();
         if (userInput == "y")
@@ -122,7 +141,7 @@ class Program
         string d = "3000"; // Super random omega something. another string added because "LmaoXDSoRandom!"
         Console.WriteLine("The " + b + " " + a + c + " " + d + "!");
 
-        Console.WriteLine("\nEnd of module... go again? y/n");
+        Console.WriteLine("\nEnd of method... go again? y/n");
         string userInput = Console.ReadLine();
         userInput = userInput.ToLower();
         if (userInput == "y")
@@ -185,7 +204,7 @@ class Program
         Console.WriteLine("decimal: " + decimalNumber);
         Console.WriteLine("bool: " + boolean);
 
-        Console.WriteLine("\nEnd of module...");
+        Console.WriteLine("\nEnd of method...");
         Console.ReadLine();
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.Cyan;
@@ -221,7 +240,7 @@ class Program
         Console.WriteLine("double: " + d);
         Console.WriteLine("decimal: " + decimalNumber);
         Console.WriteLine("bool: " + boolean);
-        Console.WriteLine("\nEnd of module...");
+        Console.WriteLine("\nEnd of method...");
         Console.ReadLine();
         Console.Clear();
         Main();
@@ -236,16 +255,14 @@ class Program
         Console.ResetColor();
 
         Console.WriteLine("Enter a number for the base of the triangle.");
-        string triangleBaseText = Console.ReadLine();
+        int triangleBase = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Now enter the height for the triangle.");
-        string triangleHeightText = Console.ReadLine();
+        int triangleHeight = Convert.ToInt32(Console.ReadLine());
 
-        int triangleBase = Convert.ToInt32(triangleBaseText);
-        int triangleHeight = Convert.ToInt32(triangleHeightText);
         float area = (triangleBase * triangleHeight) / 2f;
         Console.WriteLine("Answer: " + area);
 
-        Console.WriteLine("\nEnd of module... go again? y/n");
+        Console.WriteLine("\nEnd of method... go again? y/n");
         string userInput = Console.ReadLine();
         userInput = userInput.ToLower();
         if (userInput == "y")
@@ -266,17 +283,16 @@ class Program
         Console.ResetColor();
 
         Console.WriteLine("How many chocolate eggs did you collect today?");
-        string eggsCollectedText = Console.ReadLine();
+        int eggsCollected = Convert.ToInt32(Console.ReadLine());
 
-        int eggsCollected = Convert.ToInt32(eggsCollectedText);
         int eggsDivided = eggsCollected / 4;
         int eggsLeftover = eggsCollected % 4;
 
-        Console.WriteLine("\nEggs collected: " + eggsCollectedText);
+        Console.WriteLine("\nEggs collected: " + eggsCollected);
         Console.WriteLine("Each sister gets " + eggsDivided + " eggs.");
         Console.WriteLine("Eggs Leftover for Duckbear: " + eggsLeftover);
 
-        Console.WriteLine("\nEnd of module... go again? y/n");
+        Console.WriteLine("\nEnd of method... go again? y/n");
         string userInput = Console.ReadLine();
         userInput = userInput.ToLower();
         if (userInput == "y")
@@ -297,16 +313,12 @@ class Program
         Console.ResetColor();
 
         Console.WriteLine("How many Provinces do you have?");
-        string provincesText = Console.ReadLine();
+        int provinces = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("How many Duchies do you have?");
-        string duchiesText = Console.ReadLine();
+        int duchies = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("How many estates do you have?");
-        string estateText = Console.ReadLine();
+        int estates = Convert.ToInt32(Console.ReadLine());
 
-
-        int provinces = Convert.ToInt32(provincesText);
-        int duchies = Convert.ToInt32(duchiesText);
-        int estates = Convert.ToInt32(estateText);
         int provincesPoint = 6;
         int duchiesPoint = 3;
         int estatePoint = 1;
@@ -315,7 +327,7 @@ class Program
 
         Console.WriteLine("\nTotal Points: " + totalPoints);
 
-        Console.WriteLine("\nEnd of module... go again? y/n");
+        Console.WriteLine("\nEnd of method... go again? y/n");
         string userInput = Console.ReadLine();
         userInput = userInput.ToLower();
         if (userInput == "y")
@@ -338,12 +350,9 @@ class Program
         Console.ResetColor();
 
         Console.WriteLine("SIR, WHAT IS THE TARGET ROW?");
-        string targetRowText = Console.ReadLine();
+        int row = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("GOT IT, NOW WHAT IS THE TARGET COLUMN?");
-        string targetColumnText = Console.ReadLine();
-
-        int row = Convert.ToInt32(targetRowText);
-        int column = Convert.ToInt32(targetColumnText);
+        int column = Convert.ToInt32(Console.ReadLine());
 
         int mrUpRow = row + 1;
         int mrUpColumn = column;
@@ -372,18 +381,18 @@ class Program
         Thread.Sleep(5500);
         Console.WriteLine("THEY GAVE UP THEIR BOMBARDMENT AND ARE RETREATING, LIBRETY AND DEMOCROCY PREVAILS!!");
 
-        Console.Beep(659, 500); 
+        Console.Beep(659, 500);
         Thread.Sleep(50);
-        Console.Beep(784, 500); 
+        Console.Beep(784, 500);
         Thread.Sleep(50);
-        Console.Beep(988, 500); 
+        Console.Beep(988, 500);
         Thread.Sleep(50);
-        Console.Beep(880, 750); 
+        Console.Beep(880, 750);
         Thread.Sleep(50);
-        Console.Beep(784, 1000); 
+        Console.Beep(784, 1000);
 
         Console.ResetColor();
-        Console.WriteLine("\nEnd of module... go again? y/n");
+        Console.WriteLine("\nEnd of method... go again? y/n");
         string userInput = Console.ReadLine();
         userInput = userInput.ToLower();
         if (userInput == "y")
@@ -404,9 +413,8 @@ class Program
         Console.ResetColor();
 
         Console.WriteLine("Enter a number...");
-        string userNumberText = Console.ReadLine();
 
-        int number = Convert.ToInt32(userNumberText);
+        int number = Convert.ToInt32(Console.ReadLine());
         number = number % 2;
 
 
@@ -419,7 +427,7 @@ class Program
             Console.WriteLine("TICK");
         }
 
-        Console.WriteLine("\nEnd of module... go again? y/n");
+        Console.WriteLine("\nEnd of method... go again? y/n");
         string userInput = Console.ReadLine();
         userInput = userInput.ToLower();
         if (userInput == "y")
@@ -445,13 +453,13 @@ class Program
         Console.ResetColor();
 
         Console.WriteLine("Where are the enemies coming from?\n");
-        Console.Write("Enter Y axis: ");
-        string textYAxis = Console.ReadLine();
-        Console.Write("Enter X axis: ");
-        string textXAxis = Console.ReadLine();
 
-        int yAxis = Convert.ToInt32(textYAxis);
-        int xAxis = Convert.ToInt32(textXAxis);
+        Console.Write("Enter Y axis: ");
+        int yAxis = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Enter X axis: ");
+        int xAxis = Convert.ToInt32(Console.ReadLine());
+
 
         string message = "NULL";
 
@@ -490,7 +498,7 @@ class Program
         else
         {
             Console.WriteLine("\nThey are in our city!");
-            Console.WriteLine("\nEnd of module... go again? y/n");
+            Console.WriteLine("\nEnd of method... go again? y/n");
             string userInputt = Console.ReadLine();
             userInputt = userInputt.ToLower();
             if (userInputt == "y")
@@ -506,7 +514,7 @@ class Program
         Console.WriteLine($"\nThey are coming from the {message}!");
 
         Console.ResetColor();
-        Console.WriteLine("\nEnd of module... go again? y/n");
+        Console.WriteLine("\nEnd of method... go again? y/n");
         string userInput = Console.ReadLine();
         userInput = userInput.ToLower();
         if (userInput == "y")
@@ -519,9 +527,225 @@ class Program
         }
     }
 
-    public static void Test()
+
+    // I know that the following is kinda a mess and that I was supposed to set the "gold" as a variable, but I just wanted to have fun with it. it still follows the objective so.. eh. 
+    public static void BuyingInventory()
     {
         Console.Clear();
-        Main();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine(
+@"The following items are available:
+1 – Rope
+2 – Torches
+3 – Climbing Equipment
+4 – Clean Water
+5 – Machete
+6 – Canoe
+7 – Food Supplies
+What number do you want to see the price of? 2
+Torches cost 15 gold.");
+
+        Console.WriteLine("\nObjective: Build a program that will show the menu illustrated above.\nAsk the user to enter a number from the menu.\nUsing the information above, use a switch (either type) to show the item’s cost.\n" +
+            "Objective two (after first is completed) Modify your program from before to also ask the user for their name.\nIf their name equals your name, divide the cost in half.\n");
+        Console.ResetColor();
+
+        bool know = false;
+
+        Console.WriteLine("Hey.. I think I remember you. what is your name?\n");
+
+        string answer = Console.ReadLine();
+
+        if (answer == "William Watts")
+        {
+            Console.WriteLine("Oh, it is you! nice to see you man.");
+            Console.ReadLine();
+            know = true;
+        }
+        else if (answer == "ww")
+        {
+            Console.WriteLine("Oh yeahh, it is you! its nice to see you man.");
+            Console.ReadLine();
+            know = true;
+        }
+        else
+        {
+            Console.WriteLine("Oh, nah.. nevermind. I thought you were someone else.");
+            Console.ReadLine();
+        }
+
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine(
+@"The following items are available:
+1 – Rope
+2 – Torches
+3 – Climbing Equipment
+4 – Clean Water
+5 – Machete
+6 – Canoe
+7 – Food Supplies
+What number do you want to see the price of? 2
+Torches cost 15 gold.");
+
+        Console.WriteLine("\nObjective: Build a program that will show the menu illustrated above.\nAsk the user to enter a number from the menu.\nUsing the information above, use a switch (either type) to show the item’s cost.\n" +
+            "Objective two (after first is completed) Modify your program from before to also ask the user for their name.\nIf their name equals your name, divide the cost in half.\n");
+        Console.ResetColor();
+        Console.WriteLine("The following items are avalible:\n");
+
+        Console.WriteLine("1 - Rope");
+        Console.WriteLine("2 - Torches");
+        Console.WriteLine("3 - Climbing Equipment");
+        Console.WriteLine("4 - Clean Water");
+        Console.WriteLine("5 - Machete");
+        Console.WriteLine("6 - Canoe");
+        Console.WriteLine("7 - Food Supplies\n");
+
+        Console.WriteLine("Alright dude, what do you wanna see the price of?\n");
+
+        string dudesReply;
+        string choice = Console.ReadLine();
+
+        if (know != true)
+        {
+            dudesReply = choice switch
+            {
+                "1" => "A Rope? you plan on climbing or are you going to say GG and go next? ah well, it is what it is I guess.\nI ain't stopping you if you give me the ten Gold it costs.\nHell, I'll give you the two ropes for just fifteen gold incase the first one breaks.",
+                "2" => "Ah, a Torch. It costs sixteen gold but.. to be honest, I have way too many in the back,\nso I'll give you five torches for just forty-eight gold instead of the eighty that it would cost.",
+                "3" => "I have only two things of climbing equipment left.. a bunch of posh looking British men came in and took most of them.\nI can still hear their pocket-watches and smell their tobaccoo pipes.\n*the man shutters* I have a bad feeling about them but.. uh," +
+                "yeah.. the climbing equipment will be just twenty-four gold.",
+                "4" => "Just two gold for the clean water my dude and one extra if you want beer instead.",
+                "5" => "You a hunter? in that case I'll give you the machete for free if you kill a few rats down in the basement. otherwise, it'll be twenty gold.",
+                "6" => "Wow, a canoe? I haven't sold one in like.. ages. that'll be two-hundred gold.",
+                "7" => "Food supplies? I think you had too much food supplies...... I'm kidding, that'll be two gold.",
+                _ => "I might be wayy too high right now, because it sounded like you wanted something that we don't have."
+            };
+            Console.WriteLine($"\n{dudesReply}");
+        }
+        else
+        {
+            dudesReply = choice switch
+            {
+                "1" => "five gold man.. don't do anything stupid with it.",
+                "2" => "eight gold only, just for you.",
+                "3" => "Twelve gold. don't break your back now.",
+                "4" => "One gold. no extra cost for the beer.",
+                "5" => "ten Gold please.",
+                "6" => "One-hundred thank you.",
+                "7" => "Just one gold for you.",
+                _ => "Dude... come on."
+            };
+            Console.WriteLine($"\n{dudesReply}");
+        }
+
+        Console.WriteLine("\nEnd of method... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            BuyingInventory();
+        }
+        else
+        {
+            Main();
+        }
+    }
+
+    public static void Prototype()
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("Objective: Build a program that will allow a user, the pilot,to enter a number.\nIf the number is above 100 or less than 0, keep asking.\nClear the screen once the program has collected a good number.\nAsk a second user, the hunter,to guess numbers.\nIndicate whether the user guessed too high, too low, or guessed right.\nLoop until they get it right, then end the program.\n");
+        Console.ResetColor();
+
+        int pilotNumber;
+        int hunterGuess;
+        int guesses = 0;
+        bool bozo = false;
+
+        while (true)
+        {
+            Console.WriteLine("\nEnter a number between 0 and 100.\n");
+            pilotNumber = Convert.ToInt32(Console.ReadLine());
+
+            if (pilotNumber > 100 || pilotNumber < 0)
+            {
+                Console.WriteLine("I said a number between 0 and 100 you bozo!");
+                bozo = true;
+                continue;
+            }
+            else
+            {
+                Console.Clear();
+                break;
+            }
+        }
+        while (true)
+        {
+            Console.WriteLine($"Guess the number Hunter.\n");
+            hunterGuess = Convert.ToInt32(Console.ReadLine());
+
+            if (hunterGuess == pilotNumber && bozo == true)
+            {
+                Console.WriteLine($"\nYou are correct! man, that Pilot was a real bozo.");
+                break;
+            }
+            else if (hunterGuess == pilotNumber)
+            {
+                Console.WriteLine("\nWow, you actually guessed correctly. nice!");
+                break;
+            }
+            else if (hunterGuess > pilotNumber)
+            {
+                Console.WriteLine($"\n{hunterGuess} is too high, try again.");
+                guesses++;
+                continue;
+            }
+            else if (hunterGuess < pilotNumber)
+            {
+                Console.WriteLine($"\n{hunterGuess} is too low, try again.");
+                guesses++;
+                continue;
+            }
+        }
+
+        Console.WriteLine($"Also, it took you {guesses} guesses to get the number correct.");
+        Console.WriteLine("\nEnd of method... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            Prototype();
+        }
+        else
+        {
+            Main();
+        }
+    }
+
+    public static void Cannon()
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("Objective: Write a program that will loop through the values between 1 and 100\n and display what kind of blast the crew should expect.\nChange the color of the output based on the type of blast.\n");
+        Console.ResetColor();
+
+
+
+        Console.WriteLine("\nEnd of method... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            Cannon();
+        }
+        else
+        {
+            Main();
+        }
+    }
+
+    public static void Test()
+    {
+
     }
 }
