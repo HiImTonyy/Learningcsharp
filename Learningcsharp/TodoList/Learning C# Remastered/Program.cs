@@ -726,10 +726,40 @@ Torches cost 15 gold.");
     {
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("Objective: Write a program that will loop through the values between 1 and 100\n and display what kind of blast the crew should expect.\nChange the color of the output based on the type of blast.\n");
+        Console.WriteLine("Objective: Write a program that will loop through the values between 1 and 100\n and display what kind of blast the crew should expect.\nChange the color of the output based on the type of blast.\n" +
+            "Every third turn of a crank, the fire gem activates, and the cannon produces a fire blast.\nThe electric gem activates every fifth turn of the crank,\nand the cannon makes an electric blast.\nWhen the two line up, it generates a potent combined blast.\n");
         Console.ResetColor();
 
+        Console.WriteLine("Enter a number between 1 and 100 to check which blast it contains.\n");
 
+ 
+        int maxTurn = Convert.ToInt32(Console.ReadLine());
+
+
+        for (int input = 1; input <= maxTurn; input++)
+        {
+            if (input % 3 == 0 && input % 5 == 0) 
+            {
+                Console.ForegroundColor = ConsoleColor.Blue; 
+                Console.WriteLine($"{input}: Fire and Electric");
+            }
+            else if (input % 3 == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red; 
+                Console.WriteLine($"{input}: Fire");
+            }
+            else if (input % 5 == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow; 
+                Console.WriteLine($"{input}: Electric");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Gray; 
+                Console.WriteLine($"{input}: God damn normie...");
+            }
+            Console.ResetColor(); 
+        }
 
         Console.WriteLine("\nEnd of method... go again? y/n");
         string userInput = Console.ReadLine();
