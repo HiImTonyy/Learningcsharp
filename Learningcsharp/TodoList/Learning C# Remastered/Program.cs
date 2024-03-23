@@ -1,4 +1,5 @@
-﻿using System.Data.Common;
+﻿using System;
+using System.Data.Common;
 using System.Numerics;
 using System.Reflection.Emit;
 using System.Security.Cryptography.X509Certificates;
@@ -25,6 +26,8 @@ class Program
         Console.WriteLine("11) Buying Inventory and Discounted Inventory");
         Console.WriteLine("12) The Prototype");
         Console.WriteLine("13) The Magic Cannon");
+        Console.WriteLine("14) The Replicator of D'To");
+        Console.WriteLine("15) The Laws of French");
         string input = Console.ReadLine();
 
         switch (input)
@@ -67,6 +70,12 @@ class Program
                 break;
             case "13":
                 Cannon();
+                break;
+            case "14":
+                Replicator();
+                break;
+            case "15":
+                French();
                 break;
             case "test":
                 Test();
@@ -735,6 +744,12 @@ Torches cost 15 gold.");
  
         int maxTurn = Convert.ToInt32(Console.ReadLine());
 
+        if (maxTurn < 1 || maxTurn > 100)
+        {
+            Console.WriteLine("IS THAT A NUMBER BETWEEN 1 AND 100? NO.. TRY AGAIN.");
+            Console.ReadLine();
+            Cannon();
+        }
 
         for (int input = 1; input <= maxTurn; input++)
         {
@@ -774,8 +789,103 @@ Torches cost 15 gold.");
         }
     }
 
+    public static void Replicator()
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("Objective: Make a program that creates an array of length 5. Ask the user for five numbers and put them in the array.\nMake a second array of length 5. Use a loop to copy the values out of the original array and into the new one.\nDisplay the contents of both arrays one at a time to illustrate that the Replicator of D’To works\n");
+        Console.ResetColor();
+
+        int[] array = new int[5];
+        int[] copyCatArray = new int[5];
+
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Clear();
+            Console.WriteLine("Enter five numbers.");
+            Console.WriteLine($"\nNumbers entered: {i}\n");
+            array[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        copyCatArray = array;
+        Console.Clear();
+
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine(array[i]);
+        }
+        Console.WriteLine("\nPress whatever see the copied version...");
+        Console.ReadLine();
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine(copyCatArray[i]);
+        }
+
+        Console.WriteLine("\nEnd of method... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            Replicator();
+        }
+        else
+        {
+            Main();
+        }
+    }
+
+    public static void French()
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("Objective: Start with the code for computing an array’s minimum and average values.\nModify the code to use foreach loops instead of for loops.\n");
+        Console.ResetColor();
+
+        int[] array = new int[] { 4, 51, -7, 13, -99, 15, -8, 45, 90 };
+        int total = 0;
+        foreach (int number in array)
+        {
+            total += number;
+        }
+        float average = (float)total / array.Length;
+        Console.WriteLine($"Average: {average}\n");
+
+        Console.WriteLine(@"===============================================================
+Code Before:
+int[] array = new int[] { 4, 51, -7, 13, -99, 15, -8, 45, 90 };
+
+int total = 0;
+for (int index = 0; index < array.Length; index++)
+    total += array[index];
+
+float average = (float)total / array.Length;
+Console.WriteLine(average)
+===============================================================
+
+Code After:
+ int[] array = new int[] { 4, 51, -7, 13, -99, 15, -8, 45, 90 };
+ int total = 0;
+ foreach (int number in array)
+ {
+     total += number;
+ }
+     float average = (float)total / array.Length;
+     Console.WriteLine(average);");
+
+        Console.WriteLine("\nEnd of method... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            French();
+        }
+        else
+        {
+            Main();
+        }
+    }
+
     public static void Test()
     {
-
     }
 }
