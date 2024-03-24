@@ -29,7 +29,8 @@ class Program
         Console.WriteLine("13) The Magic Cannon");
         Console.WriteLine("14) The Replicator of D'To");
         Console.WriteLine("15) The Laws of French");
-        Console.WriteLine("16) Taking numbers");
+        Console.WriteLine("16) Taking a Number");
+        Console.WriteLine("17) Countdown");
         string input = Console.ReadLine();
 
         switch (input)
@@ -81,6 +82,9 @@ class Program
                 break;
             case "16":
                 GetNumber();
+                break;
+            case "17":
+                Countdown();
                 break;
             case "test":
                 Test();
@@ -873,7 +877,33 @@ Code After:
 
     /* Objective: Make a method with the signature int AskForNumber(string text). Display the text
     parameter in the console window, get a response from the user, convert it to an int, and return it.*/
-    public static int TakingSouls(string text) 
+    public static void GetNumber()
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("Objective: Make a method with the signature int AskForNumber(string text).\nDisplay the text parameter in the console window, get a response from the user, convert it to an int, and return it.\n");
+        Console.ResetColor();
+
+        int result = TakingSouls("enter a number...");
+        Console.WriteLine($"You put in: {result}.");
+        Console.ReadLine();
+        Main();
+    }
+
+    public static void Countdown()
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("Objective: Write code that counts down from 10 to 1 using a recursive method.\n");
+        Console.ResetColor();
+
+        Numberz(10);
+        Console.WriteLine("\nEnd of method...");
+        Console.ReadLine();
+        Main();
+    }
+
+    public static int TakingSouls(string text)
     {
         Console.WriteLine(text);
 
@@ -881,16 +911,23 @@ Code After:
         return number;
     }
 
-    public static void GetNumber()
+    public static int Numberz(int countDown)
     {
-        int result = TakingSouls("enter a number...");
-        Console.WriteLine($"You put in: {result}.");
-        Console.ReadLine();
-        Main();
+        if (countDown == 0)
+        {
+            return 0;
+        }
+        else
+        {
+            Console.WriteLine(countDown);
+            Numberz(countDown - 1);
+            return countDown;
+        }
     }
 
     public static void Test()
     {
+        Console.Read();
         Main();
     }
 }
