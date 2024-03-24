@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Common;
 using System.Numerics;
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
@@ -28,6 +29,7 @@ class Program
         Console.WriteLine("13) The Magic Cannon");
         Console.WriteLine("14) The Replicator of D'To");
         Console.WriteLine("15) The Laws of French");
+        Console.WriteLine("16) Taking numbers");
         string input = Console.ReadLine();
 
         switch (input)
@@ -76,6 +78,9 @@ class Program
                 break;
             case "15":
                 French();
+                break;
+            case "16":
+                GetNumber();
                 break;
             case "test":
                 Test();
@@ -263,10 +268,8 @@ class Program
         Console.WriteLine("Objective: Write a program that lets you input the triangle’s base size and height.\nCompute the area of a triangle by turning the above equation into code. Write the result of the computation.\n");
         Console.ResetColor();
 
-        Console.WriteLine("Enter a number for the base of the triangle.");
-        int triangleBase = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Now enter the height for the triangle.");
-        int triangleHeight = Convert.ToInt32(Console.ReadLine());
+        int triangleBase = TakingSouls("Enter a number for the base of the triangle.");
+        int triangleHeight = TakingSouls("Now enter the height for the triangle.");
 
         float area = (triangleBase * triangleHeight) / 2f;
         Console.WriteLine("Answer: " + area);
@@ -291,8 +294,7 @@ class Program
         Console.WriteLine("Objective: Create a program that lets the user enter the number of chocolate eggs gathered that day.\nUsing / and %, compute how many eggs each sister should get and how many are left over for the duckbear.\n");
         Console.ResetColor();
 
-        Console.WriteLine("How many chocolate eggs did you collect today?");
-        int eggsCollected = Convert.ToInt32(Console.ReadLine());
+        int eggsCollected = TakingSouls("How many chocolate eggs did you collect today?");
 
         int eggsDivided = eggsCollected / 4;
         int eggsLeftover = eggsCollected % 4;
@@ -321,12 +323,9 @@ class Program
         Console.WriteLine("Objective: Create a program that allows users to enter how many provinces, duchies, and estates they have.\nAdd up the user’s total score, giving 1 point per estate, 3 per duchy, and 6 per province.\nDisplay the point total to the user.\n");
         Console.ResetColor();
 
-        Console.WriteLine("How many Provinces do you have?");
-        int provinces = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("How many Duchies do you have?");
-        int duchies = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("How many estates do you have?");
-        int estates = Convert.ToInt32(Console.ReadLine());
+        int provinces = TakingSouls("How many provinces do you have?");
+        int duchies = TakingSouls("How many duchies do you have?");
+        int estates = TakingSouls("How many estates do you have?");
 
         int provincesPoint = 6;
         int duchiesPoint = 3;
@@ -358,10 +357,8 @@ class Program
         Console.WriteLine("Objective: Ask the user for the target row and column.\nCompute the neighboring rows and columns of where to deploy the squad.\nDisplay the deployment instructions in a different color of your choosing.\nChange the window title to be “Defense of Consolas”.\nPlay a sound with Console.Beep when the results have been computed and displayed.\n");
         Console.ResetColor();
 
-        Console.WriteLine("SIR, WHAT IS THE TARGET ROW?");
-        int row = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("GOT IT, NOW WHAT IS THE TARGET COLUMN?");
-        int column = Convert.ToInt32(Console.ReadLine());
+        int row = TakingSouls("SIR, WHAT IS THE TARGET ROW?");
+        int column = TakingSouls("GOT IT, NOW WHAT IS THE TARGET COLUMN?");
 
         int mrUpRow = row + 1;
         int mrUpColumn = column;
@@ -421,9 +418,7 @@ class Program
         Console.WriteLine("Objective: Take a number as input from the console.\nDisplay the word “Tick” if the number is even. Display the word “Tock” if the number is odd.\n");
         Console.ResetColor();
 
-        Console.WriteLine("Enter a number...");
-
-        int number = Convert.ToInt32(Console.ReadLine());
+        int number = TakingSouls("Enter a number...");
         number = number % 2;
 
 
@@ -463,11 +458,8 @@ class Program
 
         Console.WriteLine("Where are the enemies coming from?\n");
 
-        Console.Write("Enter Y axis: ");
-        int yAxis = Convert.ToInt32(Console.ReadLine());
-
-        Console.Write("Enter X axis: ");
-        int xAxis = Convert.ToInt32(Console.ReadLine());
+        int yAxis = TakingSouls("Enter Y axis:");
+        int xAxis = TakingSouls("Enter X axis:");
 
 
         string message = "NULL";
@@ -673,8 +665,7 @@ Torches cost 15 gold.");
 
         while (true)
         {
-            Console.WriteLine("\nEnter a number between 0 and 100.\n");
-            pilotNumber = Convert.ToInt32(Console.ReadLine());
+            pilotNumber = TakingSouls("\nEnter a number between - and 100.\n");
 
             if (pilotNumber > 100 || pilotNumber < 0)
             {
@@ -690,8 +681,7 @@ Torches cost 15 gold.");
         }
         while (true)
         {
-            Console.WriteLine($"Guess the number Hunter.\n");
-            hunterGuess = Convert.ToInt32(Console.ReadLine());
+            hunterGuess = TakingSouls("Guess the number Hunter.\n");
 
             if (hunterGuess == pilotNumber && bozo == true)
             {
@@ -701,19 +691,18 @@ Torches cost 15 gold.");
             else if (hunterGuess == pilotNumber)
             {
                 Console.WriteLine("\nWow, you actually guessed correctly. nice!");
+                guesses++;
                 break;
             }
             else if (hunterGuess > pilotNumber)
             {
                 Console.WriteLine($"\n{hunterGuess} is too high, try again.");
                 guesses++;
-                continue;
             }
             else if (hunterGuess < pilotNumber)
             {
                 Console.WriteLine($"\n{hunterGuess} is too low, try again.");
                 guesses++;
-                continue;
             }
         }
 
@@ -738,11 +727,8 @@ Torches cost 15 gold.");
         Console.WriteLine("Objective: Write a program that will loop through the values between 1 and 100\n and display what kind of blast the crew should expect.\nChange the color of the output based on the type of blast.\n" +
             "Every third turn of a crank, the fire gem activates, and the cannon produces a fire blast.\nThe electric gem activates every fifth turn of the crank,\nand the cannon makes an electric blast.\nWhen the two line up, it generates a potent combined blast.\n");
         Console.ResetColor();
-
-        Console.WriteLine("Enter a number between 1 and 100 to check which blast it contains.\n");
-
  
-        int maxTurn = Convert.ToInt32(Console.ReadLine());
+        int maxTurn = TakingSouls("Enter a number between 1 and 100 to check which blast it contains.\n");
 
         if (maxTurn < 1 || maxTurn > 100)
         {
@@ -802,9 +788,9 @@ Torches cost 15 gold.");
         for (int i = 0; i < 5; i++)
         {
             Console.Clear();
-            Console.WriteLine("Enter five numbers.");
-            Console.WriteLine($"\nNumbers entered: {i}\n");
-            array[i] = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Numbers entered: {i}\n");
+
+            array[i] = TakingSouls("Enter five numbers.");
         }
 
         copyCatArray = array;
@@ -885,7 +871,26 @@ Code After:
         }
     }
 
+    /* Objective: Make a method with the signature int AskForNumber(string text). Display the text
+    parameter in the console window, get a response from the user, convert it to an int, and return it.*/
+    public static int TakingSouls(string text) 
+    {
+        Console.WriteLine(text);
+
+        int number = Convert.ToInt32(Console.ReadLine());
+        return number;
+    }
+
+    public static void GetNumber()
+    {
+        int result = TakingSouls("enter a number...");
+        Console.WriteLine($"You put in: {result}.");
+        Console.ReadLine();
+        Main();
+    }
+
     public static void Test()
     {
+        Main();
     }
 }
