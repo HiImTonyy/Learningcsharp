@@ -8,13 +8,13 @@ using System.Xml.Serialization;
 
 class Program
 {
-    public static void Main()
+     public static void Main()
     {
+        Program p = new Program();
         Console.Title = "Learning C# Remastered: Electric Boogaloo 2000 and one part LXIX";
         Console.Clear();
         Console.WriteLine("Choose a Method...\n");
-
-        Console.WriteLine("1) The Makings of A Programmer");
+        Console.WriteLine($"1) The Makings of A Programmer");
         Console.WriteLine("2) Consolas and Telim");
         Console.WriteLine("3) The Thing Namer 3000");
         Console.WriteLine("4) The Variable Shop + The Variable Shop Returns");
@@ -31,6 +31,7 @@ class Program
         Console.WriteLine("15) The Laws of French");
         Console.WriteLine("16) Taking a Number");
         Console.WriteLine("17) Countdown");
+        Console.WriteLine("18) Hunting the Manticore");
         string input = Console.ReadLine();
 
         switch (input)
@@ -85,6 +86,9 @@ class Program
                 break;
             case "17":
                 Countdown();
+                break;
+            case "18":
+                Manticore();
                 break;
             case "test":
                 Test();
@@ -589,7 +593,8 @@ Torches cost 15 gold.");
 5 – Machete
 6 – Canoe
 7 – Food Supplies
-What number do you want to see the price of? 2
+What number do you want to see the price of? 
+2
 Torches cost 15 gold.");
 
         Console.WriteLine("\nObjective: Build a program that will show the menu illustrated above.\nAsk the user to enter a number from the menu.\nUsing the information above, use a switch (either type) to show the item’s cost.\n" +
@@ -903,10 +908,149 @@ Code After:
         Main();
     }
 
+    // ================================================================= START OF HUNTING THE MANTICORE OBJECTIVE =================================================================
+
+    static int manticoreHP = 10;
+    static int cityHP = 15;
+    static int round = 1;
+
+    static void Manticore()
+    {
+        Console.Clear();
+        Console.WriteLine("type in 101 to view the objective.\n");
+        int distance = TakingSouls("Player 1, choose where you want to station the Manticore.");
+        Console.Clear();
+
+        if (distance == 101)
+        {
+            Console.WriteLine(@"
+- Establish the game’s starting state: the Manticore begins with 10 health points and the city with 15.
+- The game starts at round 1.
+- Ask the first player to choose the Manticore’s distance from the city (0 to 100). Clear the screen afterward.
+- Run the game in a loop until either the Manticore’s or city’s health reaches 0.
+- Before the second player’s turn, display the round number, the city’s health, and the Manticore’s health.
+- Compute how much damage the cannon will deal this round: 10 points if the round number is a
+multiple of both 3 and 5, 3 if it is a multiple of 3 or 5 (but not both), and 1 otherwise. Display this to the player.
+
+- Get a target range from the second player, and resolve its effect. Tell the user if they overshot (too
+far), fell short, or hit the Manticore. If it was a hit, reduce the Manticore’s health by the expected amount.
+- If the Manticore is still alive, reduce the city’s health by 1.
+- Advance to the next round.
+- When the Manticore or the city’s health reaches 0, end the game and display the outcome.");
+            Console.WriteLine("\n press enter to go back...");
+            Console.ReadLine();
+            Manticore();
+        }
+
+        while (manticoreHP > 0 && cityHP > 0)
+        {
+            BattleScreen();
+            int damage = CannonDamage();
+            Console.WriteLine($"The cannon will deal {damage} damage this round.");
+            int targetRange = TakingSouls("Player 2, choose the target.");
+
+            AttackInfo(targetRange, distance, damage);
+            if (manticoreHP > 0)
+            {
+                cityHP -= 1;
+            }
+            round++;
+        }
+
+        EndGame();
+    }
+
+    static void BattleScreen()
+    {
+        Console.WriteLine($"Round: {round}");
+        Console.WriteLine($"City's health: {cityHP}");
+        Console.WriteLine($"Manticore's health: {manticoreHP}");
+
+    }
+
+    static int CannonDamage()
+    {
+        if (round % 3 == 0 && round % 5 == 0)
+        {
+            return 10;
+        }
+        else if (round % 3 == 0 || round % 5 == 0)
+        {
+            return 3;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+
+    static void AttackInfo(int targetRange, int distance, int damage)
+    {
+        if (targetRange == distance)
+        {
+            Console.WriteLine("A DIRECT HIT! ");
+            Console.WriteLine("-------------------------");
+            manticoreHP -= damage;
+        }
+        else if (targetRange > distance)
+        {
+            Console.WriteLine("YOU OVERSHOT THE TARGET!");
+            Console.WriteLine("-------------------------");
+        }
+        else
+        {
+            Console.WriteLine("THE SHOT WAS TOO SHORT!");
+            Console.WriteLine("-------------------------");
+        }
+    }
+
+    static void EndGame()
+    {
+        if (manticoreHP <= 0)
+        {
+            Console.WriteLine("\nWE DESTROYED THE MANTICORE! HURRAYYYY!!");
+
+            Console.WriteLine("\nEnd of method... go again? y/n");
+            string userInput = Console.ReadLine();
+            userInput = userInput.ToLower();
+            if (userInput == "y")
+            {
+                manticoreHP = 10;
+                cityHP = 15;
+                round = 1;
+                Manticore();
+            }
+            else
+            {
+                Main();
+            }
+        }
+        else
+        {
+            Console.WriteLine("\nTHE CITY HAS BEEN DESTROYED, YOU FAILED US AND NOW YOU ARE KNOWN AS THE BIGGEST BOZO IN TIME AND SPACE!");
+
+            Console.WriteLine("\nEnd of method... go again? y/n");
+            string userInput = Console.ReadLine();
+            userInput = userInput.ToLower();
+            if (userInput == "y")
+            {
+                manticoreHP = 10;
+                cityHP = 15;
+                round = 1;
+                Manticore();
+            }
+            else
+            {
+                Main();
+            }
+        }
+    }
+
+    // ================================================================= END OF HUNTING THE MANTICORE OBJECTIVE =================================================================
+
     public static int TakingSouls(string text)
     {
         Console.WriteLine(text);
-
         int number = Convert.ToInt32(Console.ReadLine());
         return number;
     }
@@ -925,7 +1069,7 @@ Code After:
         }
     }
 
-    public static void Test()
+public static void Test()
     {
         Console.Read();
         Main();
