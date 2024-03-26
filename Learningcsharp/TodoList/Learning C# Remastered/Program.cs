@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Numerics;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 
@@ -10,7 +11,6 @@ class Program
 {
      public static void Main()
     {
-        Program p = new Program();
         Console.Title = "Learning C# Remastered: Electric Boogaloo 2000 and one part LXIX";
         Console.Clear();
         Console.WriteLine("Choose a Method...\n");
@@ -32,6 +32,8 @@ class Program
         Console.WriteLine("16) Taking a Number");
         Console.WriteLine("17) Countdown");
         Console.WriteLine("18) Hunting the Manticore");
+        Console.WriteLine("19) Simula's Test");
+        Console.WriteLine("20) Simula's Soup");
         string input = Console.ReadLine();
 
         switch (input)
@@ -89,6 +91,12 @@ class Program
                 break;
             case "18":
                 Manticore();
+                break;
+            case "19":
+                Simula();
+                break;
+            case "20":
+                Soup();
                 break;
             case "test":
                 Test();
@@ -988,18 +996,24 @@ far), fell short, or hit the Manticore. If it was a hit, reduce the Manticore’
     {
         if (targetRange == distance)
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("A DIRECT HIT! ");
+            Console.ResetColor();
             Console.WriteLine("-------------------------");
             manticoreHP -= damage;
         }
         else if (targetRange > distance)
         {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("YOU OVERSHOT THE TARGET!");
+            Console.ResetColor();
             Console.WriteLine("-------------------------");
         }
         else
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("THE SHOT WAS TOO SHORT!");
+            Console.ResetColor();
             Console.WriteLine("-------------------------");
         }
     }
@@ -1048,7 +1062,110 @@ far), fell short, or hit the Manticore. If it was a hit, reduce the Manticore’
 
     // ================================================================= END OF HUNTING THE MANTICORE OBJECTIVE =================================================================
 
-    public static int TakingSouls(string text)
+    public static void Simula()
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("Objective: Define an enumeration for the state of the chest.\nMake a variable whose type is this new enumeration.\nWrite code to allow you to manipulate the chest with the lock, unlock, open, and close commands,\nbut unsure that you don’t transition between states that don’t support it.\nLoop forever, asking for the next command.\n\n(type in the word 'piss' to end the method)\n");
+        Console.ResetColor();
+        Chest chestStatus = Chest.open;
+
+        while (true)
+        {
+            Console.WriteLine($"The chest is {chestStatus}. what do you wanna do?");
+            string input = Console.ReadLine();
+
+            if (input == "open" && chestStatus == Chest.closed)
+            {
+                chestStatus = Chest.open;
+            }
+            else if (input == "close" && chestStatus == Chest.open)
+            {
+                chestStatus = Chest.closed;
+            }
+            else if (input == "lock" && chestStatus == Chest.closed)
+            {
+                chestStatus = Chest.locked;
+            }
+            else if (input == "unlock" && chestStatus == Chest.locked)
+            {
+                chestStatus = Chest.closed;
+            }
+            else if (input == "piss")
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("\nCan't do that!\n");
+            }
+        }
+
+
+
+        Console.WriteLine("\nEnd of method... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            Simula();
+        }
+        else
+        {
+            Main();
+        }
+    }
+
+    public static void Soup()
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("Objective: Define enumerations for the three variations on food: type (soup, stew, gumbo),\nmain ingredient (mushrooms, chicken, carrots, potatoes), and seasoning (spicy, salty, sweet).\nMake a tuple variable to represent a soup composed of the three above enumeration types.\nLet the user pick a type, main ingredient, and seasoning from the allowed choices and fill the tuple with the results.\nWhen done, display the contents of the soup tuple variable in a format like “Sweet Chicken Gumbo.”\n");
+        Console.ResetColor();
+
+        (MainSeasoning seasoning, MainIngredient ingredient, FoodType type) bowl;
+
+        Console.WriteLine("What type of food do you want?\n");
+
+        Console.WriteLine("1) Soup");
+        Console.WriteLine("2) Stew");
+        Console.WriteLine("3) Gumbo");
+
+        bowl.type = (FoodType)Convert.ToInt32(Console.ReadLine());
+        Console.Clear();
+        Console.WriteLine("What do you want in it?\n");
+
+        Console.WriteLine("1) Mushrooms");
+        Console.WriteLine("2) Chicken");
+        Console.WriteLine("3) Potatos");
+        Console.WriteLine("4) Carrots");
+
+        bowl.ingredient = (MainIngredient)Convert.ToInt32(Console.ReadLine());
+        Console.Clear();
+        Console.WriteLine("What seasoning do you want?\n");
+
+        Console.WriteLine("1) Spicy");
+        Console.WriteLine("2) Salty");
+        Console.WriteLine("3) Sweet");
+
+        bowl.seasoning = (MainSeasoning)Convert.ToInt32(Console.ReadLine());
+        Console.Clear();
+
+        Console.WriteLine($"You have made {bowl.seasoning} {bowl.ingredient} {bowl.type}");
+
+        Console.WriteLine("\nEnd of method... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            Soup();
+        }
+        else
+        {
+            Main();
+        }
+    }
+        public static int TakingSouls(string text)
     {
         Console.WriteLine(text);
         int number = Convert.ToInt32(Console.ReadLine());
@@ -1068,6 +1185,11 @@ far), fell short, or hit the Manticore. If it was a hit, reduce the Manticore’
             return countDown;
         }
     }
+
+    enum Chest { unlocked = 1, open, closed, locked};
+    enum FoodType { soup = 1, stew, gumbo};
+    enum MainIngredient { mushroom = 1, chicken, potato, carrot}
+    enum MainSeasoning { spicy = 1, salty, sweet}
 
 public static void Test()
     {
