@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Learning_C__Remastered;
+using System;
 using System.Data.Common;
 using System.Numerics;
 using System.Reflection;
@@ -14,6 +15,7 @@ class Program
         Console.Title = "Learning C# Remastered: Electric Boogaloo 2000 and one part LXIX";
         Console.Clear();
         Console.WriteLine("Choose a Method...\n");
+
         Console.WriteLine($"1) The Makings of A Programmer");
         Console.WriteLine("2) Consolas and Telim");
         Console.WriteLine("3) The Thing Namer 3000");
@@ -24,7 +26,7 @@ class Program
         Console.WriteLine("8) The Defense of Consolas");
         Console.WriteLine("9) Repairing the CLocktower");
         Console.WriteLine("10) Watchtower");
-        Console.WriteLine("11) Buying Inventory and Discounted Inventory");
+        Console.WriteLine("11) Buying Inventory + Discounted Inventory");
         Console.WriteLine("12) The Prototype");
         Console.WriteLine("13) The Magic Cannon");
         Console.WriteLine("14) The Replicator of D'To");
@@ -34,6 +36,7 @@ class Program
         Console.WriteLine("18) Hunting the Manticore");
         Console.WriteLine("19) Simula's Test");
         Console.WriteLine("20) Simula's Soup");
+        Console.WriteLine("21) Vin Fletcher's Arrows");
         string input = Console.ReadLine();
 
         switch (input)
@@ -97,6 +100,9 @@ class Program
                 break;
             case "20":
                 Soup();
+                break;
+            case "21":
+                Vin();
                 break;
             case "test":
                 Test();
@@ -1165,7 +1171,107 @@ far), fell short, or hit the Manticore. If it was a hit, reduce the Manticore’
             Main();
         }
     }
-        public static int TakingSouls(string text)
+
+    public static void Vin()
+    {
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("Objective: Define a new Arrow class with fields for arrowhead type, fletching type, and length.\nAllow a user to pick the arrowhead, fletching type, and length and then create a new Arrow instance.\nAdd a GetCost method that returns its cost as a float based on the numbers above,\nand use this to display the arrow’s cost.\n");
+        Console.ResetColor();
+
+        Console.WriteLine("What type of arrowhead do you want?\n");
+
+        Console.WriteLine("1) Steel   | 10 Gold");
+        Console.WriteLine("2) Wood    | 3 Gold");
+        Console.WriteLine("3) Obsiden | 5 Gold");
+
+        int input = Convert.ToInt32(Console.ReadLine());
+
+        Arrow.HeadType  selectedArrowHead;
+
+        switch (input)
+        {
+            case 1:
+                selectedArrowHead = Arrow.HeadType.steel;
+                break;
+            case 2:
+                selectedArrowHead = Arrow.HeadType.wood;
+                break;
+            case 3:
+                selectedArrowHead = Arrow.HeadType.obsidian;
+                break;
+
+            default:
+                Console.WriteLine("YOU FUCKING MORON");
+                Console.ReadLine();
+                Vin();
+                return;
+                break;
+        }
+
+        Console.Clear();
+        Console.WriteLine("What type of fletching do you want?\n");
+
+        Console.WriteLine("1) Plastic           | 10 Gold");
+        Console.WriteLine("2) Turkey Feathers   | 5 Gold");
+        Console.WriteLine("3) Goose Feathers    | 3 Gold");
+
+        input = Convert.ToInt32(Console.ReadLine());
+
+        Arrow.FletchingType selectedFletching;
+
+        switch (input)
+        {
+            case 1:
+                selectedFletching = Arrow.FletchingType.plastic;
+                break;
+            case 2:
+                selectedFletching = Arrow.FletchingType.turkey_feathers;
+                break;
+            case 3:
+                selectedFletching = Arrow.FletchingType.goose_feathers;
+                break;
+
+            default:
+                Console.WriteLine("YOU FUCKING RETARD");
+                Console.ReadLine();
+                Vin();
+                return;
+                break;
+        }
+
+        Console.Clear();
+        Console.WriteLine("What length do you want your arrow do be? (must be between 60 and 100 CM and cost is 0.20 gold per CM)\n");
+
+
+        float length = Convert.ToSingle(Console.ReadLine());
+
+        if (length < 60 || length > 100)
+        {
+            Console.WriteLine("YOU GOD DAMN MOTHER GOOSEBERRY LOOKIN' ASS, I HATE YOU. DO IT ALL AGAIN!");
+            Console.ReadLine();
+            Vin();
+        }
+
+        Arrow spawnedArrow = new Arrow(selectedArrowHead, selectedFletching, length);
+
+        spawnedArrow.GetCost();
+
+        Console.WriteLine($"The cost of your arrow is: {spawnedArrow.cost} Gold");
+
+        Console.WriteLine("\nEnd of method... go again? y/n");
+        string userInput = Console.ReadLine();
+        userInput = userInput.ToLower();
+        if (userInput == "y")
+        {
+            Vin();
+        }
+        else
+        {
+            Main();
+        }
+    }
+    public static int TakingSouls(string text)
     {
         Console.WriteLine(text);
         int number = Convert.ToInt32(Console.ReadLine());
@@ -1186,7 +1292,7 @@ far), fell short, or hit the Manticore. If it was a hit, reduce the Manticore’
         }
     }
 
-    enum Chest { unlocked = 1, open, closed, locked};
+    enum Chest { unlocked, open, closed, locked};
     enum FoodType { soup = 1, stew, gumbo};
     enum MainIngredient { mushroom = 1, chicken, potato, carrot}
     enum MainSeasoning { spicy = 1, salty, sweet}
