@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoList", "TodoList\TodoLi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Some Calculator", "Some Calculator\Some Calculator.csproj", "{F5124C8D-474B-4BDA-B5D7-D3C8CE03C94E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning C# Remastered", "Learning C# Remastered\Learning C# Remastered.csproj", "{FE4303EE-1BBD-41F8-BC56-5C02D9992575}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningCSharpRemastered", "LearningCSharpRemastered\LearningCSharpRemastered.csproj", "{57B1ACDD-B65E-4D19-95B6-6F24782362E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{F5124C8D-474B-4BDA-B5D7-D3C8CE03C94E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5124C8D-474B-4BDA-B5D7-D3C8CE03C94E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5124C8D-474B-4BDA-B5D7-D3C8CE03C94E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE4303EE-1BBD-41F8-BC56-5C02D9992575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE4303EE-1BBD-41F8-BC56-5C02D9992575}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE4303EE-1BBD-41F8-BC56-5C02D9992575}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE4303EE-1BBD-41F8-BC56-5C02D9992575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57B1ACDD-B65E-4D19-95B6-6F24782362E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B1ACDD-B65E-4D19-95B6-6F24782362E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B1ACDD-B65E-4D19-95B6-6F24782362E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B1ACDD-B65E-4D19-95B6-6F24782362E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

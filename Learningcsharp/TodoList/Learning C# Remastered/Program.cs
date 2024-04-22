@@ -1,12 +1,4 @@
 ﻿using Learning_C__Remastered;
-using System;
-using System.Data.Common;
-using System.Numerics;
-using System.Reflection;
-using System.Reflection.Emit;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml.Serialization;
 
 class Program
 {
@@ -36,7 +28,10 @@ class Program
         Console.WriteLine("18) Hunting the Manticore");
         Console.WriteLine("19) Simula's Test");
         Console.WriteLine("20) Simula's Soup");
-        Console.WriteLine("21) Vin Fletcher's Arrows");
+        Console.WriteLine("21) Vin Fletcher's Arrows\n");
+
+        Console.WriteLine("22) Next Page");
+
         string input = Console.ReadLine();
 
         switch (input)
@@ -103,6 +98,9 @@ class Program
                 break;
             case "21":
                 Vin();
+                break;
+            case "22":
+                Program2.Main2();
                 break;
             case "test":
                 Test();
@@ -1206,7 +1204,6 @@ far), fell short, or hit the Manticore. If it was a hit, reduce the Manticore’
                 Console.ReadLine();
                 Vin();
                 return;
-                break;
         }
 
         Console.Clear();
@@ -1237,7 +1234,6 @@ far), fell short, or hit the Manticore. If it was a hit, reduce the Manticore’
                 Console.ReadLine();
                 Vin();
                 return;
-                break;
         }
 
         Console.Clear();
@@ -1297,7 +1293,12 @@ far), fell short, or hit the Manticore. If it was a hit, reduce the Manticore’
     enum MainIngredient { mushroom = 1, chicken, potato, carrot}
     enum MainSeasoning { spicy = 1, salty, sweet}
 
-public static void Test()
+    public static int Testt(int num1, int num2)
+    {
+        return num1 + num2;
+    }
+
+    public static void Test()
     {
         Console.Read();
         Main();
