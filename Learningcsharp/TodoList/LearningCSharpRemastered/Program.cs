@@ -15,7 +15,8 @@
 
             Console.WriteLine("0) Hello World! + Changing the text");
             Console.WriteLine("1) Multiple Statements");
-            Console.WriteLine("2) Taking user input");
+            Console.WriteLine("2) Taking user-input and using it");
+            Console.WriteLine("3) Comments and fixing bugs");
 
             if (methodInfoGoBack)
                 MethodInfo();
@@ -30,6 +31,9 @@
                     break;
                 case "2":
                     UserInput();
+                    break;
+                case "3":
+                    CommentBugs();
                     break;
                 case "info":
                     MethodInfo();
@@ -71,6 +75,38 @@
         EndMethodNotice();
     }
 
+    static void CommentBugs()
+    {
+        Console.Clear();
+        string code = @"
+Console.WriteLine(""What kind of thing are we talking about?"");
+string a = Console.ReadLine(); 
+Console.WriteLine(""How would you describe it? Big? Azure? Tattered?"");
+string b = Console.ReadLine();
+string c = ""of Doom"";
+string d = ""3000"";
+Console.WriteLine(""The "" + b + "" "" + a + "" of "" + c + "" "" + d + ""!"");";
+
+        // The bug was a being missplaced. a is supposed to be where b is.
+
+        Console.WriteLine("BEFORE");
+        Console.WriteLine("======");
+        Console.WriteLine(code+"\n");
+
+        Console.WriteLine("What kind of thing are we talking about?");
+        string a = Console.ReadLine();  // a is whatever the user types in. it is the "thing". 
+        Console.WriteLine("How would you describe it? Big? Azure? Tattered?");
+        string b = Console.ReadLine(); // b is what the user describes. 
+        string c = "of Doom"; // c is the string to be placed near the end of the WriteLine. 
+        string d = "3000";    // The last string to be placed in the WriteLine.
+        Console.WriteLine("The " + a + " " + b + " of " + c + " " + d + "!");
+        /*
+         * These comments are kinda shit, but I mean.. there isn't a whole lot to work with. comments are meant for seemingly complex things, but I understand that they are useful. 
+         */
+
+        EndMethodNotice();
+    }
+
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
 
     static void MethodInfo()
@@ -92,6 +128,7 @@
                 infolist.Add("Create a new Hello World program. (yeah, that's it.)\nThe next part is to change 'Hello World' to something else. I already did that, so.. it is what it is.");
                 infolist.Add("Make a program with 5 Console.WriteLine statements in it.");
                 infolist.Add("Bread is ready.\nWho is the bread for?\n(user enters RB)\nNoted:RB got bread.\n\nMake a program that runs as shown above, including taking a name from the user.");
+                infolist.Add("Rebuild the program.\nAdd comments near each of the four variables that describe what they store. You must use at least each one of each cooment type.\nFind the bug in the text displayed and fix it.");
             };
 
             if (inputNumber >= infolist.Count)
