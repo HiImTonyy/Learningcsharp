@@ -13,16 +13,23 @@
             Console.WriteLine("NOTE: If you want to know the objective / info of any given task, then type in 'info'.\n");
             Console.ResetColor();
 
-            Console.WriteLine("0) Hello World!\n");
+            Console.WriteLine("0) Hello World! + Changing the text");
+            Console.WriteLine("1) Multiple Statements");
+            Console.WriteLine("2) Taking user input");
 
             if (methodInfoGoBack)
                 MethodInfo();
-            string input = Console.ReadLine();
-
+            string input = Console.ReadLine().ToLower();
             switch (input)
             {
                 case "0":
                     HelloWorld();
+                    break;
+                case "1":
+                    MultipleLines();
+                    break;
+                case "2":
+                    UserInput();
                     break;
                 case "info":
                     MethodInfo();
@@ -42,6 +49,28 @@
         EndMethodNotice();
     }
 
+    static void MultipleLines()
+    {
+        Console.Clear();
+        Console.WriteLine("This hardcore ghetto gangster image takes a lot of practice");
+        Console.WriteLine("I'm not black like Barry White, no, I am white like Frank Black is");
+        Console.WriteLine("So, if man is five and the devil is six, then that must make me seven");
+        Console.WriteLine("This honkey's gone to heaven");
+        Console.WriteLine("But if I go to hell, well, then I hope I burn well.");
+        EndMethodNotice();
+    }
+
+    static void UserInput()
+    {
+        string person;
+        Console.Clear();
+        Console.WriteLine("Bread is ready.");
+        Console.WriteLine("Who is the bread for?");
+        person = Console.ReadLine();
+        Console.WriteLine("Noted: " + person + " got bread.");
+        EndMethodNotice();
+    }
+
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
 
     static void MethodInfo()
@@ -53,14 +82,16 @@
 
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
-            Console.WriteLine("Type in the task number to check the info.\n");
+            Console.WriteLine("\nType in the task number to check the info.\n");
 
             string input = Console.ReadLine();
             int.TryParse(input, out inputNumber);
 
             List<string> infolist = new List<string>();
             {
-                infolist.Add("Create a new Hello World program. (yeah, that's it.)");
+                infolist.Add("Create a new Hello World program. (yeah, that's it.)\nThe next part is to change 'Hello World' to something else. I already did that, so.. it is what it is.");
+                infolist.Add("Make a program with 5 Console.WriteLine statements in it.");
+                infolist.Add("Bread is ready.\nWho is the bread for?\n(user enters RB)\nNoted:RB got bread.\n\nMake a program that runs as shown above, including taking a name from the user.");
             };
 
             if (inputNumber >= infolist.Count)
@@ -79,7 +110,7 @@
                 Console.ForegroundColor = ConsoleColor.Magenta;
 
                 Console.WriteLine("************************************************************************************************************************************************************************************");
-                Console.WriteLine($"\nOBJECTIVE(S): {selectedInfoNumber}\n");
+                Console.WriteLine($"OBJECTIVE(S):\n\n{selectedInfoNumber}\n");
                 Console.WriteLine("************************************************************************************************************************************************************************************\n");
                 Console.ResetColor();
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -96,10 +127,16 @@
                     methodInfoGoBack = true;
                     Main();
                 }
-                else
+                else if (input == "2")
                 {
                     Console.ResetColor();
                     methodInfoGoBack = false;
+                    Main();
+                }
+                else
+                {
+                    InvalidInput();
+                    methodInfoGoBack = true;
                     Main();
                 }
             }
@@ -175,6 +212,7 @@
             insultWordList.Add("dicknugget");
             insultWordList.Add("fucknugget");
             insultWordList.Add("assgoblin");
+            insultWordList.Add("dumbfuck");
         };
 
         Random rando = new Random();
@@ -194,9 +232,10 @@
 
     public static void EndMethodNotice()
     {
-        Console.ForegroundColor = ConsoleColor.Magenta;
-
-        Console.WriteLine("\nEnd of task, please press enter to exit current task.");
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("\n*************************************************************");
+        Console.WriteLine("*** End of task. please press enter to exit current task. ***");
+        Console.WriteLine("*************************************************************");
         Console.ReadLine();
         Console.ResetColor();
     }
