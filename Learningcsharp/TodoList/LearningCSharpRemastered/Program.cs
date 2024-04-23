@@ -17,6 +17,7 @@
             Console.WriteLine("1) Multiple Statements");
             Console.WriteLine("2) Taking user-input and using it");
             Console.WriteLine("3) Comments and fixing bugs");
+            Console.WriteLine("4) Assigning all variable types + Changing the variables");
 
             if (methodInfoGoBack)
                 MethodInfo();
@@ -34,6 +35,9 @@
                     break;
                 case "3":
                     CommentBugs();
+                    break;
+                case "4":
+                    VariableTypes();
                     break;
                 case "info":
                     MethodInfo();
@@ -87,23 +91,114 @@ string c = ""of Doom"";
 string d = ""3000"";
 Console.WriteLine(""The "" + b + "" "" + a + "" of "" + c + "" "" + d + ""!"");";
 
-        // The bug was a being missplaced. a is supposed to be where b is.
+        string code2 = @"
+Console.WriteLine(""What kind of thing are we talking about?"");
+string a = Console.ReadLine();  // a is whatever the user types in. it is the ""thing"". 
+Console.WriteLine(""How would you describe it? Big? Azure? Tattered?"");
+string b = Console.ReadLine(); // b is what the user describes. 
+string c = ""of Doom""; // c is the string to be placed near the end of the WriteLine. 
+string d = ""3000"";    // The last string to be placed in the WriteLine.
+Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
+/*
+ * These comments are kinda shit, but I mean.. there isn't a whole lot to work with. comments are meant for seemingly complex things, but I understand that they are useful. 
+ */";
+
+        // The bug was the word of inside string c.
 
         Console.WriteLine("BEFORE");
         Console.WriteLine("======");
         Console.WriteLine(code+"\n");
 
+        Console.WriteLine("AFTER");
+        Console.WriteLine("======");
+        Console.WriteLine(code2);
+
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine("\nNOTE: You'll need to look at the actual code to see more clearly, but.. it is what it is. I didn't need to show all the code here, but I did anyways.");
+        Console.ResetColor();
+
+        Console.WriteLine("\nPress enter to continue...");
+        Console.ReadLine();
+        Console.Clear();
         Console.WriteLine("What kind of thing are we talking about?");
-        string a = Console.ReadLine();  // a is whatever the user types in. it is the "thing". 
+        string a = Console.ReadLine();  // String a is whatever the user types in. it is the "thing". 
         Console.WriteLine("How would you describe it? Big? Azure? Tattered?");
-        string b = Console.ReadLine(); // b is what the user describes. 
-        string c = "of Doom"; // c is the string to be placed near the end of the WriteLine. 
-        string d = "3000";    // The last string to be placed in the WriteLine.
-        Console.WriteLine("The " + a + " " + b + " of " + c + " " + d + "!");
+        string b = Console.ReadLine(); // String b is what the user describes. 
+        string c = "Doom"; // String c is the string to be placed near the end of the WriteLine. 
+        string d = "3000";    // String d is the last string to be placed in the WriteLine.
+        Console.WriteLine("The " + b + " " + a + " of " + c + " " + d + "!");
         /*
          * These comments are kinda shit, but I mean.. there isn't a whole lot to work with. comments are meant for seemingly complex things, but I understand that they are useful. 
          */
 
+        EndMethodNotice();
+    }
+
+    static void VariableTypes()
+    {
+        Console.Clear();
+        char aChar = 'a';
+        string aString = "whatever";
+        sbyte aSbyte = 10;
+        byte aByte = 1;
+        short aShort = -100;
+        ushort aUshort = 25;
+        int aInt = 25_000;
+        uint aUint = 150_000;
+        long aLong = 25_000_000;
+        ulong aUlong = 1_000_000_000_000;
+        float aFloat = 25.1f;
+        double aDouble = 25000.12;
+        decimal aDecmial = 99.220000m;
+        bool aBool = true;
+
+        Console.WriteLine("Char: " + aChar);
+        Console.WriteLine("String: " + aString);
+        Console.WriteLine("Sbyte: " + aSbyte);
+        Console.WriteLine("Byte: " + aByte);
+        Console.WriteLine("Short: " + aShort);
+        Console.WriteLine("Ushort: " + aUshort);
+        Console.WriteLine("Int: " + aInt);
+        Console.WriteLine("Uint: " + aUint);
+        Console.WriteLine("Long: " + aLong);
+        Console.WriteLine("Ulong: " + aUlong);
+        Console.WriteLine("Float: " + aFloat);
+        Console.WriteLine("Double: " + aDouble);
+        Console.WriteLine("Decimal: " + aDecmial);
+        Console.WriteLine("Bool: " + aBool);
+
+        Console.WriteLine("\nPress enter to continue...");
+        Console.ReadLine();
+
+         aChar = 'z';
+         aString = "Nothin' like drinking a large triple-triple from Tim Hortons and eating a Breakfest-sausage bagle at 3AM";
+         aSbyte = 000;
+         aByte = 98;
+         aShort = -9010;
+         aUshort = 1895;
+         aInt = 195_000;
+         aUint = 830_140;
+         aLong = 75_010_230;
+         aUlong = 10_203_050_100_000;
+         aFloat = 165.5f;
+         aDouble = 200.91;
+         aDecmial = 1099.1927830m;
+         aBool = false;
+
+        Console.WriteLine("Char: " + aChar);
+        Console.WriteLine("String: " + aString);
+        Console.WriteLine("Sbyte: " + aSbyte);
+        Console.WriteLine("Byte: " + aByte);
+        Console.WriteLine("Short: " + aShort);
+        Console.WriteLine("Ushort: " + aUshort);
+        Console.WriteLine("Int: " + aInt);
+        Console.WriteLine("Uint: " + aUint);
+        Console.WriteLine("Long: " + aLong);
+        Console.WriteLine("Ulong: " + aUlong);
+        Console.WriteLine("Float: " + aFloat);
+        Console.WriteLine("Double: " + aDouble);
+        Console.WriteLine("Decimal: " + aDecmial);
+        Console.WriteLine("Bool: " + aBool);
         EndMethodNotice();
     }
 
@@ -129,6 +224,7 @@ Console.WriteLine(""The "" + b + "" "" + a + "" of "" + c + "" "" + d + ""!"");"
                 infolist.Add("Make a program with 5 Console.WriteLine statements in it.");
                 infolist.Add("Bread is ready.\nWho is the bread for?\n(user enters RB)\nNoted:RB got bread.\n\nMake a program that runs as shown above, including taking a name from the user.");
                 infolist.Add("Rebuild the program.\nAdd comments near each of the four variables that describe what they store. You must use at least each one of each cooment type.\nFind the bug in the text displayed and fix it.");
+                infolist.Add("Build a program with a variable of all 14 types.\nAssign each of them a value using a literal of the correct type.\nUse Console.WriteLine to display the contents of each variable\nThe next part is changing the variables to something else without declaring any additional variables.");
             };
 
             if (inputNumber >= infolist.Count)
