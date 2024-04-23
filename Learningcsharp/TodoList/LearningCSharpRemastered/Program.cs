@@ -18,6 +18,7 @@
             Console.WriteLine("2) Taking user-input and using it");
             Console.WriteLine("3) Comments and fixing bugs");
             Console.WriteLine("4) Assigning all variable types + Changing the variables");
+            Console.WriteLine("5) Calculating the area of a traingle");
 
             if (methodInfoGoBack)
                 MethodInfo();
@@ -38,6 +39,9 @@
                     break;
                 case "4":
                     VariableTypes();
+                    break;
+                case "5":
+                    Triangle();
                     break;
                 case "info":
                     MethodInfo();
@@ -225,6 +229,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                 infolist.Add("Bread is ready.\nWho is the bread for?\n(user enters RB)\nNoted:RB got bread.\n\nMake a program that runs as shown above, including taking a name from the user.");
                 infolist.Add("Rebuild the program.\nAdd comments near each of the four variables that describe what they store. You must use at least each one of each cooment type.\nFind the bug in the text displayed and fix it.");
                 infolist.Add("Build a program with a variable of all 14 types.\nAssign each of them a value using a literal of the correct type.\nUse Console.WriteLine to display the contents of each variable\nThe next part is changing the variables to something else without declaring any additional variables.");
+                infolist.Add("AREA = BASE X HEIGHT / 2\n\nWrite a program that lets you input the triangles base size and height.\nCompute the area of a triangle by turning the above equation into code.\nWrite the result of the computation.");
             };
 
             if (inputNumber >= infolist.Count)
@@ -361,6 +366,32 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         Console.WriteLine($"Press enter if you understand... you {selectedInsultWord}.");
         Console.ReadLine();
         Console.ResetColor();
+    }
+
+    static void Triangle()
+    {
+        Console.Clear();
+        float triangleArea;
+        int triangleBase;
+        int triangleHeight;
+
+        Console.WriteLine("Type in the base of your triangle.\n");
+
+        string triangleBaseText = Console.ReadLine();
+        triangleBase = Convert.ToInt32(triangleBaseText);
+
+        Console.Clear();
+        Console.WriteLine("Now type in the height of your triangle.\n");
+
+        string triangleHeightText = Console.ReadLine();
+        triangleHeight = Convert.ToInt32(triangleHeightText);
+
+        Console.Clear();
+        triangleArea = (triangleBase * triangleHeight) / 2f;
+        Console.WriteLine(triangleBase + " * " + triangleHeight + " / 2 = " + triangleArea);
+        Console.WriteLine("So the area of the traingle is " +  triangleArea);
+        EndMethodNotice();
+
     }
 
     public static void EndMethodNotice()
