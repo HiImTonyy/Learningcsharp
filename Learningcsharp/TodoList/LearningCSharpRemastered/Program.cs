@@ -22,6 +22,7 @@
             Console.WriteLine("6) Using the % operator to figure out the remainder of X");
             Console.WriteLine("7) Incrementing X amount based on X amount");
             Console.WriteLine("8) Target X column and X Row");
+            Console.WriteLine("9) If X is even write Tick, otherwise write odd.");
 
             if (methodInfoGoBack)
                 MethodInfo();
@@ -54,6 +55,9 @@
                     break;
                 case "8":
                     TheDefense();
+                    break;
+                case "9":
+                    TickTock();
                     break;
                 case "info":
                     MethodInfo();
@@ -354,6 +358,27 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         EndMethodNotice();
     }
 
+    static void TickTock()
+    {
+        int number = 0;
+
+        Console.Clear();
+        Console.WriteLine("Enter a number.\n");
+
+        string numberText = Console.ReadLine();
+        number = Convert.ToInt32(numberText);
+
+        if (number % 2 == 0)
+        {
+            Console.WriteLine("Tick");
+        }
+        else if (number % 2 == 1) 
+        {
+            Console.WriteLine("Tock");
+        }
+        EndMethodNotice();
+    }
+
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
@@ -383,6 +408,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                 infolist.Add("Create a program that lets the user enter the number of chocolate eggs gathered that day.\nUsing / and %, compute how many eggs each sister should get and how many are left over for the duckbear. (there are 3 sisters)\n");
                 infolist.Add("Create a program that allows users to enter how many provinces, duchies, and estates they have.\nAdd up the user’s total score, giving 1 point per estate, 3 per duchy, and 6 per province.\nDisplay the point total to the user.");
                 infolist.Add("Ask the user for the target row and column.\nCompute the neighboring rows and columns of where to deploy the squad.\nDisplay the deployment instructions in a different color of your choosing.\nChange the window title to be “Defense of Consolas”.\nPlay a sound with Console.Beep when the results have been computed and displayed.");
+                infolist.Add("Take a number as input from the console.\nDisplay the word “Tick” if the number is even. Display the word “Tock” if the number is odd.");
             };
 
             if (inputNumber >= infolist.Count)
