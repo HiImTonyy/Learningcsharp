@@ -20,6 +20,7 @@
             Console.WriteLine("4) Assigning all variable types + Changing the variables");
             Console.WriteLine("5) Calculating the area of a traingle");
             Console.WriteLine("6) Using the % operator to figure out the remainder of X");
+            Console.WriteLine("7) Incrementing X amount based on X amount");
 
             if (methodInfoGoBack)
                 MethodInfo();
@@ -46,6 +47,9 @@
                     break;
                 case "6":
                     Remainder();
+                    break;
+                case "7":
+                    ThreeKings();
                     break;
                 case "info":
                     MethodInfo();
@@ -257,6 +261,44 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         EndMethodNotice();
     }
 
+    static void ThreeKings()
+    {
+        int estateAmount;
+        int duchyAmount;
+        int provinceAmount;
+        int duchyPoints = 0;
+        int provincePoints = 0;
+        int totalPoints = 0;
+
+        Console.Clear();
+        Console.WriteLine("How many Estates do you have?\n");
+
+        string estateAmountText = Console.ReadLine();
+        estateAmount = Convert.ToInt32(estateAmountText);
+
+        Console.WriteLine("How many Duchies do you have?");
+
+        string duchyAmountText = Console.ReadLine();
+        duchyAmount = Convert.ToInt32(duchyAmountText);
+        duchyPoints = duchyAmount * 3;
+
+        Console.WriteLine("How many Provinces do you have?\n");
+
+        string provinceAmountText = Console.ReadLine();
+        provinceAmount = Convert.ToInt32(provinceAmountText);
+        provincePoints = provinceAmount * 6;
+
+        totalPoints = provincePoints + duchyPoints + estateAmount;
+
+        Console.Clear();
+        Console.WriteLine("Total Estate Points: " + estateAmount);
+        Console.WriteLine("Total Duchy Points: " + duchyPoints);
+        Console.WriteLine("Total Province Points: " +  provincePoints);
+
+        Console.WriteLine("\nTotal Points: " +  totalPoints);
+        EndMethodNotice();
+    }
+
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
@@ -284,6 +326,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                 infolist.Add("Build a program with a variable of all 14 types.\nAssign each of them a value using a literal of the correct type.\nUse Console.WriteLine to display the contents of each variable\nThe next part is changing the variables to something else without declaring any additional variables.");
                 infolist.Add("AREA = BASE X HEIGHT / 2\n\nWrite a program that lets you input the triangles base size and height.\nCompute the area of a triangle by turning the above equation into code.\nWrite the result of the computation.");
                 infolist.Add("Create a program that lets the user enter the number of chocolate eggs gathered that day.\nUsing / and %, compute how many eggs each sister should get and how many are left over for the duckbear. (there are 3 sisters)\n");
+                infolist.Add("Create a program that allows users to enter how many provinces, duchies, and estates they have.\nAdd up the user’s total score, giving 1 point per estate, 3 per duchy, and 6 per province.\nDisplay the point total to the user.");
             };
 
             if (inputNumber >= infolist.Count)
