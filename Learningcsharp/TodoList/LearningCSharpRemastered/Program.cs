@@ -1,4 +1,6 @@
-﻿class Program
+﻿using System.ComponentModel.Design;
+
+class Program
 {
     static bool methodInfoGoBack = false;
     public static void Main()
@@ -449,6 +451,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
     {
         long itemPrice = 0;
         bool knowsName = true;
+        bool drunk = false;
         string response;
         string choice;
 
@@ -527,7 +530,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
 
         if (knowsName) { itemPrice /= 2; }
 
-        Console.WriteLine($"So that will cost you ${itemPrice} freedom dollars.");
+        Console.WriteLine($"Ambrose Crowley: So that will cost you ${itemPrice} freedom dollars.");
         Console.ResetColor();
         EndMethodNotice();
     }
