@@ -1,9 +1,9 @@
 ﻿class Program
 {
-
     static bool methodInfoGoBack = false;
     public static void Main()
     {
+        Console.Title = "LearningCSharpRemastered: Electric Boogaloo part LXIX";
         while (true)
         {
             Console.Clear();
@@ -21,6 +21,7 @@
             Console.WriteLine("5) Calculating the area of a traingle");
             Console.WriteLine("6) Using the % operator to figure out the remainder of X");
             Console.WriteLine("7) Incrementing X amount based on X amount");
+            Console.WriteLine("8) Target X column and X Row");
 
             if (methodInfoGoBack)
                 MethodInfo();
@@ -50,6 +51,9 @@
                     break;
                 case "7":
                     ThreeKings();
+                    break;
+                case "8":
+                    TheDefense();
                     break;
                 case "info":
                     MethodInfo();
@@ -299,6 +303,57 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         EndMethodNotice();
     }
 
+    static void TheDefense()
+    {
+        Console.Title = "Defense of Consolas";
+        int row;
+        int column;
+        int mrLeft;
+        int mrDown;
+        int mrRight;
+        int mrUp;
+
+        Console.Clear();
+        Console.WriteLine("8 X X X X X X X");
+        Console.WriteLine("7 X X X X X X X");
+        Console.WriteLine("6 X X X X X X X");
+        Console.WriteLine("5 X X X X X X X");
+        Console.WriteLine("4 X X X X X X X");
+        Console.WriteLine("3 X X X X X X X");
+        Console.WriteLine("2 X X X X X X X");
+        Console.WriteLine("1 2 3 4 5 6 7 8\n");
+
+        Console.WriteLine("Sir, what is the target row?");
+        string rowText = Console.ReadLine();
+        row = Convert.ToInt32(rowText);
+
+        Console.WriteLine("And what about the target column?");
+        string columnText = Console.ReadLine();
+        column = Convert.ToInt32(columnText);
+
+        Console.WriteLine("You heard the boss!\n");
+
+        mrLeft = column - 1;
+        mrDown = row - 1;
+        mrRight = column + 1;
+        mrUp = row + 1;
+        Console.ForegroundColor = ConsoleColor.Magenta;
+
+        Console.WriteLine("NOTE: (Left number is Row, right number is Column)\n");
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"Mr. Left Postion: {row}, {mrLeft}");
+        Console.WriteLine($"Mr. Down Postion: {mrDown}, {column}");
+        Console.WriteLine($"Mr. Right Position: {row}, {mrRight}");
+        Console.WriteLine($"Mr. Up Postion: {mrUp}, {column}");
+        Console.ResetColor();
+        Console.Beep(37, 23);
+        Console.Beep(137, 233);
+        Console.Beep(337, 433);
+        Console.Beep(637, 733);
+        Console.Beep(737, 833);
+        EndMethodNotice();
+    }
+
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
@@ -327,6 +382,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                 infolist.Add("AREA = BASE X HEIGHT / 2\n\nWrite a program that lets you input the triangles base size and height.\nCompute the area of a triangle by turning the above equation into code.\nWrite the result of the computation.");
                 infolist.Add("Create a program that lets the user enter the number of chocolate eggs gathered that day.\nUsing / and %, compute how many eggs each sister should get and how many are left over for the duckbear. (there are 3 sisters)\n");
                 infolist.Add("Create a program that allows users to enter how many provinces, duchies, and estates they have.\nAdd up the user’s total score, giving 1 point per estate, 3 per duchy, and 6 per province.\nDisplay the point total to the user.");
+                infolist.Add("Ask the user for the target row and column.\nCompute the neighboring rows and columns of where to deploy the squad.\nDisplay the deployment instructions in a different color of your choosing.\nChange the window title to be “Defense of Consolas”.\nPlay a sound with Console.Beep when the results have been computed and displayed.");
             };
 
             if (inputNumber >= infolist.Count)
