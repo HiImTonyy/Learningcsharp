@@ -24,6 +24,7 @@
             Console.WriteLine("8) Target X column and X Row");
             Console.WriteLine("9) If X is even write Tick, otherwise write odd.");
             Console.WriteLine("10) Ask for Y and X to corrispond with position");
+            Console.WriteLine("11) The Shop Menu");
 
             if (methodInfoGoBack)
                 MethodInfo();
@@ -62,6 +63,9 @@
                     break;
                 case "10":
                     Watchtower();
+                    break;
+                case "11":
+                    TheShop();
                     break;
                 case "info":
                     MethodInfo();
@@ -441,6 +445,94 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         EndMethodNotice();
     }
 
+    static void TheShop()
+    {
+        long itemPrice = 0;
+        bool knowsName = true;
+        string response;
+        string choice;
+
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine("Ambrose Crowley: Hey, you look sorta familar... what's your name?\n");
+        Console.ResetColor();
+
+        string name = Console.ReadLine().ToLower();
+        if (name == "tony")
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("Ambrose Crowley: I knew it was you Haha.. enjoy your 50% discount!");
+        }
+        else
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("Ambrose Crowley: Ah, ok.. nevermind. thought you someone else.");
+            knowsName = false;
+        }
+
+        Console.ResetColor();
+        Console.WriteLine("\nPress enter to continue...");
+        Console.ReadLine();
+
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine($"Ambrose Crowley: So what can I get for you {name}?\n");
+        Console.ResetColor();
+
+        Console.WriteLine("1) Liquid flask of Immortality");
+        Console.WriteLine("2) Book of all things demons");
+        Console.WriteLine("3) The Holy Grail");
+        Console.WriteLine("4) Dating Software-Engineers for dummies");
+        Console.WriteLine("5) Half-Life 3 (PC)");
+        Console.WriteLine("6) A Large purple Dildo");
+        Console.WriteLine("7) A Fanny-pack");
+
+        choice = Console.ReadLine();
+
+        switch (choice)
+        {
+            case "1":
+                itemPrice += 1000000000000;
+                break;
+            case "2":
+                itemPrice += 180;
+                break;
+            case "3":
+                itemPrice += 350000000000;
+                break;
+            case "4":
+                itemPrice += 34;
+                break;
+            case "5":
+                itemPrice += 80;
+                break;
+            case "6":
+                itemPrice += 40;
+                break;
+            case "7":
+                itemPrice += 13;
+                break;
+
+            default:
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Ambrose Crowley: You must be drunk... get out of my store!");
+                Console.ResetColor();
+                EndMethodNotice();
+                break;
+        }
+
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+
+        if (knowsName) { itemPrice /= 2; }
+
+        Console.WriteLine($"So that will cost you ${itemPrice} freedom dollars.");
+        Console.ResetColor();
+        EndMethodNotice();
+    }
+
+
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
@@ -472,6 +564,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                 infolist.Add("Ask the user for the target row and column.\nCompute the neighboring rows and columns of where to deploy the squad.\nDisplay the deployment instructions in a different color of your choosing.\nChange the window title to be “Defense of Consolas”.\nPlay a sound with Console.Beep when the results have been computed and displayed.");
                 infolist.Add("Take a number as input from the console.\nDisplay the word “Tick” if the number is even. Display the word “Tock” if the number is odd.");
                 infolist.Add("Ask the user for an x value and a y value. These are coordinates of the enemy relative to the watchtower’s location.\nUsing the image provided, write if statements and relational operators, and also display a message about what direction the enemy is coming from.");
+                infolist.Add("Build a program that will show a menu.\nAsk the user to enter number from the menu.\nMust use switches.\n(The next part is to ask for the name and if the user types in my name, then cut the price by half. I just did it all in 1)");
             };
 
             if (inputNumber >= infolist.Count)
@@ -618,5 +711,6 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         Console.WriteLine("*************************************************************");
         Console.ReadLine();
         Console.ResetColor();
+        Main();
     }
 }
