@@ -23,6 +23,7 @@
             Console.WriteLine("7) Incrementing X amount based on X amount");
             Console.WriteLine("8) Target X column and X Row");
             Console.WriteLine("9) If X is even write Tick, otherwise write odd.");
+            Console.WriteLine("10) Ask for Y and X to corrispond with position");
 
             if (methodInfoGoBack)
                 MethodInfo();
@@ -58,6 +59,9 @@
                     break;
                 case "9":
                     TickTock();
+                    break;
+                case "10":
+                    Watchtower();
                     break;
                 case "info":
                     MethodInfo();
@@ -379,6 +383,64 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         EndMethodNotice();
     }
 
+    static void Watchtower()
+    {
+        int xValue;
+        int yValue;
+        Console.Clear();
+
+        Console.WriteLine("    x<0 | x=0 | x>0");
+        Console.WriteLine("y>0  NW    N    NE");
+        Console.WriteLine("y=0  W     !    E");
+        Console.WriteLine("y<0  SW    S    SE\n");
+
+        Console.WriteLine("Enter the X value.");
+        string xValueText = Console.ReadLine();
+        xValue = Convert.ToInt32(xValueText);
+
+        Console.WriteLine("Now enter the Y value.");
+        string yValueText = Console.ReadLine();
+        yValue = Convert.ToInt32(yValueText);
+
+        if (xValue < 0 && yValue > 0)
+        {
+            Console.WriteLine("The enemy is to the North West!");
+        }
+        else if (xValue < 0 && yValue == 0)
+        {
+            Console.WriteLine("The enemy is to the West!");
+        }
+        else if (xValue < 0 && yValue < 0)
+        {
+            Console.WriteLine("The enemy is to the South West!");
+        }
+        else if (xValue == 0 && yValue > 0)
+        {
+            Console.WriteLine("The enemy is to the North!");
+        }
+        else if (xValue == 0 && yValue == 0)
+        {
+            Console.WriteLine("The enemy is in our Watchtower!");
+        }
+        else if (xValue == 0 && yValue < 0)
+        {
+            Console.WriteLine("The enemy is to the South!");
+        }
+        else if (xValue > 0 && yValue > 0)
+        {
+            Console.WriteLine("The enemy is to the North East!");
+        }
+        else if (xValue > 0 && yValue == 0)
+        {
+            Console.WriteLine("The enemy is to the East!");
+        }
+        else if (xValue > 0 && yValue < 0)
+        {
+            Console.WriteLine("The enemy is to the South East!");
+        }
+        EndMethodNotice();
+    }
+
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
     // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
@@ -409,6 +471,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                 infolist.Add("Create a program that allows users to enter how many provinces, duchies, and estates they have.\nAdd up the user’s total score, giving 1 point per estate, 3 per duchy, and 6 per province.\nDisplay the point total to the user.");
                 infolist.Add("Ask the user for the target row and column.\nCompute the neighboring rows and columns of where to deploy the squad.\nDisplay the deployment instructions in a different color of your choosing.\nChange the window title to be “Defense of Consolas”.\nPlay a sound with Console.Beep when the results have been computed and displayed.");
                 infolist.Add("Take a number as input from the console.\nDisplay the word “Tick” if the number is even. Display the word “Tock” if the number is odd.");
+                infolist.Add("Ask the user for an x value and a y value. These are coordinates of the enemy relative to the watchtower’s location.\nUsing the image provided, write if statements and relational operators, and also display a message about what direction the enemy is coming from.");
             };
 
             if (inputNumber >= infolist.Count)
