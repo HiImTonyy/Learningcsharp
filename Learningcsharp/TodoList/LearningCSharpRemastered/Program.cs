@@ -32,7 +32,7 @@ class Program
             Console.WriteLine("12) Guessing number with loop");
             Console.WriteLine("13) The Magic Cannon (using a loop and remainder)"); // no idea what to call this one.
             Console.WriteLine("14) Using an array and copying user input into another array.");
-
+            Console.WriteLine("15) Change for loop to foreach loop.");
             if (Logicfile.methodInfoGoBack)
                 Logicfile.MethodInfo();
             string input = Console.ReadLine().ToLower();
@@ -85,6 +85,9 @@ class Program
                     break;
                 case "14":
                     AnArray();
+                    break;
+                case "15":
+                    ForEach();
                     break;
                 case "info":
                     Logicfile.MethodInfo();
@@ -708,5 +711,26 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             Console.ReadLine();
         }
         Logicfile.EndMethodNotice();
+    }
+
+    static void ForEach()
+    {
+        float average = 23.2f;
+        int[] array = new int[] { 4, 51, -7, 13, -99, 15, -8, 45, 90 };         //after
+        int total = 0;
+        foreach (int index in array)
+        {
+            total += index;
+        }
+        average = (float)total / array.Length;
+        Console.WriteLine(average);
+        Logicfile.EndMethodNotice();
+        //-------------------------------------------------------------------------------------------
+        int[] arrayy = new int[] { 4, 51, -7, 13, -99, 15, -8, 45, 90 };          //before
+        int totall = 0;
+        for (int index = 0; index < array.Length; index++)
+            total += array[index];
+        float averagee = (float)total / array.Length;
+        Console.WriteLine(average);
     }
 }

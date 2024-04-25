@@ -40,6 +40,7 @@ namespace LearningCSharpRemastered
                     infolist.Add("Build a program that will allow a user, the pilot,to enter a number.\nIf the number is above 100 or less than 0, keep asking.\nClear the screen once the program has collected a good number.\nAsk a second user, the hunter,to guess numbers.\nIndicate whether the user guessed too high, too low, or guessed right\nLoop until they get it right, then end the program.");
                     infolist.Add("Write a program that will loop through the values between 1 and 100 and display what kind of blast the crew should expect.\nChange the color of the output based on the type of blast.\n(I decided to make it loop to however many numbers you want instead of looping to just 100.)");
                     infolist.Add("Make a program that creates an array of length 5.\nAsk the user for five numbers and put them in the array.\nMake a second array of length 5.Use a loop to copy the values out of the original array and into the new one.\nDisplay the contents of both arrays one at a time.");
+                    infolist.Add("Start with the code that computes an array’s minimum and average values.\nModify the code to use foreach loops instead of for loops\n(you'll need to look at the actual code to see the difference)");
                 };
 
                 if (inputNumber >= infolist.Count)
