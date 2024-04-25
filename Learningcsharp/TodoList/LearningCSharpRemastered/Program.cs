@@ -29,6 +29,7 @@ class Program
             Console.WriteLine("9) If X is even write Tick, otherwise write odd.");
             Console.WriteLine("10) Ask for Y and X to corrispond with position");
             Console.WriteLine("11) The Shop Menu");
+            Console.WriteLine("12) Guessing number with loop");
 
             if (Logicfile.methodInfoGoBack)
                 Logicfile.MethodInfo();
@@ -73,6 +74,9 @@ class Program
                     break;
                 case "11":
                     TheShop();
+                    break;
+                case "12":
+                    Loops();
                     break;
                 case "info":
                     Logicfile.MethodInfo();
@@ -565,6 +569,55 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                 Console.ResetColor();
                 Logicfile.GoAgainNotice();
             }
+        }
+    }
+
+    static void Loops()
+    {
+        while (true)
+        {
+            int userNumber;
+            int userGuess = 1;
+            bool userCorrectGuess;
+
+            Console.Clear();
+            do
+            {
+                Console.Clear();
+                Console.Write("Hey Pilot, enter a number between 1 and 100\n");
+
+                string userNumberText = Console.ReadLine();
+                userNumber = Convert.ToInt32(userNumberText);
+                Console.Clear();
+            }
+            while (userNumber <= 0 || userNumber >= 101);
+
+            do
+            {
+                Console.WriteLine("Alright Hunter, Guess the number.\n");
+
+                string userGuessText = Console.ReadLine();
+                userGuess = Convert.ToInt32(userGuessText);
+
+                if (userGuess > userNumber)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("\nToo high!");
+                    Console.ResetColor();
+                    Console.WriteLine("---------");
+                }
+                else if (userGuess < userNumber)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    Console.WriteLine("\nToo low!");
+                    Console.ResetColor();
+                    Console.WriteLine("---------");
+                }
+            } while (userGuess != userNumber);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("HOLLYY SHIIIIT! YOU GOT IT!");
+            Logicfile.GoAgainNotice();
         }
     }
 }

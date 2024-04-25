@@ -37,6 +37,7 @@ namespace LearningCSharpRemastered
                     infolist.Add("Take a number as input from the console.\nDisplay the word “Tick” if the number is even. Display the word “Tock” if the number is odd.");
                     infolist.Add("Ask the user for an x value and a y value. These are coordinates of the enemy relative to the watchtower’s location.\nUsing the image provided, write if statements and relational operators, and also display a message about what direction the enemy is coming from.");
                     infolist.Add("Build a program that will show a menu.\nAsk the user to enter number from the menu.\nMust use switches.\n(The next part is to ask for the name and if the user types in my name, then cut the price by half. I just did it all in 1)");
+                    infolist.Add("Build a program that will allow a user, the pilot,to enter a number.\nIf the number is above 100 or less than 0, keep asking.\nClear the screen once the program has collected a good number.\nAsk a second user, the hunter,to guess numbers.\nIndicate whether the user guessed too high, too low, or guessed right\nLoop until they get it right, then end the program.");
                 };
 
                 if (inputNumber >= infolist.Count)
