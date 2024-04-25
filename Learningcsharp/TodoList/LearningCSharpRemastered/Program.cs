@@ -30,6 +30,7 @@ class Program
             Console.WriteLine("10) Ask for Y and X to corrispond with position");
             Console.WriteLine("11) The Shop Menu");
             Console.WriteLine("12) Guessing number with loop");
+            Console.WriteLine("13) The Magic Cannon (using a loop and remainder)"); // no idea what to call this one.
 
             if (Logicfile.methodInfoGoBack)
                 Logicfile.MethodInfo();
@@ -77,6 +78,9 @@ class Program
                     break;
                 case "12":
                     Loops();
+                    break;
+                case "13":
+                    MagicCannon();
                     break;
                 case "info":
                     Logicfile.MethodInfo();
@@ -617,6 +621,55 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("HOLLYY SHIIIIT! YOU GOT IT!");
+            Logicfile.GoAgainNotice();
+        }
+    }
+
+    static void MagicCannon()
+    {
+        while(true)
+        {
+            int userNumber;
+            int x = 0;
+            Console.Clear();
+
+            Console.WriteLine("How high of a number do you want to check the Magic Cannon for?\n");
+
+            string userNumberText = Console.ReadLine();
+            userNumber = Convert.ToInt32(userNumberText);
+
+            Console.Clear();
+            for (x = 1; x <= userNumber; x++)
+            {
+                if (x % 3 == 0 && x % 5 == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine($"{x}.Fire and Electric");
+                    Console.WriteLine("--------------------");
+                    Console.ResetColor();
+                }
+                else if (x % 3 == 0)
+                {
+                    Console.ForegroundColor= ConsoleColor.Red;
+                    Console.WriteLine($"{x}.Fire");
+                    Console.WriteLine("--------------------");
+                    Console.ResetColor();
+                }
+                else if (x % 5 == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"{x}.Electric");
+                    Console.WriteLine("--------------------");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.WriteLine($"{x}.Normal");
+                    Console.WriteLine("--------------------");
+                    Console.ResetColor();
+                }
+            }
             Logicfile.GoAgainNotice();
         }
     }
