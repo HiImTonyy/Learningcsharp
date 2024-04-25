@@ -1,13 +1,15 @@
-﻿using System.ComponentModel.Design;
+﻿using LearningCSharpRemastered;
+using System.ComponentModel.Design;
 
 class Program
 {
-    static bool methodInfoGoBack = false;
     public static void Main()
     {
         Console.Title = "LearningCSharpRemastered: Electric Boogaloo part LXIX";
+        Logicfile instance = new Logicfile();
         while (true)
         {
+
             Console.Clear();
             Console.SetWindowSize(180, 51);
             Console.WriteLine("Hey dude, what task do you wanna check out?");
@@ -28,11 +30,14 @@ class Program
             Console.WriteLine("10) Ask for Y and X to corrispond with position");
             Console.WriteLine("11) The Shop Menu");
 
-            if (methodInfoGoBack)
-                MethodInfo();
+            if (Logicfile.methodInfoGoBack)
+                Logicfile.MethodInfo();
             string input = Console.ReadLine().ToLower();
             switch (input)
             {
+                case "test":
+                    Logicfile.GoAgainNotice();
+                    break;
                 case "0":
                     HelloWorld();
                     break;
@@ -70,11 +75,11 @@ class Program
                     TheShop();
                     break;
                 case "info":
-                    MethodInfo();
+                    Logicfile.MethodInfo();
                     break;
 
                 default:
-                    InvalidInput();
+                    Logicfile.InvalidInput();
                     break;
             }
         }
@@ -84,7 +89,7 @@ class Program
     {
         Console.Clear();
         Console.WriteLine("\"The road to hell is paved with good intentions and the ones you love litter the road-side.\"");
-        EndMethodNotice();
+        Logicfile.EndMethodNotice();
     }
 
     static void MultipleLines()
@@ -95,7 +100,7 @@ class Program
         Console.WriteLine("So, if man is five and the devil is six, then that must make me seven");
         Console.WriteLine("This honkey's gone to heaven");
         Console.WriteLine("But if I go to hell, well, then I hope I burn well.");
-        EndMethodNotice();
+        Logicfile.EndMethodNotice();
     }
 
     static void UserInput()
@@ -106,7 +111,7 @@ class Program
         Console.WriteLine("Who is the bread for?");
         person = Console.ReadLine();
         Console.WriteLine("Noted: " + person + " got bread.");
-        EndMethodNotice();
+        Logicfile.EndMethodNotice();
     }
 
     static void CommentBugs()
@@ -161,7 +166,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
          * These comments are kinda shit, but I mean.. there isn't a whole lot to work with. comments are meant for seemingly complex things, but I understand that they are useful. 
          */
 
-        EndMethodNotice();
+        Logicfile.EndMethodNotice();
     }
 
     static void VariableTypes()
@@ -229,491 +234,337 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         Console.WriteLine("Double: " + aDouble);
         Console.WriteLine("Decimal: " + aDecmial);
         Console.WriteLine("Bool: " + aBool);
-        EndMethodNotice();
+        Logicfile.EndMethodNotice();
     }
 
     static void Triangle()
     {
-        Console.Clear();
-        float triangleArea;
-        int triangleBase;
-        int triangleHeight;
+        while (true)
+        {
+            Console.Clear();
+            float triangleArea;
+            int triangleBase;
+            int triangleHeight;
 
-        Console.WriteLine("Type in the base of your triangle.\n");
+            Console.WriteLine("Type in the base of your triangle.\n");
 
-        string triangleBaseText = Console.ReadLine();
-        triangleBase = Convert.ToInt32(triangleBaseText);
+            string triangleBaseText = Console.ReadLine();
+            triangleBase = Convert.ToInt32(triangleBaseText);
 
-        Console.Clear();
-        Console.WriteLine("Now type in the height of your triangle.\n");
+            Console.Clear();
+            Console.WriteLine("Now type in the height of your triangle.\n");
 
-        string triangleHeightText = Console.ReadLine();
-        triangleHeight = Convert.ToInt32(triangleHeightText);
+            string triangleHeightText = Console.ReadLine();
+            triangleHeight = Convert.ToInt32(triangleHeightText);
 
-        Console.Clear();
-        triangleArea = (triangleBase * triangleHeight) / 2f;
-        Console.WriteLine(triangleBase + " * " + triangleHeight + " / 2 = " + triangleArea);
-        Console.WriteLine("So the area of the traingle is " + triangleArea);
-        EndMethodNotice();
+            Console.Clear();
+            triangleArea = (triangleBase * triangleHeight) / 2f;
+            Console.WriteLine(triangleBase + " * " + triangleHeight + " / 2 = " + triangleArea);
+            Console.WriteLine("So the area of the traingle is " + triangleArea);
+            Logicfile.GoAgainNotice();
+        }
     }
 
     static void Remainder()
     {
-        int eggsCollected;
-        int eggsRemainder;
-        int sistersEggCount;
+        while(true)
+        {
+            int eggsCollected;
+            int eggsRemainder;
+            int sistersEggCount;
 
-        Console.Clear();
-        Console.WriteLine("How many eggs did you collect today?\n");
+            Console.Clear();
+            Console.WriteLine("How many eggs did you collect today?\n");
 
-        string eggsCollectedText = Console.ReadLine();
-        eggsCollected = Convert.ToInt32(eggsCollectedText);
+            string eggsCollectedText = Console.ReadLine();
+            eggsCollected = Convert.ToInt32(eggsCollectedText);
 
-        sistersEggCount = eggsCollected / 3;
-        eggsRemainder = eggsCollected % 3;
+            sistersEggCount = eggsCollected / 3;
+            eggsRemainder = eggsCollected % 3;
 
 
-        Console.WriteLine("You collected " + eggsCollected);
-        Console.WriteLine("Each of the 3 sister will recieve " + sistersEggCount);
-        Console.WriteLine("The remainder is " + eggsRemainder + ". So their pet will just recieve " + eggsRemainder);
-        EndMethodNotice();
+            Console.WriteLine("You collected " + eggsCollected);
+            Console.WriteLine("Each of the 3 sister will recieve " + sistersEggCount);
+            Console.WriteLine("The remainder is " + eggsRemainder + ". So their pet will just recieve " + eggsRemainder);
+            Logicfile.GoAgainNotice();
+        }
     }
 
     static void ThreeKings()
     {
-        int estateAmount;
-        int duchyAmount;
-        int provinceAmount;
-        int duchyPoints = 0;
-        int provincePoints = 0;
-        int totalPoints = 0;
+        while(true)
+        {
+            int estateAmount;
+            int duchyAmount;
+            int provinceAmount;
+            int duchyPoints = 0;
+            int provincePoints = 0;
+            int totalPoints = 0;
 
-        Console.Clear();
-        Console.WriteLine("How many Estates do you have?\n");
+            Console.Clear();
+            Console.WriteLine("How many Estates do you have?\n");
 
-        string estateAmountText = Console.ReadLine();
-        estateAmount = Convert.ToInt32(estateAmountText);
+            string estateAmountText = Console.ReadLine();
+            estateAmount = Convert.ToInt32(estateAmountText);
 
-        Console.WriteLine("How many Duchies do you have?");
+            Console.WriteLine("How many Duchies do you have?");
 
-        string duchyAmountText = Console.ReadLine();
-        duchyAmount = Convert.ToInt32(duchyAmountText);
-        duchyPoints = duchyAmount * 3;
+            string duchyAmountText = Console.ReadLine();
+            duchyAmount = Convert.ToInt32(duchyAmountText);
+            duchyPoints = duchyAmount * 3;
 
-        Console.WriteLine("How many Provinces do you have?\n");
+            Console.WriteLine("How many Provinces do you have?\n");
 
-        string provinceAmountText = Console.ReadLine();
-        provinceAmount = Convert.ToInt32(provinceAmountText);
-        provincePoints = provinceAmount * 6;
+            string provinceAmountText = Console.ReadLine();
+            provinceAmount = Convert.ToInt32(provinceAmountText);
+            provincePoints = provinceAmount * 6;
 
-        totalPoints = provincePoints + duchyPoints + estateAmount;
+            totalPoints = provincePoints + duchyPoints + estateAmount;
 
-        Console.Clear();
-        Console.WriteLine("Total Estate Points: " + estateAmount);
-        Console.WriteLine("Total Duchy Points: " + duchyPoints);
-        Console.WriteLine("Total Province Points: " +  provincePoints);
+            Console.Clear();
+            Console.WriteLine("Total Estate Points: " + estateAmount);
+            Console.WriteLine("Total Duchy Points: " + duchyPoints);
+            Console.WriteLine("Total Province Points: " + provincePoints);
 
-        Console.WriteLine("\nTotal Points: " +  totalPoints);
-        EndMethodNotice();
+            Console.WriteLine("\nTotal Points: " + totalPoints);
+            Logicfile.GoAgainNotice();
+        }
     }
 
     static void TheDefense()
     {
-        Console.Title = "Defense of Consolas";
-        int row;
-        int column;
-        int mrLeft;
-        int mrDown;
-        int mrRight;
-        int mrUp;
+        while(true)
+        {
+            Console.Title = "Defense of Consolas";
+            int row;
+            int column;
+            int mrLeft;
+            int mrDown;
+            int mrRight;
+            int mrUp;
 
-        Console.Clear();
-        Console.WriteLine("8 X X X X X X X");
-        Console.WriteLine("7 X X X X X X X");
-        Console.WriteLine("6 X X X X X X X");
-        Console.WriteLine("5 X X X X X X X");
-        Console.WriteLine("4 X X X X X X X");
-        Console.WriteLine("3 X X X X X X X");
-        Console.WriteLine("2 X X X X X X X");
-        Console.WriteLine("1 2 3 4 5 6 7 8\n");
+            Console.Clear();
+            Console.WriteLine("8 X X X X X X X");
+            Console.WriteLine("7 X X X X X X X");
+            Console.WriteLine("6 X X X X X X X");
+            Console.WriteLine("5 X X X X X X X");
+            Console.WriteLine("4 X X X X X X X");
+            Console.WriteLine("3 X X X X X X X");
+            Console.WriteLine("2 X X X X X X X");
+            Console.WriteLine("1 2 3 4 5 6 7 8\n");
 
-        Console.WriteLine("Sir, what is the target row?");
-        string rowText = Console.ReadLine();
-        row = Convert.ToInt32(rowText);
+            Console.WriteLine("Sir, what is the target row?");
+            string rowText = Console.ReadLine();
+            row = Convert.ToInt32(rowText);
 
-        Console.WriteLine("And what about the target column?");
-        string columnText = Console.ReadLine();
-        column = Convert.ToInt32(columnText);
+            Console.WriteLine("And what about the target column?");
+            string columnText = Console.ReadLine();
+            column = Convert.ToInt32(columnText);
 
-        Console.WriteLine("You heard the boss!\n");
+            Console.WriteLine("You heard the boss!\n");
 
-        mrLeft = column - 1;
-        mrDown = row - 1;
-        mrRight = column + 1;
-        mrUp = row + 1;
-        Console.ForegroundColor = ConsoleColor.Magenta;
+            mrLeft = column - 1;
+            mrDown = row - 1;
+            mrRight = column + 1;
+            mrUp = row + 1;
+            Console.ForegroundColor = ConsoleColor.Magenta;
 
-        Console.WriteLine("NOTE: (Left number is Row, right number is Column)\n");
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine($"Mr. Left Postion: {row}, {mrLeft}");
-        Console.WriteLine($"Mr. Down Postion: {mrDown}, {column}");
-        Console.WriteLine($"Mr. Right Position: {row}, {mrRight}");
-        Console.WriteLine($"Mr. Up Postion: {mrUp}, {column}");
-        Console.ResetColor();
-        Console.Beep(37, 23);
-        Console.Beep(137, 233);
-        Console.Beep(337, 433);
-        Console.Beep(637, 733);
-        Console.Beep(737, 833);
-        EndMethodNotice();
+            Console.WriteLine("NOTE: (Left number is Row, right number is Column)\n");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Mr. Left Postion: {row}, {mrLeft}");
+            Console.WriteLine($"Mr. Down Postion: {mrDown}, {column}");
+            Console.WriteLine($"Mr. Right Position: {row}, {mrRight}");
+            Console.WriteLine($"Mr. Up Postion: {mrUp}, {column}");
+            Console.ResetColor();
+            Console.Beep(37, 23);
+            Console.Beep(137, 233);
+            Console.Beep(337, 433);
+            Console.Beep(637, 733);
+            Console.Beep(737, 833);
+            Logicfile.GoAgainNotice();
+        }
     }
 
     static void TickTock()
     {
-        int number = 0;
-
-        Console.Clear();
-        Console.WriteLine("Enter a number.\n");
-
-        string numberText = Console.ReadLine();
-        number = Convert.ToInt32(numberText);
-
-        if (number % 2 == 0)
+        while(true)
         {
-            Console.WriteLine("Tick");
+            int number = 0;
+
+            Console.Clear();
+            Console.WriteLine("Enter a number.\n");
+
+            string numberText = Console.ReadLine();
+            number = Convert.ToInt32(numberText);
+
+            if (number % 2 == 0)
+            {
+                Console.WriteLine("Tick");
+            }
+            else if (number % 2 == 1)
+            {
+                Console.WriteLine("Tock");
+            }
+            Logicfile.GoAgainNotice();
         }
-        else if (number % 2 == 1) 
-        {
-            Console.WriteLine("Tock");
-        }
-        EndMethodNotice();
     }
 
     static void Watchtower()
     {
-        int xValue;
-        int yValue;
-        Console.Clear();
+        while(true)
+        {
+            int xValue;
+            int yValue;
+            Console.Clear();
 
-        Console.WriteLine("    x<0 | x=0 | x>0");
-        Console.WriteLine("y>0  NW    N    NE");
-        Console.WriteLine("y=0  W     !    E");
-        Console.WriteLine("y<0  SW    S    SE\n");
+            Console.WriteLine("    x<0 | x=0 | x>0");
+            Console.WriteLine("y>0  NW    N    NE");
+            Console.WriteLine("y=0  W     !    E");
+            Console.WriteLine("y<0  SW    S    SE\n");
 
-        Console.WriteLine("Enter the X value.");
-        string xValueText = Console.ReadLine();
-        xValue = Convert.ToInt32(xValueText);
+            Console.WriteLine("Enter the X value.");
+            string xValueText = Console.ReadLine();
+            xValue = Convert.ToInt32(xValueText);
 
-        Console.WriteLine("Now enter the Y value.");
-        string yValueText = Console.ReadLine();
-        yValue = Convert.ToInt32(yValueText);
+            Console.WriteLine("Now enter the Y value.");
+            string yValueText = Console.ReadLine();
+            yValue = Convert.ToInt32(yValueText);
 
-        if (xValue < 0 && yValue > 0)
-        {
-            Console.WriteLine("The enemy is to the North West!");
+            if (xValue < 0 && yValue > 0)
+            {
+                Console.WriteLine("The enemy is to the North West!");
+            }
+            else if (xValue < 0 && yValue == 0)
+            {
+                Console.WriteLine("The enemy is to the West!");
+            }
+            else if (xValue < 0 && yValue < 0)
+            {
+                Console.WriteLine("The enemy is to the South West!");
+            }
+            else if (xValue == 0 && yValue > 0)
+            {
+                Console.WriteLine("The enemy is to the North!");
+            }
+            else if (xValue == 0 && yValue == 0)
+            {
+                Console.WriteLine("The enemy is in our Watchtower!");
+            }
+            else if (xValue == 0 && yValue < 0)
+            {
+                Console.WriteLine("The enemy is to the South!");
+            }
+            else if (xValue > 0 && yValue > 0)
+            {
+                Console.WriteLine("The enemy is to the North East!");
+            }
+            else if (xValue > 0 && yValue == 0)
+            {
+                Console.WriteLine("The enemy is to the East!");
+            }
+            else if (xValue > 0 && yValue < 0)
+            {
+                Console.WriteLine("The enemy is to the South East!");
+            }
+            Logicfile.GoAgainNotice();
         }
-        else if (xValue < 0 && yValue == 0)
-        {
-            Console.WriteLine("The enemy is to the West!");
-        }
-        else if (xValue < 0 && yValue < 0)
-        {
-            Console.WriteLine("The enemy is to the South West!");
-        }
-        else if (xValue == 0 && yValue > 0)
-        {
-            Console.WriteLine("The enemy is to the North!");
-        }
-        else if (xValue == 0 && yValue == 0)
-        {
-            Console.WriteLine("The enemy is in our Watchtower!");
-        }
-        else if (xValue == 0 && yValue < 0)
-        {
-            Console.WriteLine("The enemy is to the South!");
-        }
-        else if (xValue > 0 && yValue > 0)
-        {
-            Console.WriteLine("The enemy is to the North East!");
-        }
-        else if (xValue > 0 && yValue == 0)
-        {
-            Console.WriteLine("The enemy is to the East!");
-        }
-        else if (xValue > 0 && yValue < 0)
-        {
-            Console.WriteLine("The enemy is to the South East!");
-        }
-        EndMethodNotice();
     }
 
     static void TheShop()
     {
-        long itemPrice = 0;
-        bool knowsName = true;
-        bool drunk = false;
-        string response;
-        string choice;
-
-        Console.Clear();
-        Console.ForegroundColor = ConsoleColor.DarkYellow;
-        Console.WriteLine("Ambrose Crowley: Hey, you look sorta familar... what's your name?\n");
-        Console.ResetColor();
-
-        string name = Console.ReadLine().ToLower();
-        if (name == "tony")
-        {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine("Ambrose Crowley: I knew it was you Haha.. enjoy your 50% discount!");
-        }
-        else
-        {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine("Ambrose Crowley: Ah, ok.. nevermind. thought you someone else.");
-            knowsName = false;
-        }
-
-        Console.ResetColor();
-        Console.WriteLine("\nPress enter to continue...");
-        Console.ReadLine();
-
-        Console.Clear();
-        Console.ForegroundColor = ConsoleColor.DarkYellow;
-        Console.WriteLine($"Ambrose Crowley: So what can I get for you {name}?\n");
-        Console.ResetColor();
-
-        Console.WriteLine("1) Liquid flask of Immortality");
-        Console.WriteLine("2) Book of all things demons");
-        Console.WriteLine("3) The Holy Grail");
-        Console.WriteLine("4) Dating Software-Engineers for dummies");
-        Console.WriteLine("5) Half-Life 3 (PC)");
-        Console.WriteLine("6) A Large purple Dildo");
-        Console.WriteLine("7) A Fanny-pack");
-
-        choice = Console.ReadLine();
-
-        switch (choice)
-        {
-            case "1":
-                itemPrice += 1000000000000;
-                break;
-            case "2":
-                itemPrice += 180;
-                break;
-            case "3":
-                itemPrice += 350000000000;
-                break;
-            case "4":
-                itemPrice += 34;
-                break;
-            case "5":
-                itemPrice += 80;
-                break;
-            case "6":
-                itemPrice += 40;
-                break;
-            case "7":
-                itemPrice += 13;
-                break;
-
-            default:
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("Ambrose Crowley: You must be drunk... get out of my store!");
-                Console.ResetColor();
-                EndMethodNotice();
-                break;
-        }
-
-        Console.ForegroundColor = ConsoleColor.DarkYellow;
-
-        if (knowsName) { itemPrice /= 2; }
-
-        Console.WriteLine($"Ambrose Crowley: So that will cost you ${itemPrice} freedom dollars.");
-        Console.ResetColor();
-        EndMethodNotice();
-    }
-
-
-    // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
-    // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
-    // ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------ MISC STUFF ------- MISC STUFF ------ MISC STUFF ------
-
-    static void MethodInfo()
-    {
         while(true)
         {
-            int inputNumber;
-            string selectedInfoNumber;
+            long itemPrice = 0;
+            bool knowsName = true;
+            bool drunk = false;
+            string response;
+            string choice;
 
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("Ambrose Crowley: Hey, you look sorta familar... what's your name?\n");
+            Console.ResetColor();
 
-            Console.WriteLine("\nType in the task number to check the info.\n");
-
-            string input = Console.ReadLine();
-            int.TryParse(input, out inputNumber);
-
-            List<string> infolist = new List<string>();
+            string name = Console.ReadLine().ToLower();
+            if (name == "tony")
             {
-                infolist.Add("Create a new Hello World program. (yeah, that's it.)\nThe next part is to change 'Hello World' to something else. I already did that, so.. it is what it is.");
-                infolist.Add("Make a program with 5 Console.WriteLine statements in it.");
-                infolist.Add("Bread is ready.\nWho is the bread for?\n(user enters RB)\nNoted:RB got bread.\n\nMake a program that runs as shown above, including taking a name from the user.");
-                infolist.Add("Rebuild the program.\nAdd comments near each of the four variables that describe what they store. You must use at least each one of each cooment type.\nFind the bug in the text displayed and fix it.");
-                infolist.Add("Build a program with a variable of all 14 types.\nAssign each of them a value using a literal of the correct type.\nUse Console.WriteLine to display the contents of each variable\nThe next part is changing the variables to something else without declaring any additional variables.");
-                infolist.Add("AREA = BASE X HEIGHT / 2\n\nWrite a program that lets you input the triangles base size and height.\nCompute the area of a triangle by turning the above equation into code.\nWrite the result of the computation.");
-                infolist.Add("Create a program that lets the user enter the number of chocolate eggs gathered that day.\nUsing / and %, compute how many eggs each sister should get and how many are left over for the duckbear. (there are 3 sisters)\n");
-                infolist.Add("Create a program that allows users to enter how many provinces, duchies, and estates they have.\nAdd up the user’s total score, giving 1 point per estate, 3 per duchy, and 6 per province.\nDisplay the point total to the user.");
-                infolist.Add("Ask the user for the target row and column.\nCompute the neighboring rows and columns of where to deploy the squad.\nDisplay the deployment instructions in a different color of your choosing.\nChange the window title to be “Defense of Consolas”.\nPlay a sound with Console.Beep when the results have been computed and displayed.");
-                infolist.Add("Take a number as input from the console.\nDisplay the word “Tick” if the number is even. Display the word “Tock” if the number is odd.");
-                infolist.Add("Ask the user for an x value and a y value. These are coordinates of the enemy relative to the watchtower’s location.\nUsing the image provided, write if statements and relational operators, and also display a message about what direction the enemy is coming from.");
-                infolist.Add("Build a program that will show a menu.\nAsk the user to enter number from the menu.\nMust use switches.\n(The next part is to ask for the name and if the user types in my name, then cut the price by half. I just did it all in 1)");
-            };
-
-            if (inputNumber >= infolist.Count)
-            {
-                Console.ForegroundColor= ConsoleColor.DarkRed;
-                Console.WriteLine("We don't have that number. press enter if you understand.");
-                Console.ReadLine();
-                Console.ResetColor();
-                methodInfoGoBack = true;
-                Main();
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Ambrose Crowley: I knew it was you Haha.. enjoy your 50% discount!");
             }
             else
             {
-                selectedInfoNumber = infolist[inputNumber];
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Ambrose Crowley: Ah, ok.. nevermind. thought you someone else.");
+                knowsName = false;
+            }
 
-                Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.ResetColor();
+            Console.WriteLine("\nPress enter to continue...");
+            Console.ReadLine();
 
-                Console.WriteLine("************************************************************************************************************************************************************************************");
-                Console.WriteLine($"OBJECTIVE(S):\n\n{selectedInfoNumber}\n");
-                Console.WriteLine("************************************************************************************************************************************************************************************\n");
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($"Ambrose Crowley: So what can I get for you {name}?\n");
+            Console.ResetColor();
+
+            Console.WriteLine("1) Liquid flask of Immortality");
+            Console.WriteLine("2) Book of all things demons");
+            Console.WriteLine("3) The Holy Grail");
+            Console.WriteLine("4) Dating Software-Engineers for dummies");
+            Console.WriteLine("5) Half-Life 3 (PC)");
+            Console.WriteLine("6) A Large purple Dildo");
+            Console.WriteLine("7) A Fanny-pack");
+
+            choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    itemPrice += 1000000000000;
+                    break;
+                case "2":
+                    itemPrice += 180;
+                    break;
+                case "3":
+                    itemPrice += 350000000000;
+                    break;
+                case "4":
+                    itemPrice += 34;
+                    break;
+                case "5":
+                    itemPrice += 80;
+                    break;
+                case "6":
+                    itemPrice += 40;
+                    break;
+                case "7":
+                    itemPrice += 13;
+                    break;
+
+                default:
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Ambrose Crowley: You must be drunk... get out of my store!");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    drunk = true;
+                    break;
+            }
+
+            if (drunk == true)
+            {
+                Logicfile.GoAgainNotice();
+            }
+            else if (drunk == false)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+
+                if (knowsName) { itemPrice /= 2; }
+
+                Console.WriteLine($"Ambrose Crowley: So that will cost you ${itemPrice} freedom dollars.");
                 Console.ResetColor();
-                Console.ForegroundColor = ConsoleColor.DarkCyan;
-
-                Console.WriteLine("Would you like to check out a different task?\n");
-
-                Console.WriteLine("1) Yes");
-                Console.WriteLine("2) No");
-
-                input = Console.ReadLine();
-
-                if (input == "1")
-                {
-                    methodInfoGoBack = true;
-                    Main();
-                }
-                else if (input == "2")
-                {
-                    Console.ResetColor();
-                    methodInfoGoBack = false;
-                    Main();
-                }
-                else
-                {
-                    InvalidInput();
-                    methodInfoGoBack = true;
-                    Main();
-                }
+                Logicfile.GoAgainNotice();
             }
         }
-    }
-
-    public static string selectedInsult;
-    public static string selectedInsultWord;
-    public static void InvalidInput()
-    {
-        Console.ForegroundColor = ConsoleColor.DarkRed;
-
-        List<string> insultList = new List<string>();
-        {
-            insultList.Add("Are you retarded? we don't have that input!");
-            insultList.Add("Do we have that input? ... NO YOU F*CKING MORON!");
-            insultList.Add("WE. DO. NOT. HAVE. THAT. INPUT.");
-            insultList.Add("Are you blind? there is no input for that!");
-            insultList.Add("LOOK ON THE SCREEN. THERE IS NO INPUT FOR THAT!");
-            insultList.Add("Yo, you trippin'? cuz we don't got that input!");
-            insultList.Add("Wrong input, please try again - or don't, because you don't know how to read clearly.");
-            insultList.Add("Hot damn! we don't have an input for that, try again!");
-            insultList.Add("Holy. S*IT. DO YOU NOT KNOW HOW TO READ!? WRONG INPUT, TRY AGAIN!");
-            insultList.Add("If you type in the wrong input again, I'll find you and BREAK YOU. TRY AGAIN.");
-            insultList.Add("Did your Momma ever teach how to read? WRONG F*CKING INPUT!");
-            insultList.Add("WRRROONNG INNNNNPPPPUUUUUUUUUUUTTTTTTTTTTTTTTTTTTTTT.");
-            insultList.Add("NO NO NO NO NO. WE HAVE NO GOD DAMN INPUTS FOR THAT!");
-        };
-        List<string> insultWordList = new List<string>();
-        {
-            insultWordList.Add("bozo");
-            insultWordList.Add("dimwit");
-            insultWordList.Add("idiot");
-            insultWordList.Add("dumbass");
-            insultWordList.Add("retard");
-            insultWordList.Add("asshat");
-            insultWordList.Add("spastic");
-            insultWordList.Add("cunt");
-            insultWordList.Add("disappointment");
-            insultWordList.Add("mistake");
-            insultWordList.Add("fucknut");
-            insultWordList.Add("pigdog");
-            insultWordList.Add("fucktard");
-            insultWordList.Add("wanker");
-            insultWordList.Add("dingus");
-            insultWordList.Add("pissant");
-            insultWordList.Add("shithead");
-            insultWordList.Add("dickbutt");
-            insultWordList.Add("twatbasket");
-            insultWordList.Add("meatball");
-            insultWordList.Add("dirtbag");
-            insultWordList.Add("asswipe");
-            insultWordList.Add("moron");
-            insultWordList.Add("douchenozzle");
-            insultWordList.Add("idget");
-            insultWordList.Add("douchewagon");
-            insultWordList.Add("slut");
-            insultWordList.Add("dickwaffle");
-            insultWordList.Add("wafflecunt");
-            insultWordList.Add("dickbag");
-            insultWordList.Add("weiner");
-            insultWordList.Add("dink");
-            insultWordList.Add("srub");
-            insultWordList.Add("dickweed");
-            insultWordList.Add("loser");
-            insultWordList.Add("knobhead");
-            insultWordList.Add("slutsaurus");
-            insultWordList.Add("rat");
-            insultWordList.Add("assclown");
-            insultWordList.Add("dickbreath");
-            insultWordList.Add("turd");
-            insultWordList.Add("ballwasher");
-            insultWordList.Add("dicknugget");
-            insultWordList.Add("fucknugget");
-            insultWordList.Add("assgoblin");
-            insultWordList.Add("dumbfuck");
-        };
-
-        Random rando = new Random();
-        Random randoWord = new Random();
-
-        int selector = rando.Next(insultList.Count);
-        int selectorInsultWord = rando.Next(insultWordList.Count);
-
-        selectedInsult = insultList[selector];
-        selectedInsultWord = insultWordList[selectorInsultWord];
-
-        Console.WriteLine($"\n{selectedInsult}\n");
-        Console.WriteLine($"Press enter if you understand... you {selectedInsultWord}.");
-        Console.ReadLine();
-        Console.ResetColor();
-    }
-
-    public static void EndMethodNotice()
-    {
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("\n*************************************************************");
-        Console.WriteLine("*** End of task. please press enter to exit current task. ***");
-        Console.WriteLine("*************************************************************");
-        Console.ReadLine();
-        Console.ResetColor();
-        Main();
     }
 }
