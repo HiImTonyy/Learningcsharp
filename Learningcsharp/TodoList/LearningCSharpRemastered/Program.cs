@@ -31,6 +31,7 @@ class Program
             Console.WriteLine("11) The Shop Menu");
             Console.WriteLine("12) Guessing number with loop");
             Console.WriteLine("13) The Magic Cannon (using a loop and remainder)"); // no idea what to call this one.
+            Console.WriteLine("14) Using an array and copying user input into another array.");
 
             if (Logicfile.methodInfoGoBack)
                 Logicfile.MethodInfo();
@@ -81,6 +82,9 @@ class Program
                     break;
                 case "13":
                     MagicCannon();
+                    break;
+                case "14":
+                    AnArray();
                     break;
                 case "info":
                     Logicfile.MethodInfo();
@@ -672,5 +676,37 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             }
             Logicfile.GoAgainNotice();
         }
+    }
+
+    static void AnArray()
+    {
+        int[] array = new int[5];
+        int[] copiedArray = new int[5];
+        int numberCountdown = 5;
+        int userNumber;
+        int arraySelector = 0;
+
+        while (numberCountdown > 0)
+        {
+            Console.Clear();
+            Console.WriteLine($"Enter a number. {numberCountdown} to go.\n");
+
+            userNumber = Convert.ToInt32(Console.ReadLine());
+            array[arraySelector] = userNumber;
+            numberCountdown--;
+            arraySelector++;
+        }
+        Console.Clear();
+
+        copiedArray = array;
+        for (int i = 0; i < copiedArray.Length; i++)
+        {
+            Console.WriteLine("MAIN ARRAY");
+            Console.WriteLine(array[i]);
+            Console.WriteLine("COPIED ARRAY");
+            Console.WriteLine(copiedArray[i]);
+            Console.ReadLine();
+        }
+        Logicfile.EndMethodNotice();
     }
 }
