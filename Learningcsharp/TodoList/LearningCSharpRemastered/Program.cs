@@ -33,6 +33,7 @@ class Program
             Console.WriteLine("13) The Magic Cannon (using a loop and remainder)"); // no idea what to call this one.
             Console.WriteLine("14) Using an array and copying user input into another array.");
             Console.WriteLine("15) Change for loop to foreach loop.");
+            Console.WriteLine("16) Working with parameters");
             if (Logicfile.methodInfoGoBack)
                 Logicfile.MethodInfo();
             string input = Console.ReadLine().ToLower();
@@ -88,6 +89,9 @@ class Program
                     break;
                 case "15":
                     ForEach();
+                    break;
+                case "16":
+                    NumberTest();
                     break;
                 case "info":
                     Logicfile.MethodInfo();
@@ -733,4 +737,31 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         float averagee = (float)total / array.Length;
         Console.WriteLine(average);
     }
+
+    public static void NumberTest()
+    {
+        int result = AskForNumber("How many genders are there?");
+
+        if (result == 2)
+        {
+            Console.WriteLine("Correct!");
+            Logicfile.EndMethodNotice();
+        }
+        else
+        {
+            Console.WriteLine("You're pretty stupid, aren't you?");
+            Logicfile.EndMethodNotice();
+        }
+    }
+
+    public static int AskForNumber(string text)
+    {
+        Console.Clear();
+        Console.WriteLine($"{text}\n");
+
+        int number = Convert.ToInt32(Console.ReadLine());
+        Console.Clear();
+        return number;
+    }
 }
+
