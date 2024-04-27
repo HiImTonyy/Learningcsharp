@@ -34,14 +34,12 @@ class Program
             Console.WriteLine("14) Using an array and copying user input into another array.");
             Console.WriteLine("15) Change for loop to foreach loop.");
             Console.WriteLine("16) Working with parameters");
+            Console.WriteLine("17) Counting down from 10 using Recursive Method");
             if (Logicfile.methodInfoGoBack)
                 Logicfile.MethodInfo();
             string input = Console.ReadLine().ToLower();
             switch (input)
             {
-                case "test":
-                    Logicfile.GoAgainNotice();
-                    break;
                 case "0":
                     HelloWorld();
                     break;
@@ -92,6 +90,9 @@ class Program
                     break;
                 case "16":
                     NumberTest();
+                    break;
+                case "17":
+                    Recursive();
                     break;
                 case "info":
                     Logicfile.MethodInfo();
@@ -161,7 +162,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
 
         Console.WriteLine("BEFORE");
         Console.WriteLine("======");
-        Console.WriteLine(code+"\n");
+        Console.WriteLine(code + "\n");
 
         Console.WriteLine("AFTER");
         Console.WriteLine("======");
@@ -224,20 +225,20 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         Console.WriteLine("\nPress enter to continue...");
         Console.ReadLine();
 
-         aChar = 'z';
-         aString = "Nothin' like drinking a large triple-triple from Tim Hortons and eating a Breakfest-sausage bagle at 3AM";
-         aSbyte = 000;
-         aByte = 98;
-         aShort = -9010;
-         aUshort = 1895;
-         aInt = 195_000;
-         aUint = 830_140;
-         aLong = 75_010_230;
-         aUlong = 10_203_050_100_000;
-         aFloat = 165.5f;
-         aDouble = 200.91;
-         aDecmial = 1099.1927830m;
-         aBool = false;
+        aChar = 'z';
+        aString = "Nothin' like drinking a large triple-triple from Tim Hortons and eating a Breakfest-sausage bagle at 3AM";
+        aSbyte = 000;
+        aByte = 98;
+        aShort = -9010;
+        aUshort = 1895;
+        aInt = 195_000;
+        aUint = 830_140;
+        aLong = 75_010_230;
+        aUlong = 10_203_050_100_000;
+        aFloat = 165.5f;
+        aDouble = 200.91;
+        aDecmial = 1099.1927830m;
+        aBool = false;
 
         Console.WriteLine("Char: " + aChar);
         Console.WriteLine("String: " + aString);
@@ -280,7 +281,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
 
     static void Remainder()
     {
-        while(true)
+        while (true)
         {
             int eggsCollected;
             int eggsRemainder;
@@ -302,7 +303,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
 
     static void ThreeKings()
     {
-        while(true)
+        while (true)
         {
             int estateAmount;
             int duchyAmount;
@@ -334,7 +335,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
 
     static void TheDefense()
     {
-        while(true)
+        while (true)
         {
             Console.Title = "Defense of Consolas";
             int row;
@@ -384,7 +385,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
 
     static void TickTock()
     {
-        while(true)
+        while (true)
         {
             int number = 0;
 
@@ -406,7 +407,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
 
     static void Watchtower()
     {
-        while(true)
+        while (true)
         {
             int xValue;
             int yValue;
@@ -463,7 +464,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
 
     static void TheShop()
     {
-        while(true)
+        while (true)
         {
             long itemPrice = 0;
             bool knowsName = true;
@@ -602,7 +603,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
 
     static void MagicCannon()
     {
-        while(true)
+        while (true)
         {
             int userNumber;
             int x = 0;
@@ -622,7 +623,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                 }
                 else if (x % 3 == 0)
                 {
-                    Console.ForegroundColor= ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"{x}.Fire");
                     Console.WriteLine("--------------------");
                     Console.ResetColor();
@@ -698,7 +699,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         Console.WriteLine(average);
     }
 
-    public static void NumberTest()
+    static void NumberTest()
     {
         Console.Clear();
         int result = Logicfile.AskForNumber("How many genders are there?");
@@ -714,5 +715,19 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             Logicfile.EndMethodNotice();
         }
     }
-}
 
+    public static int recursiveInt = 11;
+
+    static void Recursive()
+    {
+        recursiveInt--;
+
+        if (recursiveInt >= 1)
+        {
+            Console.WriteLine("------");
+            Console.WriteLine($"{recursiveInt}");
+        }
+        else Logicfile.EndMethodNotice();
+        Recursive();
+    }
+}

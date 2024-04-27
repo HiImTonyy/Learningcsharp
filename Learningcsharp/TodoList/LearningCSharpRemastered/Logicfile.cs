@@ -42,9 +42,10 @@ namespace LearningCSharpRemastered
                     infolist.Add("Make a program that creates an array of length 5.\nAsk the user for five numbers and put them in the array.\nMake a second array of length 5.Use a loop to copy the values out of the original array and into the new one.\nDisplay the contents of both arrays one at a time.");
                     infolist.Add("Start with the code that computes an array’s minimum and average values.\nModify the code to use foreach loops instead of for loops\n(you'll have to look at the actual code to see the difference)");
                     infolist.Add("Make a method with the signature int AskForNumber(string text). Display the text parameter in the console window, get a response from the user, convert it to an int, and return it.\nMake a method with the signature int AskForNumberInRange(string text, int min, int max). Only return if the entered number is between the min and max values. Otherwise, ask again.");
+                    infolist.Add("Write code that counts down from 10 to 1 using a recursive method.");
                 };
 
-                if (inputNumber >= infolist.Count)
+                if (inputNumber >= infolist.Count || inputNumber < 0)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("We don't have that number. press enter if you understand.");
