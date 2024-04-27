@@ -194,16 +194,35 @@ namespace LearningCSharpRemastered
         public static void GoAgainNotice()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\nWould you like to go again?");
+            int result = Logicfile.AskForNumber("\nWould you like to go again?\n1) Yes\n2) No");
 
-            Console.WriteLine("1) Yes");
-            Console.WriteLine("2) No");
-
-            string userChoice = Console.ReadLine();
-            Console.ResetColor();
-
-            if (userChoice == "1") ;
+            if (result == 1) Console.ResetColor();
             else Program.Main();
+        }
+
+        public static int AskForNumber(string text)
+        {
+            while (true)
+            {
+                int number;
+
+                Console.WriteLine($"{text}\n");
+
+                string stringNumber = Console.ReadLine();
+
+                bool isString =! int.TryParse(stringNumber, out number);
+
+                if (isString)
+                {
+                    Logicfile.InvalidInput();
+                    Console.Clear();
+                }
+                else
+                {
+                    Console.Clear();
+                    return number;
+                }
+            }
         }
     }
 }

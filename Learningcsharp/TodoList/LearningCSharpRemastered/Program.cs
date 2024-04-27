@@ -9,7 +9,7 @@ class Program
         Logicfile instance = new Logicfile();
         while (true)
         {
-
+            Console.ResetColor();
             Console.Clear();
             Console.SetWindowSize(180, 51);
             Console.WriteLine("Hey dude, what task do you wanna check out?");
@@ -265,16 +265,10 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             int triangleBase;
             int triangleHeight;
 
-            Console.WriteLine("Type in the base of your triangle.\n");
-
-            string triangleBaseText = Console.ReadLine();
-            triangleBase = Convert.ToInt32(triangleBaseText);
+            triangleBase = Logicfile.AskForNumber("Enter the base of the triangle.");
 
             Console.Clear();
-            Console.WriteLine("Now type in the height of your triangle.\n");
-
-            string triangleHeightText = Console.ReadLine();
-            triangleHeight = Convert.ToInt32(triangleHeightText);
+            triangleHeight = Logicfile.AskForNumber("Now type in the height of your traingle.");
 
             Console.Clear();
             triangleArea = (triangleBase * triangleHeight) / 2f;
@@ -293,17 +287,14 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             int sistersEggCount;
 
             Console.Clear();
-            Console.WriteLine("How many eggs did you collect today?\n");
-
-            string eggsCollectedText = Console.ReadLine();
-            eggsCollected = Convert.ToInt32(eggsCollectedText);
+            eggsCollected = Logicfile.AskForNumber("How many eggs did you collect today?");
 
             sistersEggCount = eggsCollected / 3;
             eggsRemainder = eggsCollected % 3;
 
 
             Console.WriteLine("You collected " + eggsCollected);
-            Console.WriteLine("Each of the 3 sister will recieve " + sistersEggCount);
+            Console.WriteLine("Each of the 3 sisters will recieve " + sistersEggCount);
             Console.WriteLine("The remainder is " + eggsRemainder + ". So their pet will just recieve " + eggsRemainder);
             Logicfile.GoAgainNotice();
         }
@@ -316,26 +307,17 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             int estateAmount;
             int duchyAmount;
             int provinceAmount;
-            int duchyPoints = 0;
-            int provincePoints = 0;
-            int totalPoints = 0;
+            int duchyPoints;
+            int provincePoints;
+            int totalPoints;
 
             Console.Clear();
-            Console.WriteLine("How many Estates do you have?\n");
+            estateAmount = Logicfile.AskForNumber("How many Estates do you have?");
 
-            string estateAmountText = Console.ReadLine();
-            estateAmount = Convert.ToInt32(estateAmountText);
-
-            Console.WriteLine("How many Duchies do you have?");
-
-            string duchyAmountText = Console.ReadLine();
-            duchyAmount = Convert.ToInt32(duchyAmountText);
+            duchyAmount = Logicfile.AskForNumber("How many Duchies do you have?");
             duchyPoints = duchyAmount * 3;
 
-            Console.WriteLine("How many Provinces do you have?\n");
-
-            string provinceAmountText = Console.ReadLine();
-            provinceAmount = Convert.ToInt32(provinceAmountText);
+            provinceAmount = Logicfile.AskForNumber("How many Provinces do you have?");
             provincePoints = provinceAmount * 6;
 
             totalPoints = provincePoints + duchyPoints + estateAmount;
@@ -372,13 +354,9 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             Console.WriteLine("2 X X X X X X X");
             Console.WriteLine("1 2 3 4 5 6 7 8\n");
 
-            Console.WriteLine("Sir, what is the target row?");
-            string rowText = Console.ReadLine();
-            row = Convert.ToInt32(rowText);
+            row = Logicfile.AskForNumber("Sir, what is the target row?");
 
-            Console.WriteLine("And what about the target column?");
-            string columnText = Console.ReadLine();
-            column = Convert.ToInt32(columnText);
+            column = Logicfile.AskForNumber("And what about the target column?");
 
             Console.WriteLine("You heard the boss!\n");
 
@@ -411,10 +389,8 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             int number = 0;
 
             Console.Clear();
-            Console.WriteLine("Enter a number.\n");
 
-            string numberText = Console.ReadLine();
-            number = Convert.ToInt32(numberText);
+            number = Logicfile.AskForNumber("Enter a number...");
 
             if (number % 2 == 0)
             {
@@ -441,13 +417,9 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             Console.WriteLine("y=0  W     !    E");
             Console.WriteLine("y<0  SW    S    SE\n");
 
-            Console.WriteLine("Enter the X value.");
-            string xValueText = Console.ReadLine();
-            xValue = Convert.ToInt32(xValueText);
+            xValue = Logicfile.AskForNumber("Enter the X value.");
 
-            Console.WriteLine("Now enter the Y value.");
-            string yValueText = Console.ReadLine();
-            yValue = Convert.ToInt32(yValueText);
+            yValue = Logicfile.AskForNumber("Now enter the Y value.");
 
             if (xValue < 0 && yValue > 0)
             {
@@ -599,34 +571,26 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             do
             {
                 Console.Clear();
-                Console.Write("Hey Pilot, enter a number between 1 and 100\n");
-
-                string userNumberText = Console.ReadLine();
-                userNumber = Convert.ToInt32(userNumberText);
+                userNumber = Logicfile.AskForNumber("Hey Pilot, enter a numbet between 1 and 100.");
                 Console.Clear();
             }
             while (userNumber <= 0 || userNumber >= 101);
 
             do
             {
-                Console.WriteLine("Alright Hunter, Guess the number.\n");
-
-                string userGuessText = Console.ReadLine();
-                userGuess = Convert.ToInt32(userGuessText);
+                userGuess = Logicfile.AskForNumber("Alright Hunter, Guess the number.");
 
                 if (userGuess > userNumber)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("\nToo high!");
+                    Console.WriteLine("Too high!\n");
                     Console.ResetColor();
-                    Console.WriteLine("---------");
                 }
                 else if (userGuess < userNumber)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkCyan;
-                    Console.WriteLine("\nToo low!");
+                    Console.WriteLine("Too low!\n");
                     Console.ResetColor();
-                    Console.WriteLine("---------");
                 }
             } while (userGuess != userNumber);
 
@@ -644,10 +608,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             int x = 0;
             Console.Clear();
 
-            Console.WriteLine("How high of a number do you want to check the Magic Cannon for?\n");
-
-            string userNumberText = Console.ReadLine();
-            userNumber = Convert.ToInt32(userNumberText);
+            userNumber = Logicfile.AskForNumber("How high of a number do you want to check the Magic Cannon for?");
 
             Console.Clear();
             for (x = 1; x <= userNumber; x++)
@@ -696,9 +657,8 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         while (numberCountdown > 0)
         {
             Console.Clear();
-            Console.WriteLine($"Enter a number. {numberCountdown} to go.\n");
 
-            userNumber = Convert.ToInt32(Console.ReadLine());
+            userNumber = Logicfile.AskForNumber($"Enter a number. {numberCountdown} to go.");
             array[arraySelector] = userNumber;
             numberCountdown--;
             arraySelector++;
@@ -740,7 +700,8 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
 
     public static void NumberTest()
     {
-        int result = AskForNumber("How many genders are there?");
+        Console.Clear();
+        int result = Logicfile.AskForNumber("How many genders are there?");
 
         if (result == 2)
         {
@@ -752,16 +713,6 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             Console.WriteLine("You're pretty stupid, aren't you?");
             Logicfile.EndMethodNotice();
         }
-    }
-
-    public static int AskForNumber(string text)
-    {
-        Console.Clear();
-        Console.WriteLine($"{text}\n");
-
-        int number = Convert.ToInt32(Console.ReadLine());
-        Console.Clear();
-        return number;
     }
 }
 
