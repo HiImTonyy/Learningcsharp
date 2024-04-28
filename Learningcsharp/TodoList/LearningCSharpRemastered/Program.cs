@@ -35,6 +35,7 @@ class Program
             Console.WriteLine("15) Change for loop to foreach loop.");
             Console.WriteLine("16) Working with parameters");
             Console.WriteLine("17) Counting down from 10 using Recursive Method");
+            Console.WriteLine("18) (Boss) Hunting the Manticore");
             if (Logicfile.methodInfoGoBack)
                 Logicfile.MethodInfo();
             string input = Console.ReadLine().ToLower();
@@ -93,6 +94,9 @@ class Program
                     break;
                 case "17":
                     Recursive();
+                    break;
+                case "18":
+                    TheManticore();
                     break;
                 case "info":
                     Logicfile.MethodInfo();
@@ -729,5 +733,119 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         }
         else Logicfile.EndMethodNotice();
         Recursive();
+    }
+
+    static int manticoreLocation;
+    static int round = 1;
+    static int cityHP = 15;
+    static int cityMaxHP = 15;
+    static int manticoreHP = 10;
+    static int manticoreMaxHP = 10;
+    static int manticoreDamage = 1;
+    static int userRange;
+    static int cannonDamage = 1;
+    static string textUserRange = "- oh, You haven't fired yet.";
+
+    static void TheManticore()
+    {
+        while (true)
+        {
+            Console.Clear();
+            manticoreLocation = Logicfile.AskForNumber("Player 1, how far away do you want to station the Manticore?");
+            Console.Clear();
+            ManticoreBattleScreen();
+
+            static void ManticoreBattleScreen()
+            {
+                while (manticoreHP > 0 && cityHP > 0)
+                {
+                    Console.WriteLine($"Round:{round} | CityHP: {cityHP}/{cityMaxHP} | ManticoreHP: {manticoreHP}/{manticoreMaxHP}");
+                    Console.WriteLine($"The cannon will deal {cannonDamage} damage this round.");
+                    userRange = Logicfile.AskForNumber("\nEnter Cannon range.");
+                    CannonRangeInfo();
+
+                    ManticoreCalculation();
+                }
+                ManticoreEndScreen();
+            }
+
+            static void CannonRangeInfo()
+            {
+                if (userRange > manticoreLocation)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    textUserRange = "too high";
+                }
+                else if (userRange < manticoreLocation)
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    textUserRange = "too low";
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    textUserRange = "a hit!";
+                    manticoreHP -= cannonDamage;
+                }
+                Console.WriteLine($"That shot was {textUserRange}!");
+                Console.ResetColor();
+            }
+
+
+            static void ManticoreEndScreen()
+            {
+                if (manticoreHP <= 0 && cityHP <= 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("==========================");
+                    Console.WriteLine("\nOh.. well that wasn't supposed to happen. I guess we both lose.");
+                }
+                else if (manticoreHP <= 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("==========================");
+                    Console.WriteLine("\nWe defeated the Manticore!!!");
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("==========================");
+                    Console.WriteLine("\nWE LOST! GOD, YOUR A STUPID IDIOT! YOU DOOMED US ALL!!!!");
+                }
+
+
+                 manticoreLocation = 0;
+                 round = 1;
+                 cityHP = 15;
+                 cityMaxHP = 15;
+                 manticoreHP = 10;
+                 manticoreMaxHP = 10;
+                 manticoreDamage = 1;
+                 userRange = 0;
+                 cannonDamage = 1;
+                 textUserRange = "- oh, You haven't fired yet.";
+
+                Logicfile.GoAgainNotice();
+            }
+
+            static void ManticoreCalculation()
+            {
+                round++;
+                cityHP -= manticoreDamage;
+
+                if (round % 3 == 0 && round % 5 == 0)
+                {
+                    cannonDamage = 10;
+                }
+                else if (round % 3 == 0 || round % 5 == 0)
+                {
+                    cannonDamage = 3;
+                }
+                else
+                {
+                    cannonDamage = 1;
+                }
+            }
+        }
     }
 }
