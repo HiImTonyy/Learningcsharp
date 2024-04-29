@@ -36,6 +36,7 @@ class Program
             Console.WriteLine("16) Working with parameters");
             Console.WriteLine("17) Counting down from 10 using Recursive Method");
             Console.WriteLine("18) (Boss) Hunting the Manticore");
+            Console.WriteLine("19) Using Enums to switch between states");
             if (Logicfile.methodInfoGoBack)
                 Logicfile.MethodInfo();
             string input = Console.ReadLine().ToLower();
@@ -97,6 +98,9 @@ class Program
                     break;
                 case "18":
                     TheManticore();
+                    break;
+                case "19":
+                    EnumStates();
                     break;
                 case "info":
                     Logicfile.MethodInfo();
@@ -735,6 +739,8 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         Recursive();
     }
 
+    // ---------------------------------------- START OF MANTICORE BOSS ----------------------------------------
+
     static int manticoreLocation;
     static int round = 1;
     static int cityHP = 15;
@@ -845,6 +851,50 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                 {
                     cannonDamage = 1;
                 }
+            }
+        }
+        // ---------------------------------------- END OF MANTICORE BOSS ----------------------------------------
+    }
+
+    static void EnumStates()
+    {
+        Logicfile.Treasure TreasureState = Logicfile.Treasure.open;
+        string treasureState = "open";
+        string input;
+        string errorMessage = "";
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine("NOTE: you can type in open, close, lock, unlock - depending on current state of the chest)\n");
+        Console.ResetColor();
+        while (true)
+        {
+            Console.WriteLine($"The chest is {treasureState}. What do you wanna do?");
+
+            input = Console.ReadLine().ToLower();
+
+            if (input == "close" && TreasureState == Logicfile.Treasure.open)
+            {
+                treasureState = "closed";
+                TreasureState = Logicfile.Treasure.closed;
+            }
+            else if (input == "lock" && TreasureState == Logicfile.Treasure.closed)
+            {
+                treasureState = "locked";
+                TreasureState = Logicfile.Treasure.locked;
+            }
+            else if (input == "unlock" && TreasureState == Logicfile.Treasure.locked)
+            {
+                treasureState = "closed";
+                TreasureState = Logicfile.Treasure.closed;
+            }
+            else if (input == "open" && TreasureState == Logicfile.Treasure.closed)
+            {
+                treasureState = "opened";
+                TreasureState = Logicfile.Treasure.open;
+            }
+            else
+            {
+                Logicfile.InvalidInput();
             }
         }
     }
