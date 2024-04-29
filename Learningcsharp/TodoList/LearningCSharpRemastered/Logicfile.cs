@@ -45,6 +45,7 @@ namespace LearningCSharpRemastered
                     infolist.Add("Write code that counts down from 10 to 1 using a recursive method.");
                     infolist.Add("Establish the game’s starting state: the Manticore begins with 10 health points and the city with 15. The game starts at round 1.\nAsk the first player to choose the Manticore’s distance from the city (0 to 100). Clear the screen afterward.\nRun the game in a loop until either the Manticore’s or city’s health reaches 0.\nBefore the second player’s turn, display the round number, the city’s health, and the Manticore’s health.\nCompute how much damage the cannon will deal this round: 10 points if the round number is a\r\nmultiple of both 3 and 5, 3 if it is a multiple of 3 or 5 (but not both), and 1 otherwise. Display this to the player.\nGet a target range from the second player, and resolve its effect. Tell the user if they overshot (too\r\nfar), fell short, or hit the Manticore. If it was a hit, reduce the Manticore’s health by the expected amount.\nIf the Manticore is still alive, reduce the city’s health by 1.\nAdvance to the next round.\nWhen the Manticore or the city’s health reaches 0, end the game and display the outcome\nUse different colors for different types of messages.");
                     infolist.Add("Define an enumeration for the state of the chest.\nMake a variable whose type is this new enumeration.\nWrite code to allow you to manipulate the chest with the lock, unlock, open, and close\r\ncommands, but ensure that you don’t transition between states that don’t support it.\nLoop forever, asking for the next command.");
+                    infolist.Add("Define enumerations for the three variations on food: type (soup, stew, gumbo), main ingredient (mushrooms, chicken, carrots, potatoes), and seasoning (spicy, salty, sweet).\nMake a tuple variable to represent a soup composed of the three above enumeration types.\nLet the user pick a type, main ingredient, and seasoning from the allowed choices and fill the tuple with the results.\nWhen done, display the contents of the soup tuple variable in a format like “Sweet Chicken Gumbo.");
                 };
 
                 if (inputNumber >= infolist.Count || inputNumber < 0)
@@ -229,5 +230,9 @@ namespace LearningCSharpRemastered
         }
 
         public enum Treasure {open, closed, locked, unlocked}
+        public enum EnumType {soup = 1, stew, gumbo}
+        public enum EnumIngredient {mushroom = 1, chicken, carrots, potatos}
+        public enum EnumSeasoning { Spicy = 1, Salty, Sweet}
+
     }
 }

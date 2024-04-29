@@ -37,6 +37,7 @@ class Program
             Console.WriteLine("17) Counting down from 10 using Recursive Method");
             Console.WriteLine("18) (Boss) Hunting the Manticore");
             Console.WriteLine("19) Using Enums to switch between states");
+            Console.WriteLine("20) Tuple Soup");
             if (Logicfile.methodInfoGoBack)
                 Logicfile.MethodInfo();
             string input = Console.ReadLine().ToLower();
@@ -101,6 +102,9 @@ class Program
                     break;
                 case "19":
                     EnumStates();
+                    break;
+                case "20":
+                    TupleSoup();
                     break;
                 case "info":
                     Logicfile.MethodInfo();
@@ -896,6 +900,23 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             {
                 Logicfile.InvalidInput();
             }
+        }
+    }
+
+    static void TupleSoup()
+    {
+        (Logicfile.EnumType Type, Logicfile.EnumIngredient Ingredient, Logicfile.EnumSeasoning Seasoning) soup;
+        Console.Clear();
+        while (true)
+        {
+            soup.Type = (Logicfile.EnumType)Logicfile.AskForNumber("Select a soup type.\n1) Soup\n2) Stew\n3) Gumbo");
+            Console.Clear();
+            soup.Ingredient = (Logicfile.EnumIngredient)Logicfile.AskForNumber("Select an ingredient.\n1) Mushroom\n2) Chicken\n3) Carros\n4) Potatos");
+            Console.Clear();
+            soup.Seasoning = (Logicfile.EnumSeasoning)Logicfile.AskForNumber("Select a seasoning.\n1) Spicy\n2) Salty\n3) Sweet");
+            Console.Clear();
+            Console.WriteLine($"Cool, you made yourself a {soup.Seasoning} {soup.Ingredient} {soup.Type}");
+            Logicfile.GoAgainNotice();
         }
     }
 }
