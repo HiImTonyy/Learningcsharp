@@ -37,7 +37,10 @@ class Program
             Console.WriteLine("17) Counting down from 10 using Recursive Method");
             Console.WriteLine("18) (Boss) Hunting the Manticore");
             Console.WriteLine("19) Using Enums to switch between states");
-            Console.WriteLine("20) Tuple Soup");
+            Console.WriteLine("20) Tuple Soup\n");
+
+            Console.WriteLine("99) Games");
+            Console.ResetColor();
             if (Logicfile.methodInfoGoBack)
                 Logicfile.MethodInfo();
             string input = Console.ReadLine().ToLower();
@@ -105,6 +108,10 @@ class Program
                     break;
                 case "20":
                     TupleSoup();
+                    break;
+
+                case "99":
+                    Games.Menu();
                     break;
                 case "info":
                     Logicfile.MethodInfo();
