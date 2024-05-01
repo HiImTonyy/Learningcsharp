@@ -39,7 +39,6 @@ class Program
             Console.WriteLine("19) Using Enums to switch between states");
             Console.WriteLine("20) Tuple Soup\n");
 
-            Console.WriteLine("99) Games");
             Console.ResetColor();
             if (Logicfile.methodInfoGoBack)
                 Logicfile.MethodInfo();
@@ -110,9 +109,6 @@ class Program
                     TupleSoup();
                     break;
 
-                case "99":
-                    Games.Menu();
-                    break;
                 case "info":
                     Logicfile.MethodInfo();
                     break;
