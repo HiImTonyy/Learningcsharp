@@ -927,15 +927,14 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         }
     }
 
-    static void Arrows()
+     static void Arrows()
     {
         int input = 0;
         Console.Clear();
         while(true)
         {
+            Arrow.Arrowhead selectedArrowhead = Arrow.Arrowhead.steel;
             Logicfile.AskForNumber("What type of Arrowhead do you want?\n1) Steel | 10 Gold\n2) Wood | 3 Gold\n3) Obsidian | 5 Gold");
-
-            Arrow. selectedArrowhead;
 
            switch (input)
             {
@@ -950,20 +949,19 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                         break;
             }
             Console.Clear();
+            Arrow.FletchingType selectedFletching = Arrow.FletchingType.plastic;
             input = Logicfile.AskForNumber("What type of fletching do you want?\n1) Plastic | 10 Gold\n2) Turkey Feathers | 5 Gold\n3) Goose Feathers | 3 Gold");
-
-            Arrow.Fletching selectedFletching;
 
             switch (input)
             {
                 case 1:
-                    selectedFletching = Arrow.Fletching.plastic;
+                    selectedFletching = Arrow.FletchingType.plastic;
                     break;
                 case 2:
-                    selectedFletching = Arrow.Fletching.turkey_feathers;
+                    selectedFletching = Arrow.FletchingType.turkey_feathers;
                     break;
                 case 3:
-                    selectedFletching = Arrow.Fletching.goose_feathers;
+                    selectedFletching = Arrow.FletchingType.goose_feathers;
                     break;
             }
             Console.Clear();
@@ -974,7 +972,12 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                 Logicfile.InvalidInput();
             }
 
+            float cost = Arrow.GetCost(length);
+
             Arrow spawnedArrow = new Arrow(selectedArrowhead, selectedFletching, length);
+
+            Console.WriteLine($"{selectedArrowhead} {selectedFletching} {cost}");
+            Console.ReadLine();
         }
     }
 }

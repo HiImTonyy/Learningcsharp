@@ -5,36 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LearningCSharpRemastered
-
 {
-
-    public enum Arrowhead { steel = 1, wood, obsidian }
-
-    public enum Fletching { plastic = 1, turkey_feathers, goose_feathers }
-    internal class Arrow(Arrowhead arrowheadType, Fletching fletchingType, int length)
+    public class Arrow
     {
+        public Arrowhead _arrowhead;
+        public FletchingType _fletching;
+        public float _arrowLength;
 
         public enum Arrowhead { steel = 1, wood, obsidian }
+        public enum FletchingType { plastic = 1, turkey_feathers, goose_feathers }
 
-        public enum Fletching { plastic = 1, turkey_feathers, goose_feathers }
-
-        public string _arrowheadType;
-        public string _fletchingType;
-        public int _length;
-        private Arrowhead selectedArrowhead;
-        private Fletching selectedFletching;
-        private float length;
-
-        public Arrow(Arrowhead selectedArrowhead, Fletching selectedFletching, float length)
+        public Arrow(Arrowhead arrowhead, FletchingType fletching, float length)
         {
-            this.selectedArrowhead = selectedArrowhead;
-            this.selectedFletching = selectedFletching;
-            this.length = length;
+            _arrowhead = arrowhead;
+            _fletching = fletching;
+            _arrowLength = length;
         }
 
-        public static void GetCost()
+        public static float GetCost(float number)
         {
-            
+            float cost = 0.05f * number;
+            return cost;
         }
     }
 }

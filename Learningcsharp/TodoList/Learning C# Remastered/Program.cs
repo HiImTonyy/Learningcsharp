@@ -1,4 +1,4 @@
-﻿using Learning_C__Remastered;
+﻿using Learning_C#Remastered;
 
 class Program
 {
