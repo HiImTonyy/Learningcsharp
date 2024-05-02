@@ -37,7 +37,8 @@ class Program
             Console.WriteLine("17) Counting down from 10 using Recursive Method");
             Console.WriteLine("18) (Boss) Hunting the Manticore");
             Console.WriteLine("19) Using Enums to switch between states");
-            Console.WriteLine("20) Tuple Soup\n");
+            Console.WriteLine("20) Tuple Soup");
+            Console.WriteLine("21) Using fields to create different Arrows\n");
 
             Console.ResetColor();
             if (Logicfile.methodInfoGoBack)
@@ -107,6 +108,9 @@ class Program
                     break;
                 case "20":
                     TupleSoup();
+                    break;
+                case "21":
+                    Arrows();
                     break;
 
                 case "info":
@@ -920,6 +924,57 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             Console.Clear();
             Console.WriteLine($"Cool, you made yourself a {soup.Seasoning} {soup.Ingredient} {soup.Type}");
             Logicfile.GoAgainNotice();
+        }
+    }
+
+    static void Arrows()
+    {
+        int input = 0;
+        Console.Clear();
+        while(true)
+        {
+            Logicfile.AskForNumber("What type of Arrowhead do you want?\n1) Steel | 10 Gold\n2) Wood | 3 Gold\n3) Obsidian | 5 Gold");
+
+            Arrow. selectedArrowhead;
+
+           switch (input)
+            {
+                case 1:
+                    selectedArrowhead = Arrow.Arrowhead.steel;
+                        break;
+                case 2:
+                    selectedArrowhead = Arrow.Arrowhead.wood;
+                        break;
+                case 3:
+                    selectedArrowhead = Arrow.Arrowhead.obsidian;
+                        break;
+            }
+            Console.Clear();
+            input = Logicfile.AskForNumber("What type of fletching do you want?\n1) Plastic | 10 Gold\n2) Turkey Feathers | 5 Gold\n3) Goose Feathers | 3 Gold");
+
+            Arrow.Fletching selectedFletching;
+
+            switch (input)
+            {
+                case 1:
+                    selectedFletching = Arrow.Fletching.plastic;
+                    break;
+                case 2:
+                    selectedFletching = Arrow.Fletching.turkey_feathers;
+                    break;
+                case 3:
+                    selectedFletching = Arrow.Fletching.goose_feathers;
+                    break;
+            }
+            Console.Clear();
+            float length = Convert.ToSingle(Logicfile.AskForNumber("How long do you want your arrow to be? (Must be between 60 and 100 CM and costs 0.20 Gold per CM)"));
+
+            if (length < 60 || length > 100)
+            {
+                Logicfile.InvalidInput();
+            }
+
+            Arrow spawnedArrow = new Arrow(selectedArrowhead, selectedFletching, length);
         }
     }
 }
