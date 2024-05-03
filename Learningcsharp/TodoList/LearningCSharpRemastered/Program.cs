@@ -927,26 +927,36 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         }
     }
 
-     static void Arrows()
+    static void Arrows()
     {
+        int headCost = 0;
+        int fletcherCost = 0;
+        float lengthCost = 0;
         int input = 0;
+        int gold = 0;
         Console.Clear();
-        while(true)
+        while (true)
         {
             Arrow.Arrowhead selectedArrowhead = Arrow.Arrowhead.steel;
-            Logicfile.AskForNumber("What type of Arrowhead do you want?\n1) Steel | 10 Gold\n2) Wood | 3 Gold\n3) Obsidian | 5 Gold");
+            input = Logicfile.AskForNumber("What type of Arrowhead do you want?\n1) Steel | 10 Gold\n2) Wood | 3 Gold\n3) Obsidian | 5 Gold");
 
-           switch (input)
+            switch (input)
             {
                 case 1:
                     selectedArrowhead = Arrow.Arrowhead.steel;
-                        break;
+                    gold += 10;
+                    headCost = 10;
+                    break;
                 case 2:
                     selectedArrowhead = Arrow.Arrowhead.wood;
-                        break;
+                    gold += 3;
+                    headCost = 3;
+                    break;
                 case 3:
                     selectedArrowhead = Arrow.Arrowhead.obsidian;
-                        break;
+                    gold += 5;
+                    headCost = 5;
+                    break;
             }
             Console.Clear();
             Arrow.FletchingType selectedFletching = Arrow.FletchingType.plastic;
@@ -956,12 +966,18 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             {
                 case 1:
                     selectedFletching = Arrow.FletchingType.plastic;
+                    gold += 10;
+                    fletcherCost = 10;
                     break;
                 case 2:
                     selectedFletching = Arrow.FletchingType.turkey_feathers;
+                    gold += 5;
+                    fletcherCost = 5;
                     break;
                 case 3:
                     selectedFletching = Arrow.FletchingType.goose_feathers;
+                    gold += 3;
+                    fletcherCost = 3;
                     break;
             }
             Console.Clear();
@@ -973,11 +989,13 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             }
 
             float cost = Arrow.GetCost(length);
+            lengthCost = cost;
+            cost += gold;
 
             Arrow spawnedArrow = new Arrow(selectedArrowhead, selectedFletching, length);
 
-            Console.WriteLine($"{selectedArrowhead} {selectedFletching} {cost}");
-            Console.ReadLine();
+            Console.WriteLine($"Arrowhead: {selectedArrowhead} = {headCost} Gold\nFletching: {selectedFletching} = {fletcherCost} Gold\nArrow Length = {lengthCost} Gold\nTotal Cost: {cost}");
+            Logicfile.EndMethodNotice();
         }
     }
 }

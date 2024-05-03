@@ -8,9 +8,9 @@ namespace LearningCSharpRemastered
 {
     public class Arrow
     {
-        public Arrowhead _arrowhead;
-        public FletchingType _fletching;
-        public float _arrowLength;
+        private Arrowhead _arrowhead;
+        private FletchingType _fletching;
+        private float _arrowLength;
 
         public enum Arrowhead { steel = 1, wood, obsidian }
         public enum FletchingType { plastic = 1, turkey_feathers, goose_feathers }
