@@ -987,15 +987,17 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             {
                 Logicfile.InvalidInput();
             }
+            else
+            {
+                float cost = Arrow.GetCost(length);
+                lengthCost = cost;
+                cost += gold;
 
-            float cost = Arrow.GetCost(length);
-            lengthCost = cost;
-            cost += gold;
+                Arrow spawnedArrow = new Arrow(selectedArrowhead, selectedFletching, length);
 
-            Arrow spawnedArrow = new Arrow(selectedArrowhead, selectedFletching, length);
-
-            Console.WriteLine($"Arrowhead: {selectedArrowhead} = {headCost} Gold\nFletching: {selectedFletching} = {fletcherCost} Gold\nArrow Length = {lengthCost} Gold\nTotal Cost: {cost}");
-            Logicfile.EndMethodNotice();
+                Console.WriteLine($"Arrowhead: {selectedArrowhead} = {headCost} Gold\nFletching: {selectedFletching} = {fletcherCost} Gold\nArrow Length = {lengthCost} Gold\nTotal Cost: {cost}");
+                Logicfile.GoAgainNotice();
+            }
         }
     }
 }
