@@ -993,7 +993,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                 lengthCost = cost;
                 cost += gold;
 
-                Arrow spawnedArrow = new Arrow(selectedArrowhead, selectedFletching, length);
+                Arrow spawnedArrow = new Arrow();
 
                 Console.WriteLine($"Arrowhead: {selectedArrowhead} = {headCost} Gold\nFletching: {selectedFletching} = {fletcherCost} Gold\nArrow Length = {lengthCost} Gold\nTotal Cost: {cost}");
                 Logicfile.GoAgainNotice();

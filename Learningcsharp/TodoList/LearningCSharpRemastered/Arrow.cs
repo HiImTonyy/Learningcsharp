@@ -8,19 +8,19 @@ namespace LearningCSharpRemastered
 {
     public class Arrow
     {
-        private Arrowhead _arrowhead;
-        private FletchingType _fletching;
-        private float _arrowLength;
+        public Arrowhead arrowhead
+        {
+            get { return arrowhead; }
+            set { arrowhead = value; }
+        }
+        public FletchingType fletching
+        {
+            get { return fletching ; }
+            set { fletching = value; }
+        }
 
         public enum Arrowhead { steel = 1, wood, obsidian }
         public enum FletchingType { plastic = 1, turkey_feathers, goose_feathers }
-
-        public Arrow(Arrowhead arrowhead, FletchingType fletching, float length)
-        {
-            _arrowhead = arrowhead;
-            _fletching = fletching;
-            _arrowLength = length;
-        }
 
         public static float GetCost(float number)
         {
