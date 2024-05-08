@@ -1,5 +1,6 @@
 ﻿using LearningCSharpRemastered;
 using System.ComponentModel.Design;
+using System.Security.Cryptography.X509Certificates;
 
 class Program
 {
@@ -926,19 +927,22 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             Logicfile.GoAgainNotice();
         }
     }
-
-    static void Arrows()
+    public static void Arrows()
     {
-        int headCost = 0;
-        int fletcherCost = 0;
-        float lengthCost = 0;
-        int input = 0;
-        int gold = 0;
         Console.Clear();
         while (true)
         {
+            float length = 0;
+            int headCost = 0;
+            int fletcherCost = 0;
+            float lengthCost = 0;
+            int gold = 0;
+            float cost = 0;
+            int input = 0;
+
+            Arrow.FletchingType selectedFletching = Arrow.FletchingType.plastic;
             Arrow.Arrowhead selectedArrowhead = Arrow.Arrowhead.steel;
-            input = Logicfile.AskForNumber("What type of Arrowhead do you want?\n1) Steel | 10 Gold\n2) Wood | 3 Gold\n3) Obsidian | 5 Gold");
+            input = Logicfile.AskForNumber("What type of Arrowhead do you want?\n1) Steel | 10 Gold\n2) Wood | 3 Gold\n3) Obsidian | 5 Gold\n4) Pre-made Arrow");
 
             switch (input)
             {
@@ -957,9 +961,41 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                     gold += 5;
                     headCost = 5;
                     break;
+                case 4:
+                    int arrowChose = Logicfile.AskForNumber("What kind of pre-made arrow do you want?\n1) Elite Arrow: Steel Arrowhead, Plastic Fletching, 95cm long\n2) The Beginner Arrow: Wood Arrowhead, Goose Feather, 75cm long\n3) The Marksmen Arrow: Steel Arrowhead, Goose Feathers, 65cm long");
+                    if (arrowChose == 1)
+                    {
+                        Arrow spawnedArrow = Arrow.CreateEliteArrow ();
+                        headCost = 10;
+                        fletcherCost = 10;
+                        length = 95;
+                        cost = Arrow.GetCost(95);              
+                    }
+                    else if (arrowChose == 2)
+                    {
+                        Arrow spawnedArrow = Arrow.CreateEliteArrow();
+                        headCost = 3;
+                        fletcherCost = 3;
+                        length = 75;
+                        cost = Arrow.GetCost(75);
+                    }
+                    else
+                    {
+                        Arrow spawnedArrow = Arrow.CreateEliteArrow();
+                        headCost = 10;
+                        fletcherCost = 3;
+                        length = 65;
+                        cost = Arrow.GetCost(65);
+                    }
+                    lengthCost = cost;
+                    cost += headCost + fletcherCost;
+                    Console.WriteLine($"Arrowhead: {selectedArrowhead} = {headCost} Gold\nFletching: {selectedFletching} = {fletcherCost} Gold\nArrow Length: {length} = {lengthCost} Gold\nTotal Cost: {cost}");
+                    Logicfile.GoAgainNotice();
+                    Arrows();
+                    break;
             }
             Console.Clear();
-            Arrow.FletchingType selectedFletching = Arrow.FletchingType.plastic;
+
             input = Logicfile.AskForNumber("What type of fletching do you want?\n1) Plastic | 10 Gold\n2) Turkey Feathers | 5 Gold\n3) Goose Feathers | 3 Gold");
 
             switch (input)
@@ -981,7 +1017,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                     break;
             }
             Console.Clear();
-            float length = Convert.ToSingle(Logicfile.AskForNumber("How long do you want your arrow to be? (Must be between 60 and 100 CM and costs 0.20 Gold per CM)"));
+            length = Convert.ToSingle(Logicfile.AskForNumber("How long do you want your arrow to be? (Must be between 60 and 100 CM and costs 0.20 Gold per CM)"));
 
             if (length < 60 || length > 100)
             {
@@ -989,13 +1025,12 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             }
             else
             {
-                float cost = Arrow.GetCost(length);
+                cost = Arrow.GetCost(length);
                 lengthCost = cost;
                 cost += gold;
-
                 Arrow spawnedArrow = new Arrow();
 
-                Console.WriteLine($"Arrowhead: {selectedArrowhead} = {headCost} Gold\nFletching: {selectedFletching} = {fletcherCost} Gold\nArrow Length = {lengthCost} Gold\nTotal Cost: {cost}");
+                Console.WriteLine($"Arrowhead: {selectedArrowhead} = {headCost} Gold\nFletching: {selectedFletching} = {fletcherCost} Gold\nArrow Length: {length} = {lengthCost} Gold\nTotal Cost: {cost}");
                 Logicfile.GoAgainNotice();
             }
         }

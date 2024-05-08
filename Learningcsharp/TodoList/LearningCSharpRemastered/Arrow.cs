@@ -27,5 +27,30 @@ namespace LearningCSharpRemastered
             float cost = 0.05f * number;
             return cost;
         }
+
+        public static Arrow CreateEliteArrow()
+        {
+            Arrowhead arrowhead = Arrowhead.steel;
+            FletchingType fletching = FletchingType.plastic;
+            float number = 95;
+            Arrow arrow = new Arrow();
+            return arrow;
+        }
+        public static Arrow CreateBeginnerArrow()
+        {
+            Arrowhead arrowhead = Arrowhead.wood;
+            FletchingType fletching = FletchingType.goose_feathers;
+            float number = 75;
+            Arrow arrow = new Arrow();
+            return arrow;
+        }
+        public static Arrow CreateMarksmanArrow()
+        {
+            Arrowhead arrowhead = Arrowhead.steel;
+            FletchingType fletching = FletchingType.goose_feathers;
+            float number = 65;
+            Arrow arrow = new Arrow();
+            return arrow;
+        }
     }
 }
