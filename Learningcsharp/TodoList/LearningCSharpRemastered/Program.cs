@@ -39,7 +39,6 @@ class Program
             Console.WriteLine("18) (Boss) Hunting the Manticore");
             Console.WriteLine("19) Using Enums to switch between states");
             Console.WriteLine("20) Tuple Soup");
-            Console.WriteLine("21) Using fields to create different Arrows\n");
 
             Console.ResetColor();
             if (Logicfile.methodInfoGoBack)
