@@ -1,5 +1,6 @@
 ﻿using LearningCSharpRemastered;
 using System.ComponentModel.Design;
+using System.Drawing;
 using System.Security.Cryptography.X509Certificates;
 
 class Program
@@ -40,6 +41,7 @@ class Program
             Console.WriteLine("19) Using Enums to switch between states");
             Console.WriteLine("20) Tuple Soup");
             Console.WriteLine("21) Create Arrows");
+            Console.WriteLine("22) The Point");
 
             Console.ResetColor();
             if (Logicfile.methodInfoGoBack)
@@ -112,6 +114,9 @@ class Program
                     break;
                 case "21":
                     Arrows();
+                    break;
+                case "22":
+                    ThePoint();
                     break;
 
                 case "info":
@@ -1034,5 +1039,16 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
                 Logicfile.GoAgainNotice();
             }
         }
+    }
+
+    static void ThePoint()
+    {
+        Console.Clear();
+        Point newPoint = new Point(2, 3);
+        Point newPoint2 = new Point(-4, 0);
+
+        Console.WriteLine($"First Point: {newPoint}");
+        Console.WriteLine($"Second Point: {newPoint2}");
+        Logicfile.EndMethodNotice();
     }
 }
