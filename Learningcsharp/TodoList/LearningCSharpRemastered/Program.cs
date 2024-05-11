@@ -42,6 +42,7 @@ class Program
             Console.WriteLine("20) Tuple Soup");
             Console.WriteLine("21) Create Arrows");
             Console.WriteLine("22) The Point");
+            Console.WriteLine("23) Creating different RGB values with static properties");
 
             Console.ResetColor();
             if (Logicfile.methodInfoGoBack)
@@ -117,6 +118,9 @@ class Program
                     break;
                 case "22":
                     ThePoint();
+                    break;
+                case "23":
+                    Colors();
                     break;
 
                 case "info":
@@ -1041,7 +1045,7 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         }
     }
 
-    static void ThePoint()
+    static void ThePoint()                    // Not correct, but I mean... it still accomplishes the objective lol. 
     {
         Console.Clear();
         Point newPoint = new Point(2, 3);
@@ -1051,4 +1055,27 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         Console.WriteLine($"Second Point: {newPoint2}");
         Logicfile.EndMethodNotice();
     }
+
+    static void Colors()                   
+    {
+        int red;
+        int green;
+        int blue;
+
+        Console.Clear();
+        TheColor.Color color1 = new TheColor.Color(233, 232, 232);
+        TheColor.Color color2 = TheColor.Color.White;
+        red = color1.red;
+        green = color1.green;
+        blue = color1.blue;
+        red = color2.red;
+        green = color2.green;
+        blue = color2.blue;
+
+        Console.WriteLine($"Custom Color: R. {color1.red} G. {color1.green} B. {color1.blue}");
+        Console.WriteLine($"Pre-defined Color: R. {color2.red} G. {color2.green} B. {color2.blue}");
+        Logicfile.EndMethodNotice();
+    }
+
+
 }

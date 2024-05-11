@@ -49,6 +49,7 @@ namespace LearningCSharpRemastered
                     infolist.Add("Define enumerations for the three variations on food: type (soup, stew, gumbo), main ingredient (mushrooms, chicken, carrots, potatoes), and seasoning (spicy, salty, sweet).\nMake a tuple variable to represent a soup composed of the three above enumeration types.\nLet the user pick a type, main ingredient, and seasoning from the allowed choices and fill the tuple with the results.\nWhen done, display the contents of the soup tuple variable in a format like “Sweet Chicken Gumbo.");
                     infolist.Add("Define a new Arrow class with fields for arrowhead type, fletching type, and length.\nAllow a user to pick the arrowhead, fletching type, and length and then create a new Arrow instance.\nAdd a GetCost method that returns its cost as a float based on the numbers above, and use this to display the arrow’s cost.\nThe other part is to make the variables private while also making them avalible outside of the class.\nThe part after that one is to make it use properties.\n...And the one after THAT one is to create pre-made arrows using static methods.");
                     infolist.Add("Define a new Point class with properties for X and Y.\nAdd a constructor to create a point from a specific x- and y-coordinate.\nAdd a parameterless constructor to create a point at the origin (0, 0).\nIn your main method, create a point at (2, 3) and another at (-4, 0). Display these points on the console window in the format (x, y) to illustrate that the class works.");
+                    infolist.Add("Define a new Color class with properties for its red, green, and blue channels.\nAdd appropriate constructors that you feel make sense for creating new Color objects.\nCreate static properties to define the eight commonly used colors for easy access.\nn your main method, make two Color-typed variables. Use a constructor to create a color instance\r\nand use a static property for the other. Display each of their red, green, and blue channel values.");
                 };
 
                 if (inputNumber >= infolist.Count || inputNumber < 0)
@@ -238,3 +239,36 @@ namespace LearningCSharpRemastered
         public enum EnumSeasoning { Spicy = 1, Salty, Sweet}
     }
 }
+
+/* Random notes I guess
+ * 
+ * class Space 
+ * {
+
+   private int size;
+
+   public Space()
+  {
+   size = 0;
+  }
+
+   public void Expand() 
+    {
+     size += 1;
+    }
+
+  }
+=======================================
+class Main {
+
+public static void main
+{
+
+Space largeSpace = new Space();
+
+// Space is 0 because of constructor
+
+largeSpace.Expand();
+
+// largeSpace size is 1
+*/
