@@ -2,6 +2,7 @@
 using System.ComponentModel.Design;
 using System.Drawing;
 using System.Security.Cryptography.X509Certificates;
+using static LearningCSharpRemastered.Card;
 
 class Program
 {
@@ -43,6 +44,7 @@ class Program
             Console.WriteLine("21) Create Arrows");
             Console.WriteLine("22) The Point");
             Console.WriteLine("23) Creating different RGB values with static properties");
+            Console.WriteLine("24) Cards and Colors");
 
             Console.ResetColor();
             if (Logicfile.methodInfoGoBack)
@@ -121,6 +123,9 @@ class Program
                     break;
                 case "23":
                     Colors();
+                    break;
+                case "24":
+                    Cards();
                     break;
 
                 case "info":
@@ -1077,5 +1082,18 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         Logicfile.EndMethodNotice();
     }
 
+    static void Cards()
+    {
+        Console.Clear();
+        foreach (CardColor color in Enum.GetValues(typeof(CardColor)))
+        {
+            foreach (CardRank rank in Enum.GetValues(typeof(CardRank)))
+            {
+                Card card = new Card(color, rank);
+                Console.WriteLine($"The {color} {rank}"); 
+            }
+        }
 
+        Logicfile.EndMethodNotice();
+    }
 }
