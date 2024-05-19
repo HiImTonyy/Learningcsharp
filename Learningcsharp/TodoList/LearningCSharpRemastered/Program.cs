@@ -3,6 +3,7 @@ using System.ComponentModel.Design;
 using System.Drawing;
 using System.Security.Cryptography.X509Certificates;
 using static LearningCSharpRemastered.Card;
+using static LearningCSharpRemastered.Door;
 
 class Program
 {
@@ -45,6 +46,7 @@ class Program
             Console.WriteLine("22) The Point");
             Console.WriteLine("23) Creating different RGB values with static properties");
             Console.WriteLine("24) Cards and Colors");
+            Console.WriteLine("25) The Door");
 
             Console.ResetColor();
             if (Logicfile.methodInfoGoBack)
@@ -126,6 +128,9 @@ class Program
                     break;
                 case "24":
                     Cards();
+                    break;
+                case "25":
+                    TheGodDamnDoor();
                     break;
 
                 case "info":
@@ -1095,5 +1100,102 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
         }
 
         Logicfile.EndMethodNotice();
+    }
+
+    static void TheGodDamnDoor()                  
+    {
+
+        Door.DoorState DoorState = DoorState.close;
+        Console.Clear();
+        int code = Logicfile.AskForNumber("WHAT DO YOU WANT THE CODE TO BE? MUST BE NUMBERS.");
+
+        Door door = new Door();
+        door.textDoorState = "closed";
+
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine($"The door is {door.textDoorState}. What do you wanna do?");
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("NOTE: type in changecode to change the code. type in back to go back.\n");
+            Console.ResetColor();
+
+            string input = Console.ReadLine().ToLower();
+
+            if (input == "close" && DoorState == DoorState.open)
+            {
+                door.textDoorState = "closed";
+                DoorState = DoorState.close;
+            }
+            else if (input == "lock" && DoorState == DoorState.close)
+            {
+                {
+                    int codeGuess = Logicfile.AskForNumber("WHAT IS THE CODE!?!?");
+
+                    if (codeGuess == code) 
+                    { Console.WriteLine("Correct!");
+                        Console.ReadLine();
+                        door.textDoorState = "locked";
+                        DoorState = DoorState.lockk;
+                    }
+                    else 
+                    { 
+                        Console.WriteLine("WRONG WRONG WRONG WRONG!!!");
+                        Console.ReadLine();
+                        Console.WriteLine("Press Enter to go back...");
+                    }
+                }
+            }
+            else if (input == "unlock" && DoorState == DoorState.lockk)
+            {
+                int codeGuess = Logicfile.AskForNumber("WHAT IS THE CODE!?!?");
+
+                if (codeGuess == code)
+                {
+                    Console.WriteLine("Correct!");
+                    Console.ReadLine();
+                    door.textDoorState = "unlocked";
+                    DoorState = DoorState.unlock;
+                }
+                else
+                {
+                    Console.WriteLine("WRONG WRONG WRONG WRONG!!!");
+                    Console.ReadLine();
+                    Console.WriteLine("Press Enter to go back...");
+                }
+
+                door.textDoorState = "closed";
+                DoorState = DoorState.close;
+            }
+            else if (input == "open" && DoorState == DoorState.close)
+            {
+                door.textDoorState = "opened";
+                DoorState = DoorState.open;
+            }
+            else if (input == "changecode")
+            {
+                int codeGuess = Logicfile.AskForNumber("WHAT IS THE CURRENT CODE!?!?");
+
+                if (codeGuess == code)
+                {
+                    Console.WriteLine("Correct!");
+                    TheGodDamnDoor();
+                }
+                else
+                {
+                    Console.WriteLine("WRONG WRONG WRONG WRONG!!!");
+                    Console.ReadLine();
+                    Console.WriteLine("Press Enter to go back...");
+                }
+            }
+            else if (input == "back")
+            {
+                Main();
+            }
+            else
+            {
+                Logicfile.InvalidInput();
+            }
+        }        
     }
 }
