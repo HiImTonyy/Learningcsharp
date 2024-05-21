@@ -47,6 +47,7 @@ class Program
             Console.WriteLine("23) Creating different RGB values with static properties");
             Console.WriteLine("24) Cards and Colors");
             Console.WriteLine("25) The Door");
+            Console.WriteLine("26) Password Validator");
 
             Console.ResetColor();
             if (Logicfile.methodInfoGoBack)
@@ -131,6 +132,9 @@ class Program
                     break;
                 case "25":
                     TheGodDamnDoor();
+                    break;
+                case "26":
+                    FuckPassword();
                     break;
 
                 case "info":
@@ -1196,6 +1200,31 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             {
                 Logicfile.InvalidInput();
             }
-        }        
+        }
+    }
+
+    static void FuckPassword()
+    {
+        while (true)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("NOTE: The Pasword much be between 6 and 13 letters and must contain 1 uppercase, 1 lowercase, and 1 number. cannot have a capital T or '&'.\n");
+            Console.ResetColor();
+
+            string input = Console.ReadLine();
+            ThePassword Password = new ThePassword(input);
+
+            if (Password.CheckPasswordLength() && Password.CheckPassword())
+            {
+                Console.WriteLine("VALID");
+                Logicfile.GoAgainNotice();
+            }
+            else
+            {
+                Console.WriteLine("INVALID");
+                Logicfile.GoAgainNotice();
+            }
+        }
     }
 }
