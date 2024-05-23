@@ -48,6 +48,7 @@ class Program
             Console.WriteLine("24) Cards and Colors");
             Console.WriteLine("25) The Door");
             Console.WriteLine("26) Password Validator");
+            Console.WriteLine("27) An Inventory");
 
             Console.ResetColor();
             if (Logicfile.methodInfoGoBack)
@@ -135,6 +136,9 @@ class Program
                     break;
                 case "26":
                     FuckPassword();
+                    break;
+                case "27":
+                    PackingInventory();
                     break;
 
                 case "info":
@@ -1223,6 +1227,67 @@ Console.WriteLine(""The "" + a + "" "" + b + "" of "" + c + "" "" + d + ""!"");
             else
             {
                 Console.WriteLine("INVALID");
+                Logicfile.GoAgainNotice();
+            }
+        }
+    }
+
+    static void PackingInventory()
+    {
+        Pack newPack = new Pack(50, 45, 35);
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine($"Add whatever to inventory.\nCurrent Weight: {newPack.GetCurrentWeight()} | Current Volume: {newPack.GetCurrentVolume()}\n");
+
+            Console.WriteLine("1) Arrow");
+            Console.WriteLine("2) Bow");
+            Console.WriteLine("3) Rope");
+            Console.WriteLine("4) Water");
+            Console.WriteLine("5) Food");
+            Console.WriteLine("6) Sword");
+
+            string input = Console.ReadLine();
+
+            if (input == "1")
+            {
+                newPack.Add(new Arroww());
+                Console.WriteLine("Arrow Added.");
+                Console.ReadLine();
+            }
+            else if (input == "2")
+            {
+                newPack.Add(new Bow());
+                Console.WriteLine("Bow Added.");
+                Console.ReadLine();
+            }
+            else if (input == "3")
+            {
+                newPack.Add(new Rope());
+                Console.WriteLine("Rope Added.");
+                Console.ReadLine();
+            }
+            else if (input == "4")
+            {
+                newPack.Add(new Water());
+                Console.WriteLine("Water Added.");
+                Console.ReadLine();
+            }
+            else if (input == "5")
+            {
+                newPack.Add(new Food());
+                Console.WriteLine("Food Added.");
+                Console.ReadLine();
+            }
+            else if (input == "6")
+            {
+                newPack.Add(new Sword());
+                Console.WriteLine("Sword Added.");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Too much stuff!");
                 Logicfile.GoAgainNotice();
             }
         }
